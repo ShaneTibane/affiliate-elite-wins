@@ -1,0 +1,234 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Crown, Mail, Phone, MapPin, Twitter, Facebook, Instagram, Youtube } from 'lucide-react';
+
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
+  const footerLinks = {
+    company: [
+      { name: 'About Us', path: '/about' },
+      { name: 'Our Team', path: '/about#team' },
+      { name: 'Careers', path: '/careers' },
+      { name: 'Press', path: '/press' }
+    ],
+    reviews: [
+      { name: 'Casino Reviews', path: '/casino-reviews' },
+      { name: 'Latest Promotions', path: '/promotions' },
+      { name: 'Game Reviews', path: '/games' },
+      { name: 'Bonus Guide', path: '/bonus-guide' }
+    ],
+    support: [
+      { name: 'Contact Us', path: '/contact' },
+      { name: 'Help Center', path: '/help' },
+      { name: 'Responsible Gaming', path: '/responsible-gaming' },
+      { name: 'Problem Gambling', path: '/problem-gambling' }
+    ],
+    legal: [
+      { name: 'Terms of Service', path: '/terms' },
+      { name: 'Privacy Policy', path: '/privacy' },
+      { name: 'Cookie Policy', path: '/cookies' },
+      { name: 'Disclaimer', path: '/disclaimer' }
+    ]
+  };
+
+  const socialLinks = [
+    { icon: Twitter, href: 'https://twitter.com/elitewins', label: 'Twitter' },
+    { icon: Facebook, href: 'https://facebook.com/elitewins', label: 'Facebook' },
+    { icon: Instagram, href: 'https://instagram.com/elitewins', label: 'Instagram' },
+    { icon: Youtube, href: 'https://youtube.com/elitewins', label: 'YouTube' }
+  ];
+
+  return (
+    <footer className="relative bg-gradient-to-br from-gray-900 via-purple-900 to-gray-800 border-t border-yellow-400/20">
+      {/* Main Footer Content */}
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+          {/* Company Info */}
+          <div className="lg:col-span-1">
+            <Link to="/" className="flex items-center space-x-2 mb-6 group">
+              <div className="relative">
+                <Crown className="h-10 w-10 text-yellow-400 group-hover:text-yellow-300 transition-colors" />
+                <div className="absolute inset-0 bg-yellow-400 opacity-20 blur-lg group-hover:opacity-30 transition-opacity"></div>
+              </div>
+              <span className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
+                EliteWins
+              </span>
+            </Link>
+            
+            <p className="text-gray-300 mb-6 leading-relaxed">
+              Your trusted partner for honest casino reviews, exclusive bonuses, and expert gaming advice. We help players find the perfect online casino experience.
+            </p>
+            
+            <div className="space-y-3">
+              <div className="flex items-center text-gray-300">
+                <Mail className="h-5 w-5 text-yellow-400 mr-3" />
+                <span>support@elitewins.com</span>
+              </div>
+              <div className="flex items-center text-gray-300">
+                <Phone className="h-5 w-5 text-yellow-400 mr-3" />
+                <span>+1 (555) 123-4567</span>
+              </div>
+              <div className="flex items-center text-gray-300">
+                <MapPin className="h-5 w-5 text-yellow-400 mr-3" />
+                <span>Las Vegas, NV</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Links Sections */}
+          <div className="lg:col-span-3">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              {/* Company Links */}
+              <div>
+                <h3 className="text-white font-bold text-lg mb-6 border-b border-yellow-400/20 pb-2">
+                  Company
+                </h3>
+                <ul className="space-y-3">
+                  {footerLinks.company.map((link, index) => (
+                    <li key={index}>
+                      <Link
+                        to={link.path}
+                        className="text-gray-300 hover:text-yellow-400 transition-colors duration-300 hover:translate-x-1 transform inline-block"
+                      >
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Reviews Links */}
+              <div>
+                <h3 className="text-white font-bold text-lg mb-6 border-b border-yellow-400/20 pb-2">
+                  Reviews
+                </h3>
+                <ul className="space-y-3">
+                  {footerLinks.reviews.map((link, index) => (
+                    <li key={index}>
+                      <Link
+                        to={link.path}
+                        className="text-gray-300 hover:text-yellow-400 transition-colors duration-300 hover:translate-x-1 transform inline-block"
+                      >
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Support Links */}
+              <div>
+                <h3 className="text-white font-bold text-lg mb-6 border-b border-yellow-400/20 pb-2">
+                  Support
+                </h3>
+                <ul className="space-y-3">
+                  {footerLinks.support.map((link, index) => (
+                    <li key={index}>
+                      <Link
+                        to={link.path}
+                        className="text-gray-300 hover:text-yellow-400 transition-colors duration-300 hover:translate-x-1 transform inline-block"
+                      >
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Legal Links */}
+              <div>
+                <h3 className="text-white font-bold text-lg mb-6 border-b border-yellow-400/20 pb-2">
+                  Legal
+                </h3>
+                <ul className="space-y-3">
+                  {footerLinks.legal.map((link, index) => (
+                    <li key={index}>
+                      <Link
+                        to={link.path}
+                        className="text-gray-300 hover:text-yellow-400 transition-colors duration-300 hover:translate-x-1 transform inline-block"
+                      >
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Social Media & Newsletter */}
+        <div className="border-t border-yellow-400/20 mt-12 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+            {/* Social Media */}
+            <div className="flex items-center space-x-6">
+              <span className="text-white font-semibold">Follow Us:</span>
+              {socialLinks.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="glass-effect p-3 rounded-full hover:bg-yellow-400 hover:bg-opacity-20 transition-all duration-300 hover:scale-110 transform"
+                >
+                  <social.icon className="h-5 w-5 text-gray-300 hover:text-yellow-400 transition-colors" />
+                </a>
+              ))}
+            </div>
+
+            {/* Newsletter Signup */}
+            <div className="flex flex-col sm:flex-row gap-4 max-w-md">
+              <input
+                type="email"
+                placeholder="Subscribe to our newsletter"
+                className="flex-1 px-4 py-3 rounded-full bg-black bg-opacity-30 border border-yellow-400/30 text-white placeholder-gray-400 focus:outline-none focus:border-yellow-400 text-sm"
+              />
+              <button className="glossy-btn text-black font-semibold px-6 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm">
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="border-t border-yellow-400/20 bg-black bg-opacity-30">
+        <div className="container mx-auto px-4 py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="text-center md:text-left">
+              <p className="text-gray-400 text-sm">
+                © {currentYear} EliteWins. All rights reserved.
+              </p>
+              <p className="text-gray-500 text-xs mt-1">
+                Licensed and regulated. Gambling can be addictive. Play responsibly.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap justify-center md:justify-end gap-6 text-xs text-gray-400">
+              <span>18+ Only</span>
+              <span>•</span>
+              <span>Gamble Responsibly</span>
+              <span>•</span>
+              <a href="/responsible-gaming" className="hover:text-yellow-400 transition-colors">
+                BeGambleAware.org
+              </a>
+            </div>
+          </div>
+
+          {/* Affiliate Disclaimer */}
+          <div className="mt-4 pt-4 border-t border-gray-700">
+            <p className="text-gray-500 text-xs text-center leading-relaxed">
+              <strong>Affiliate Disclaimer:</strong> EliteWins may receive compensation when you click on links to casinos on our website. 
+              This does not influence our reviews or rankings, which are based on our independent analysis and testing. 
+              We are committed to providing honest, unbiased information to help you make informed decisions about online gambling.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
