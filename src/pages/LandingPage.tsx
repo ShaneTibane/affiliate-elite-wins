@@ -203,7 +203,7 @@ const casinos = [
 {/* */}
       <div className="pt-20">
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
           {/* Background Elements */}
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-purple-900 to-gray-800"></div>
           <div className="absolute inset-0 bg-black bg-opacity-40"></div>
@@ -214,11 +214,11 @@ const casinos = [
           <div className="absolute top-1/2 left-20 w-12 h-12 bg-blue-500 rounded-full opacity-25 floating-animation" style={{animationDelay: '4s'}}></div>
           
           {/* Content */}
-          <div className="relative z-10 text-center max-w-6xl mx-auto px-4">
-            <h1 className="text-6xl md:text-7xl font-bold mb-12 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
+          <div className="relative z-10 text-center max-w-6xl mx-auto px-4 py-12">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
               Best Online Casinos Australia 2025
             </h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
               Welcome to Elite Wins, your trusted partner in finding the top online casinos in Australia for 2025. Whether you're a seasoned player or just getting started, we'll guide you through the best online casino platforms that offers the biggest bonuses, exciting online pokies, and secure real-money gameplay.
             </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
