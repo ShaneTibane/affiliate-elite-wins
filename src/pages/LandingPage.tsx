@@ -1,9 +1,133 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { Star, TrendingUp, Shield, Zap, Gift, Crown } from 'lucide-react';
-
+import { Star, TrendingUp, Shield, Zap, Gift, Crown, Users, Clock } from 'lucide-react';
+import CasinoCard from '../components/CasinoCard';
+import { businessLogicService } from "../services/businessLogicService";
+import { ListPayload } from "../models/ListPayload";
+// Match the interface with backend data
+interface Casino {
+  id: number;
+  name: string;
+  logo: string;
+  rating: number;
+  description: string;
+  bonus: string;
+  features: {
+    games: string;
+    license: string;
+    support: string;
+    withdrawal: string;
+  };
+}
 const LandingPage = () => {
+  const [casinos, setCasinos] = useState<Casino[]>([]);
+  const [loading, setLoading] = useState(true);
+/*const casinos = [
+    {
+      id: 1,
+      name: "Royal Palace Casino",
+      logo: "https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg?auto=compress&cs=tinysrgb&w=150&h=150",
+      rating: 4.8,
+      bonus: "200% up to $2,000 + 100 Free Spins",
+      description: "Experience the ultimate in luxury gaming with Royal Palace Casino's extensive collection of premium slots and live dealer games.",
+      pros: ["Excellent customer support", "Fast withdrawals", "VIP program", "Mobile optimized"],
+      cons: ["High wagering requirements", "Limited cryptocurrency options"],
+      features: {
+        games: "2000+",
+        license: "Malta Gaming Authority",
+        support: "24/7 Live Chat",
+        withdrawal: "1-3 days"
+      },
+      category: "premium"
+    },
+    {
+      id: 2,
+      name: "Diamond Jackpot",
+      logo: "https://images.pexels.com/photos/6963197/pexels-photo-6963197.jpeg?auto=compress&cs=tinysrgb&w=150&h=150",
+      rating: 4.7,
+      bonus: "100 Free Spins No Deposit",
+      description: "Diamond Jackpot offers an impressive selection of progressive jackpots and innovative slot games with stunning graphics.",
+      pros: ["No deposit bonus", "Progressive jackpots", "Regular tournaments", "Crypto friendly"],
+      cons: ["Limited live dealer games", "Restricted in some countries"],
+      features: {
+        games: "1500+",
+        license: "Curacao eGaming",
+        support: "24/7 Email & Chat",
+        withdrawal: "24-48 hours"
+      },
+      category: "popular"
+    },
+    {
+      id: 3,
+      name: "Golden Crown",
+      logo: "https://images.pexels.com/photos/6963478/pexels-photo-6963478.jpeg?auto=compress&cs=tinysrgb&w=150&h=150",
+      rating: 4.9,
+      bonus: "$500 Welcome Package + 200 FS",
+      description: "Golden Crown stands out with its exceptional live casino experience and exclusive VIP rewards program.",
+      pros: ["Premium live dealers", "Exclusive VIP perks", "High betting limits", "Multiple languages"],
+      cons: ["Higher minimum deposits", "Complex bonus terms"],
+      features: {
+        games: "1800+",
+        license: "UK Gambling Commission",
+        support: "24/7 Phone & Chat",
+        withdrawal: "Same day"
+      },
+      category: "vip"
+    },
+    {
+      id: 4,
+      name: "Lucky Stars Casino",
+      logo: "https://images.pexels.com/photos/6963765/pexels-photo-6963765.jpeg?auto=compress&cs=tinysrgb&w=150&h=150",
+      rating: 4.6,
+      bonus: "150% up to $1,500",
+      description: "Lucky Stars Casino provides a perfect balance of classic and modern games with generous daily promotions.",
+      pros: ["Daily promotions", "Classic game variety", "User-friendly interface", "Regular bonuses"],
+      cons: ["Limited payment methods", "Average customer support"],
+      features: {
+        games: "1200+",
+        license: "Malta Gaming Authority",
+        support: "Live Chat 18 hours",
+        withdrawal: "2-5 days"
+      },
+      category: "popular"
+    },
+    {
+      id: 5,
+      name: "Platinum Elite",
+      logo: "https://images.pexels.com/photos/6963886/pexels-photo-6963886.jpeg?auto=compress&cs=tinysrgb&w=150&h=150",
+      rating: 4.9,
+      bonus: "$1,000 High Roller Bonus",
+      description: "Platinum Elite caters to high rollers with exclusive tables, personal account managers, and luxury rewards.",
+      pros: ["High roller focus", "Personal managers", "Luxury rewards", "Premium experience"],
+      cons: ["High minimum bets", "Exclusive membership required"],
+      features: {
+        games: "1000+",
+        license: "Gibraltar Gambling Commission",
+        support: "24/7 Personal Support",
+        withdrawal: "Instant"
+      },
+      category: "vip"
+    },
+    {
+      id: 6,
+      name: "Neon Nights Casino",
+      logo: "https://images.pexels.com/photos/6963312/pexels-photo-6963312.jpeg?auto=compress&cs=tinysrgb&w=150&h=150",
+      rating: 4.5,
+      bonus: "50 Free Spins + 100% Match",
+      description: "Neon Nights brings a modern, vibrant gaming experience with cutting-edge slots and innovative features.",
+      pros: ["Modern interface", "Innovative games", "Mobile-first design", "Social features"],
+      cons: ["New in market", "Limited game providers"],
+      features: {
+        games: "800+",
+        license: "Curacao eGaming",
+        support: "Live Chat & Email",
+        withdrawal: "1-2 days"
+      },
+      category: "new"
+    }
+  ];
+*/
   const featuredCasinos = [
     {
       id: 1,
@@ -58,10 +182,37 @@ const LandingPage = () => {
     }
   ];
 
+  useEffect(() => {
+    const fetchCasinos = async () => {
+    const payload = new ListPayload("CasinoCard", "/casinoCards");
+      try {
+       const res = await businessLogicService.listByQuery(payload);
+       console.log("RES",res.responseData.data)
+        const data = await res.responseData.data
+        setCasinos(data);
+      } catch (error) {
+        console.error("Error fetching casinos:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCasinos();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <p className="text-white text-xl">Loading casinos...</p>
+      </div>
+    );
+  }
+
+
   return (
     <>
       <Helmet>
-        <title>EliteWins - Top Online Casino Reviews & Bonuses</title>
+        <title>Best Online Casinos - Top Online Casinos in 2025</title>
         <meta name="description" content="Discover the best online casinos with exclusive bonuses, honest reviews, and top promotions. Join EliteWins for premium casino experiences." />
         <meta name="keywords" content="online casino, casino bonus, casino reviews, gambling, slots, jackpots" />
       </Helmet>
@@ -79,10 +230,10 @@ const LandingPage = () => {
           <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
             <div className="glass-effect rounded-3xl p-8 md:p-12 shadow-2xl">
               <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-400 bg-clip-text text-transparent">
-                Elite Casino Experience
+                Best Online Casinos 2025
               </h1>
               <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed">
-                Discover premium online casinos with exclusive bonuses, honest reviews, and unmatched rewards
+                Elite Wins brings you the best online casinos, so make the most of your gaming experience this year
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Link
@@ -101,6 +252,39 @@ const LandingPage = () => {
             </div>
           </div>
         </section>
+
+  {/* Casino Cards */}
+       <div className="space-y-6 max-w-5xl mx-auto p-4">
+      {casinos.map((casino) => (
+        <CasinoCard key={casino.id} casino={casino} />
+      ))}
+    </div>
+
+         {/* Features Section */}
+        <section className="py-20 relative">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
+              Why Choose EliteWins?
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                { icon: Shield, title: "Trusted Reviews", description: "Honest, detailed reviews from casino experts" },
+                { icon: Zap, title: "Exclusive Bonuses", description: "Access to the best casino bonuses and promotions" },
+                { icon: TrendingUp, title: "Top Rated", description: "Only the highest rated casinos make our list" }
+              ].map((feature, index) => (
+                <div key={index} className="glass-effect rounded-2xl p-8 text-center hover:scale-105 transition-all duration-300">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-yellow-400 to-yellow-200 rounded-full mb-6">
+                    <feature.icon className="h-8 w-8 text-black" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4">{feature.title}</h3>
+                  <p className="text-gray-300">{feature.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+       
 
         {/* Features Section */}
         <section className="py-20 relative">
