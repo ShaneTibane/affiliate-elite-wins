@@ -204,83 +204,17 @@ const casinos = [
       <div className="pt-20">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 opacity-90"></div>
-          <div className="absolute inset-0">
-            <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-yellow-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 floating-animation"></div>
-            <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 floating-animation" style={{ animationDelay: '-2s' }}></div>
-            <div className="absolute bottom-1/4 left-1/3 w-80 h-80 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 floating-animation" style={{ animationDelay: '-4s' }}></div>
-          </div>
+          {/* Background Elements */}
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-purple-900 to-gray-800"></div>
+          <div className="absolute inset-0 bg-black bg-opacity-40"></div>
           
+          {/* Floating Elements */}
+          <div className="absolute top-20 left-10 w-20 h-20 bg-yellow-400 rounded-full opacity-20 floating-animation"></div>
+          <div className="absolute bottom-32 right-16 w-16 h-16 bg-purple-500 rounded-full opacity-30 floating-animation" style={{animationDelay: '2s'}}></div>
+          <div className="absolute top-1/2 left-20 w-12 h-12 bg-blue-500 rounded-full opacity-25 floating-animation" style={{animationDelay: '4s'}}></div>
+          
+          {/* Content */}
           <div className="relative z-10 text-center max-w-6xl mx-auto px-4">
-            <div className="glass-effect rounded-3xl p-8 md:p-12 shadow-2xl">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-400 bg-clip-text text-transparent">
-                Best Online Casinos 2025 - Top Rated Casino Sites
-              </h1>
-              <div className="space-y-6 mb-8">
-                <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
-                  Discover the <strong className="text-yellow-400">best online casinos</strong> with exclusive bonuses, trusted reviews, and premium gaming experiences. EliteWins provides comprehensive casino reviews, ratings, and expert analysis to help you find the perfect online gambling destination.
-                </p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-                  <div className="glass-dark rounded-xl p-4">
-                    <h3 className="text-lg font-bold text-yellow-400 mb-2 flex items-center">
-                      <Shield className="h-5 w-5 mr-2" />
-                      Licensed & Secure
-                    </h3>
-                    <p className="text-gray-300 text-sm">
-                      All featured <strong>online casinos</strong> are fully licensed by reputable gaming authorities including Malta Gaming Authority, UK Gambling Commission, and Curacao eGaming.
-                    </p>
-                  </div>
-                  
-                  <div className="glass-dark rounded-xl p-4">
-                    <h3 className="text-lg font-bold text-yellow-400 mb-2 flex items-center">
-                      <Gift className="h-5 w-5 mr-2" />
-                      Exclusive Bonuses
-                    </h3>
-                    <p className="text-gray-300 text-sm">
-                      Access <strong>casino bonuses</strong> up to $5,000, free spins, no deposit bonuses, and VIP rewards exclusive to EliteWins players.
-                    </p>
-                  </div>
-                  
-                  <div className="glass-dark rounded-xl p-4">
-                    <h3 className="text-lg font-bold text-yellow-400 mb-2 flex items-center">
-                      <Star className="h-5 w-5 mr-2" />
-                      Expert Reviews
-                    </h3>
-                    <p className="text-gray-300 text-sm">
-                      In-depth <strong>casino reviews</strong> covering game selection, payment methods, customer support, and withdrawal times from industry experts.
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="bg-black bg-opacity-30 rounded-xl p-6 text-left">
-                  <h2 className="text-2xl font-bold text-white mb-4">Why Choose Our Top Online Casinos?</h2>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-300">
-                    <div>
-                      <h4 className="font-semibold text-yellow-400 mb-2">🎰 Game Variety</h4>
-                      <p className="text-sm mb-3">Over 2,000+ slots, live dealer games, blackjack, roulette, poker, and progressive jackpots from top providers like NetEnt, Microgaming, and Evolution Gaming.</p>
-                      
-                      <h4 className="font-semibold text-yellow-400 mb-2">💰 Best Casino Bonuses</h4>
-                      <p className="text-sm mb-3">Welcome bonuses up to 200%, daily promotions, cashback offers, and loyalty programs with real value for players.</p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-yellow-400 mb-2">⚡ Fast Payouts</h4>
-                      <p className="text-sm mb-3">Quick withdrawals within 24 hours, multiple payment methods including crypto, and transparent banking policies.</p>
-                      
-                      <h4 className="font-semibold text-yellow-400 mb-2">🛡️ Player Protection</h4>
-                      <p className="text-sm">SSL encryption, responsible gambling tools, fair play certification, and 24/7 customer support for safe online gambling.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="mb-8">
-                <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-300 mb-4">
-                  <span className="bg-yellow-400 bg-opacity-20 px-3 py-1 rounded-full">🏆 #1 Casino Review Site</span>
-                  <span className="bg-yellow-400 bg-opacity-20 px-3 py-1 rounded-full">✅ 500+ Casinos Reviewed</span>
-                  <span className="bg-yellow-400 bg-opacity-20 px-3 py-1 rounded-full">🎯 Expert Analysis</span>
-                  <span className="bg-yellow-400 bg-opacity-20 px-3 py-1 rounded-full">🔒 Safe & Secure</span>
-                </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Link
                   to="/casino-reviews"
@@ -292,23 +226,25 @@ const casinos = [
                   to="/promotions"
                   className="glass-effect text-white font-semibold px-8 py-4 rounded-full hover:bg-white hover:bg-opacity-10 transition-all duration-300 text-lg border border-yellow-400"
                 >
-                  🎁 Claim Exclusive Bonuses
+                  🎰 View All Promotions
                 </Link>
               </div>
-              
-              <div className="mt-8 text-center">
-                <p className="text-gray-400 text-sm">
-                  <strong>Last Updated:</strong> January 2025 | <strong>Casinos Reviewed:</strong> 500+ | <strong>Players Helped:</strong> 50,000+
-                </p>
-                <p className="text-gray-500 text-xs mt-2">
-                  18+ Only | Gamble Responsibly | Terms & Conditions Apply
-                </p>
-              </div>
-              
-            </div>
           </div>
-        </div>
         </section>
+
+        {/* Top Casino Comparison Table */}
+        <div className="mb-16">
+          <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
+            🏆 Top 6 Online Casinos - January 2025
+          </h2>
+        </div>
+
+        {/* Review Methodology */}
+        <div className="mb-16">
+          <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
+            🔍 Our Casino Review Process
+          </h2>
+        </div>
 
         {/* Top Casino Comparison Table - Inspired by CasinoBuddies */}
         <section className="py-20 relative">
