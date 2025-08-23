@@ -281,7 +281,6 @@ const casinos = [
                   <span className="bg-yellow-400 bg-opacity-20 px-3 py-1 rounded-full">🎯 Expert Analysis</span>
                   <span className="bg-yellow-400 bg-opacity-20 px-3 py-1 rounded-full">🔒 Safe & Secure</span>
                 </div>
-              </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Link
                   to="/casino-reviews"
