@@ -31,15 +31,12 @@ const casinos = [
       rating: 4.8,
       bonus: "200% up to $2,000 + 100 Free Spins",
       description: "Experience the ultimate in luxury gaming with Royal Palace Casino's extensive collection of premium slots and live dealer games.",
-      pros: ["Excellent customer support", "Fast withdrawals", "VIP program", "Mobile optimized"],
-      cons: ["High wagering requirements", "Limited cryptocurrency options"],
       features: {
         games: "2000+",
         license: "Malta Gaming Authority",
         support: "24/7 Live Chat",
         withdrawal: "1-3 days"
-      },
-      category: "premium"
+      }
     },
     {
       id: 2,
@@ -48,15 +45,12 @@ const casinos = [
       rating: 4.7,
       bonus: "100 Free Spins No Deposit",
       description: "Diamond Jackpot offers an impressive selection of progressive jackpots and innovative slot games with stunning graphics.",
-      pros: ["No deposit bonus", "Progressive jackpots", "Regular tournaments", "Crypto friendly"],
-      cons: ["Limited live dealer games", "Restricted in some countries"],
       features: {
         games: "1500+",
         license: "Curacao eGaming",
         support: "24/7 Email & Chat",
         withdrawal: "24-48 hours"
-      },
-      category: "popular"
+      }
     },
     {
       id: 3,
@@ -65,15 +59,12 @@ const casinos = [
       rating: 4.9,
       bonus: "$500 Welcome Package + 200 FS",
       description: "Golden Crown stands out with its exceptional live casino experience and exclusive VIP rewards program.",
-      pros: ["Premium live dealers", "Exclusive VIP perks", "High betting limits", "Multiple languages"],
-      cons: ["Higher minimum deposits", "Complex bonus terms"],
       features: {
         games: "1800+",
         license: "UK Gambling Commission",
         support: "24/7 Phone & Chat",
         withdrawal: "Same day"
-      },
-      category: "vip"
+      }
     },
     {
       id: 4,
@@ -82,15 +73,12 @@ const casinos = [
       rating: 4.6,
       bonus: "150% up to $1,500",
       description: "Lucky Stars Casino provides a perfect balance of classic and modern games with generous daily promotions.",
-      pros: ["Daily promotions", "Classic game variety", "User-friendly interface", "Regular bonuses"],
-      cons: ["Limited payment methods", "Average customer support"],
       features: {
         games: "1200+",
         license: "Malta Gaming Authority",
         support: "Live Chat 18 hours",
         withdrawal: "2-5 days"
-      },
-      category: "popular"
+      }
     },
     {
       id: 5,
@@ -99,15 +87,12 @@ const casinos = [
       rating: 4.9,
       bonus: "$1,000 High Roller Bonus",
       description: "Platinum Elite caters to high rollers with exclusive tables, personal account managers, and luxury rewards.",
-      pros: ["High roller focus", "Personal managers", "Luxury rewards", "Premium experience"],
-      cons: ["High minimum bets", "Exclusive membership required"],
       features: {
         games: "1000+",
         license: "Gibraltar Gambling Commission",
         support: "24/7 Personal Support",
         withdrawal: "Instant"
-      },
-      category: "vip"
+      }
     },
     {
       id: 6,
@@ -116,15 +101,12 @@ const casinos = [
       rating: 4.5,
       bonus: "50 Free Spins + 100% Match",
       description: "Neon Nights brings a modern, vibrant gaming experience with cutting-edge slots and innovative features.",
-      pros: ["Modern interface", "Innovative games", "Mobile-first design", "Social features"],
-      cons: ["New in market", "Limited game providers"],
       features: {
         games: "800+",
         license: "Curacao eGaming",
         support: "Live Chat & Email",
         withdrawal: "1-2 days"
-      },
-      category: "new"
+      }
     }
   ];
 
@@ -184,14 +166,16 @@ const casinos = [
 
  /* useEffect(() => {
     const fetchCasinos = async () => {
-    const payload = new ListPayload("CasinoCard", "/casinoCards");
+      const payload = new ListPayload("CasinoCard", "/casinoCards");
       try {
-       const res = await businessLogicService.listByQuery(payload);
-       console.log("RES",res.responseData.data)
-        const data = await res.responseData.data
+        const res = await businessLogicService.listByQuery(payload);
+        console.log("RES", res.responseData.data);
+        const data = await res.responseData.data;
         setCasinos(data);
       } catch (error) {
         console.error("Error fetching casinos:", error);
+        // Use fallback data when API is not available
+        setCasinos(fallbackCasinos);
       } finally {
         setLoading(false);
       }
