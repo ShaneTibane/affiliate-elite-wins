@@ -238,20 +238,6 @@ const casinos = [
           </div>
         </section>
 
-        {/* Top Casino Comparison Table */}
-        <div className="mb-16">
-          <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-            🏆 Top 6 Online Casinos - January 2025
-          </h2>
-        </div>
-
-        {/* Review Methodology */}
-        <div className="mb-16">
-          <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-            🔍 Our Casino Review Process
-          </h2>
-        </div>
-
         {/* Top Casino Comparison Table - Inspired by CasinoBuddies */}
         <section className="py-20 relative">
           <div className="container mx-auto px-4">
@@ -259,9 +245,6 @@ const casinos = [
               <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
                 Top 6 Online Casinos Comparison 2025
               </h2>
-              <p className="text-xl text-gray-300 max-w-4xl mx-auto">
-                Compare the best online casinos side by side. Our experts have tested and ranked these casinos based on bonuses, games, security, and player experience.
-              </p>
             </div>
 
             {/* Desktop Comparison Table */}
