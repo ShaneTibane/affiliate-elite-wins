@@ -310,6 +310,321 @@ const casinos = [
         </div>
         </section>
 
+        {/* Top Casino Comparison Table - Inspired by CasinoBuddies */}
+        <section className="py-20 relative">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
+                Top 6 Online Casinos Comparison 2025
+              </h2>
+              <p className="text-xl text-gray-300 max-w-4xl mx-auto">
+                Compare the best online casinos side by side. Our experts have tested and ranked these casinos based on bonuses, games, security, and player experience.
+              </p>
+            </div>
+
+            {/* Desktop Comparison Table */}
+            <div className="hidden lg:block glass-effect rounded-3xl p-8 overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-yellow-400/30">
+                    <th className="text-left py-4 px-4 text-yellow-400 font-bold">Casino</th>
+                    <th className="text-center py-4 px-4 text-yellow-400 font-bold">Rating</th>
+                    <th className="text-center py-4 px-4 text-yellow-400 font-bold">Welcome Bonus</th>
+                    <th className="text-center py-4 px-4 text-yellow-400 font-bold">Free Spins</th>
+                    <th className="text-center py-4 px-4 text-yellow-400 font-bold">Games</th>
+                    <th className="text-center py-4 px-4 text-yellow-400 font-bold">Payout Time</th>
+                    <th className="text-center py-4 px-4 text-yellow-400 font-bold">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    {
+                      name: "Royal Palace Casino",
+                      logo: "https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg?auto=compress&cs=tinysrgb&w=80&h=80",
+                      rating: 4.8,
+                      bonus: "200% up to $2,000",
+                      freeSpins: "100 FS",
+                      games: "2000+",
+                      payoutTime: "1-3 days",
+                      highlight: true
+                    },
+                    {
+                      name: "Golden Crown",
+                      logo: "https://images.pexels.com/photos/6963478/pexels-photo-6963478.jpeg?auto=compress&cs=tinysrgb&w=80&h=80",
+                      rating: 4.9,
+                      bonus: "$500 Package",
+                      freeSpins: "200 FS",
+                      games: "1800+",
+                      payoutTime: "Same day",
+                      highlight: false
+                    },
+                    {
+                      name: "Diamond Jackpot",
+                      logo: "https://images.pexels.com/photos/6963197/pexels-photo-6963197.jpeg?auto=compress&cs=tinysrgb&w=80&h=80",
+                      rating: 4.7,
+                      bonus: "100% up to $1,000",
+                      freeSpins: "50 FS",
+                      games: "1500+",
+                      payoutTime: "24-48 hours",
+                      highlight: false
+                    },
+                    {
+                      name: "Platinum Elite",
+                      logo: "https://images.pexels.com/photos/6963886/pexels-photo-6963886.jpeg?auto=compress&cs=tinysrgb&w=80&h=80",
+                      rating: 4.9,
+                      bonus: "$1,000 High Roller",
+                      freeSpins: "0 FS",
+                      games: "1000+",
+                      payoutTime: "Instant",
+                      highlight: false
+                    },
+                    {
+                      name: "Lucky Stars Casino",
+                      logo: "https://images.pexels.com/photos/6963765/pexels-photo-6963765.jpeg?auto=compress&cs=tinysrgb&w=80&h=80",
+                      rating: 4.6,
+                      bonus: "150% up to $1,500",
+                      freeSpins: "75 FS",
+                      games: "1200+",
+                      payoutTime: "2-5 days",
+                      highlight: false
+                    },
+                    {
+                      name: "Neon Nights Casino",
+                      logo: "https://images.pexels.com/photos/6963312/pexels-photo-6963312.jpeg?auto=compress&cs=tinysrgb&w=80&h=80",
+                      rating: 4.5,
+                      bonus: "100% up to $800",
+                      freeSpins: "50 FS",
+                      games: "800+",
+                      payoutTime: "1-2 days",
+                      highlight: false
+                    }
+                  ].map((casino, index) => (
+                    <tr key={index} className={`border-b border-gray-700 hover:bg-white hover:bg-opacity-5 transition-all duration-300 ${casino.highlight ? 'bg-yellow-400 bg-opacity-10' : ''}`}>
+                      <td className="py-6 px-4">
+                        <div className="flex items-center space-x-3">
+                          <img src={casino.logo} alt={casino.name} className="w-12 h-12 rounded-lg border-2 border-yellow-400" />
+                          <div>
+                            <div className="text-white font-semibold">{casino.name}</div>
+                            {casino.highlight && (
+                              <div className="text-yellow-400 text-xs font-bold">🏆 EDITOR'S CHOICE</div>
+                            )}
+                          </div>
+                        </div>
+                      </td>
+                      <td className="py-6 px-4 text-center">
+                        <div className="flex items-center justify-center space-x-1">
+                          {[...Array(5)].map((_, i) => (
+                            <Star key={i} className={`h-4 w-4 ${i < Math.floor(casino.rating) ? 'star-rating fill-current' : 'text-gray-600'}`} />
+                          ))}
+                        </div>
+                        <div className="text-yellow-400 font-bold text-sm mt-1">{casino.rating}</div>
+                      </td>
+                      <td className="py-6 px-4 text-center">
+                        <div className="text-white font-semibold">{casino.bonus}</div>
+                      </td>
+                      <td className="py-6 px-4 text-center">
+                        <div className="text-green-400 font-semibold">{casino.freeSpins}</div>
+                      </td>
+                      <td className="py-6 px-4 text-center">
+                        <div className="text-white font-semibold">{casino.games}</div>
+                      </td>
+                      <td className="py-6 px-4 text-center">
+                        <div className="text-blue-400 font-semibold">{casino.payoutTime}</div>
+                      </td>
+                      <td className="py-6 px-4 text-center">
+                        <button className="glossy-btn text-black font-bold px-6 py-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm">
+                          Play Now
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Mobile Comparison Cards */}
+            <div className="lg:hidden space-y-6">
+              {[
+                {
+                  name: "Royal Palace Casino",
+                  logo: "https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg?auto=compress&cs=tinysrgb&w=80&h=80",
+                  rating: 4.8,
+                  bonus: "200% up to $2,000",
+                  freeSpins: "100 FS",
+                  games: "2000+",
+                  payoutTime: "1-3 days",
+                  highlight: true
+                },
+                {
+                  name: "Golden Crown",
+                  logo: "https://images.pexels.com/photos/6963478/pexels-photo-6963478.jpeg?auto=compress&cs=tinysrgb&w=80&h=80",
+                  rating: 4.9,
+                  bonus: "$500 Package",
+                  freeSpins: "200 FS",
+                  games: "1800+",
+                  payoutTime: "Same day",
+                  highlight: false
+                },
+                {
+                  name: "Diamond Jackpot",
+                  logo: "https://images.pexels.com/photos/6963197/pexels-photo-6963197.jpeg?auto=compress&cs=tinysrgb&w=80&h=80",
+                  rating: 4.7,
+                  bonus: "100% up to $1,000",
+                  freeSpins: "50 FS",
+                  games: "1500+",
+                  payoutTime: "24-48 hours",
+                  highlight: false
+                }
+              ].map((casino, index) => (
+                <div key={index} className={`glass-effect rounded-2xl p-6 ${casino.highlight ? 'border-2 border-yellow-400' : ''}`}>
+                  {casino.highlight && (
+                    <div className="bg-gradient-to-r from-yellow-400 to-yellow-200 text-black text-center py-2 rounded-lg mb-4 font-bold text-sm">
+                      🏆 EDITOR'S CHOICE
+                    </div>
+                  )}
+                  <div className="flex items-center space-x-4 mb-4">
+                    <img src={casino.logo} alt={casino.name} className="w-16 h-16 rounded-lg border-2 border-yellow-400" />
+                    <div>
+                      <h3 className="text-xl font-bold text-white">{casino.name}</h3>
+                      <div className="flex items-center space-x-1">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className={`h-4 w-4 ${i < Math.floor(casino.rating) ? 'star-rating fill-current' : 'text-gray-600'}`} />
+                        ))}
+                        <span className="text-yellow-400 font-bold ml-2">{casino.rating}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4 mb-6">
+                    <div>
+                      <div className="text-gray-400 text-sm">Welcome Bonus</div>
+                      <div className="text-white font-semibold">{casino.bonus}</div>
+                    </div>
+                    <div>
+                      <div className="text-gray-400 text-sm">Free Spins</div>
+                      <div className="text-green-400 font-semibold">{casino.freeSpins}</div>
+                    </div>
+                    <div>
+                      <div className="text-gray-400 text-sm">Games</div>
+                      <div className="text-white font-semibold">{casino.games}</div>
+                    </div>
+                    <div>
+                      <div className="text-gray-400 text-sm">Payout Time</div>
+                      <div className="text-blue-400 font-semibold">{casino.payoutTime}</div>
+                    </div>
+                  </div>
+                  <button className="glossy-btn w-full text-black font-bold py-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                    Play Now
+                  </button>
+                </div>
+              ))}
+            </div>
+
+            {/* Trust Indicators */}
+            <div className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-8">
+              <div className="text-center">
+                <Shield className="h-12 w-12 text-yellow-400 mx-auto mb-4" />
+                <h4 className="text-white font-bold mb-2">Licensed & Regulated</h4>
+                <p className="text-gray-400 text-sm">All casinos are licensed by reputable authorities</p>
+              </div>
+              <div className="text-center">
+                <Users className="h-12 w-12 text-yellow-400 mx-auto mb-4" />
+                <h4 className="text-white font-bold mb-2">50,000+ Players</h4>
+                <p className="text-gray-400 text-sm">Trusted by thousands of satisfied players</p>
+              </div>
+              <div className="text-center">
+                <Clock className="h-12 w-12 text-yellow-400 mx-auto mb-4" />
+                <h4 className="text-white font-bold mb-2">Fast Payouts</h4>
+                <p className="text-gray-400 text-sm">Quick and secure withdrawal processing</p>
+              </div>
+              <div className="text-center">
+                <Star className="h-12 w-12 text-yellow-400 mx-auto mb-4" />
+                <h4 className="text-white font-bold mb-2">Expert Reviews</h4>
+                <p className="text-gray-400 text-sm">Thoroughly tested by casino professionals</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* How We Review Casinos - CasinoBuddies Style */}
+        <section className="py-20 relative">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
+                How We Review Online Casinos
+              </h2>
+              <p className="text-xl text-gray-300 max-w-4xl mx-auto">
+                Our comprehensive review process ensures you get honest, detailed information about every casino we recommend.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  step: "01",
+                  title: "Registration & Testing",
+                  description: "We create real accounts and test the entire registration process, from sign-up to verification.",
+                  icon: Users,
+                  details: ["Account creation process", "Identity verification", "Welcome bonus claiming", "Initial deposit testing"]
+                },
+                {
+                  step: "02",
+                  title: "Games & Software",
+                  description: "We test hundreds of games across all categories to evaluate quality, fairness, and variety.",
+                  icon: Zap,
+                  details: ["Slot machine testing", "Live dealer games", "Table games variety", "Mobile compatibility"]
+                },
+                {
+                  step: "03",
+                  title: "Banking & Security",
+                  description: "We thoroughly test deposit and withdrawal methods, security measures, and payment processing times.",
+                  icon: Shield,
+                  details: ["Deposit methods", "Withdrawal testing", "Security protocols", "License verification"]
+                },
+                {
+                  step: "04",
+                  title: "Customer Support",
+                  description: "We evaluate response times, helpfulness, and availability of customer support channels.",
+                  icon: Clock,
+                  details: ["Live chat testing", "Email response times", "Phone support quality", "FAQ comprehensiveness"]
+                },
+                {
+                  step: "05",
+                  title: "Bonuses & Promotions",
+                  description: "We analyze all bonus offers, terms and conditions, and ongoing promotional value.",
+                  icon: Gift,
+                  details: ["Welcome bonus terms", "Wagering requirements", "Ongoing promotions", "VIP program benefits"]
+                },
+                {
+                  step: "06",
+                  title: "Final Rating",
+                  description: "We compile all findings into a comprehensive rating and detailed review for our users.",
+                  icon: Star,
+                  details: ["Overall score calculation", "Pros and cons analysis", "Player recommendations", "Regular updates"]
+                }
+              ].map((item, index) => (
+                <div key={index} className="glass-effect rounded-2xl p-8 hover:scale-105 transition-all duration-300">
+                  <div className="flex items-center mb-6">
+                    <div className="bg-gradient-to-r from-yellow-400 to-yellow-200 text-black w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg mr-4">
+                      {item.step}
+                    </div>
+                    <item.icon className="h-8 w-8 text-yellow-400" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
+                  <p className="text-gray-300 mb-6">{item.description}</p>
+                  <ul className="space-y-2">
+                    {item.details.map((detail, detailIndex) => (
+                      <li key={detailIndex} className="text-gray-400 text-sm flex items-center">
+                        <div className="w-2 h-2 bg-yellow-400 rounded-full mr-3"></div>
+                        {detail}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
   {/* Casino Cards */}
        <div className="space-y-6 max-w-5xl mx-auto p-4">
       {casinos.map((casino) => (
