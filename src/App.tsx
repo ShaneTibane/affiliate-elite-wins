@@ -8,6 +8,7 @@ import CasinoReviews from './pages/CasinoReviews';
 import Promotions from './pages/Promotions';
 import AboutUs from './pages/AboutUs';
 import Contact from './pages/Contact';
+import StickyFooter from './components/StickyFooter';
 import './App.css';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
             </Routes>
           </main>
           <Footer />
+          <StickyFooter />
         </div>
       </Router>
     </HelmetProvider>
