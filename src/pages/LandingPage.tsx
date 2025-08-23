@@ -307,6 +307,7 @@ const casinos = [
               
             </div>
           </div>
+        </div>
         </section>
 
   {/* Casino Cards */}
