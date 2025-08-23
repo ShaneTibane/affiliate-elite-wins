@@ -215,6 +215,9 @@ const casinos = [
           
           {/* Content */}
           <div className="relative z-10 text-center max-w-6xl mx-auto px-4">
+            <h1 className="text-6xl md:text-7xl font-bold mb-12 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
+              Best Online Casinos Australia 2025
+            </h1>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Link
                   to="/casino-reviews"
