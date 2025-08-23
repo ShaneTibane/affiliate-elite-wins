@@ -21,9 +21,9 @@ interface Casino {
   };
 }
 const LandingPage = () => {
-  const [casinos, setCasinos] = useState<Casino[]>([]);
-  const [loading, setLoading] = useState(true);
-/*const casinos = [
+ // const [casinos, setCasinos] = useState<Casino[]>([]);
+ // const [loading, setLoading] = useState(true);
+const casinos = [
     {
       id: 1,
       name: "Royal Palace Casino",
@@ -127,7 +127,7 @@ const LandingPage = () => {
       category: "new"
     }
   ];
-*/
+
   const featuredCasinos = [
     {
       id: 1,
@@ -182,7 +182,7 @@ const LandingPage = () => {
     }
   ];
 
-  useEffect(() => {
+ /* useEffect(() => {
     const fetchCasinos = async () => {
     const payload = new ListPayload("CasinoCard", "/casinoCards");
       try {
@@ -206,7 +206,7 @@ const LandingPage = () => {
         <p className="text-white text-xl">Loading casinos...</p>
       </div>
     );
-  }
+  } */
 
 
   return (
@@ -216,7 +216,7 @@ const LandingPage = () => {
         <meta name="description" content="Discover the best online casinos with exclusive bonuses, honest reviews, and top promotions. Join EliteWins for premium casino experiences." />
         <meta name="keywords" content="online casino, casino bonus, casino reviews, gambling, slots, jackpots" />
       </Helmet>
-
+{/* */}
       <div className="pt-20">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
