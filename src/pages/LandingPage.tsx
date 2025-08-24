@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Star, Shield, Zap, Users, Clock, Gift, Crown, TrendingUp, Award, CheckCircle, Target, Heart, Mail, Phone, MapPin, Calendar, Tag, ChevronDown, ChevronUp, HelpCircle, UserPlus } from 'lucide-react';
-import { Star, TrendingUp, Shield, Zap, Gift, Crown, Users, Clock, ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
 import CasinoCard from '../components/CasinoCard';
 import { businessLogicService } from "../services/businessLogicService";
 import { ListPayload } from "../models/ListPayload";
