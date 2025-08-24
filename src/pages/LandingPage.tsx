@@ -658,45 +658,57 @@ const casinos = [
                 rank: 6
               }
             ].map((casino, index) => (
-              <div key={index} className="casino-card glass-dark rounded-2xl p-6 shadow-xl relative group">
+              <div key={index} className="casino-card glass-dark rounded-xl p-4 shadow-xl relative group">
                 {/* Rank Badge */}
-                <div className="absolute -top-3 -left-3 bg-gradient-to-r from-yellow-400 to-yellow-200 text-black font-bold w-8 h-8 rounded-full flex items-center justify-center text-sm shadow-lg">
-                  #{casino.rank}
+                <div className="absolute -top-1 -left-1 bg-gradient-to-r from-yellow-400 to-yellow-200 text-black font-bold w-8 h-8 rounded-full flex items-center justify-center text-sm shadow-lg z-10">
+                  #{index + 1}
                 </div>
                 
-                <div className="text-center mb-6">
+                <div className="flex items-center gap-3 mb-3">
                   <img
                     src={casino.logo}
                     alt={`${casino.name} logo`}
-                    className="w-16 h-16 rounded-xl mx-auto mb-4 border-2 border-yellow-400 shadow-md"
+                    className="w-12 h-12 rounded-lg border-2 border-yellow-400 shadow-md"
                   />
-                  <h3 className="text-xl font-bold text-white mb-2">{casino.name}</h3>
-                </div>
-
-                <div className="space-y-4 mb-6">
-                  <div className="bg-gradient-to-r from-yellow-400 to-yellow-200 rounded-xl p-4 text-center">
-                    <Gift className="h-6 w-6 text-black mx-auto mb-2" />
-                    <p className="text-black font-bold text-lg">{casino.bonus}</p>
-                    <p className="text-black font-semibold text-sm">+ {casino.freeSpins}</p>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-3 text-sm">
-                    <div className="glass-effect rounded-lg p-3 text-center">
-                      <p className="text-gray-400">Wagering</p>
-                      <p className="text-white font-semibold">{casino.wagering}</p>
-                    </div>
-                    <div className="glass-effect rounded-lg p-3 text-center">
-                      <p className="text-gray-400">Min Deposit</p>
-                      <p className="text-white font-semibold">{casino.minDeposit}</p>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-white mb-1">{casino.name}</h3>
+                    <div className="flex items-center text-sm">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className={`h-3 w-3 ${i < Math.floor(casino.rating) ? 'star-rating fill-current' : 'text-gray-600'}`}
+                        />
+                      ))}
+                      <span className="ml-1 text-yellow-400 font-bold text-xs">{casino.rating}</span>
                     </div>
                   </div>
                 </div>
-
-                <div className="space-y-3">
-                  <button className="glossy-btn w-full text-black font-bold py-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                
+                {/* Bonus Display */}
+                <div className="bg-gradient-to-br from-yellow-400 to-yellow-200 rounded-lg p-3 text-center mb-3">
+                  <Gift className="h-4 w-4 text-black mx-auto mb-1" />
+                  <p className="text-black font-bold text-base mb-1">{casino.bonus}</p>
+                  <p className="text-black font-semibold text-xs">{casino.freeSpins}</p>
+                </div>
+                
+                {/* Details Grid */}
+                <div className="grid grid-cols-2 gap-2 mb-3">
+                  <div className="glass-effect rounded-md p-2 text-center">
+                    <p className="text-gray-400 text-xs mb-1">Wagering</p>
+                    <p className="text-white font-semibold text-xs">{casino.wagering}</p>
+                  </div>
+                  <div className="glass-effect rounded-md p-2 text-center">
+                    <p className="text-gray-400 text-xs mb-1">Min Deposit</p>
+                    <p className="text-white font-semibold text-xs">{casino.minDeposit}</p>
+                  </div>
+                </div>
+                
+                {/* CTAs */}
+                <div className="space-y-2">
+                  <button className="glossy-btn w-full text-black font-bold py-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm">
                     Claim Bonus
                   </button>
-                  <button className="glass-effect w-full text-white font-semibold py-2 rounded-full border border-yellow-400/30 hover:border-yellow-400 transition-all duration-300 text-sm">
+                  <button className="glass-effect w-full text-white font-semibold py-2 rounded-full border border-yellow-400/30 hover:border-yellow-400 transition-all duration-300 text-xs">
                     View Details
                   </button>
                 </div>
