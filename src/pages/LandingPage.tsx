@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import { Star, Shield, Zap, Users, Clock, Gift, Crown, TrendingUp, Award, CheckCircle, Target, Heart, Mail, Phone, MapPin, Calendar, Tag, ChevronDown, ChevronUp, HelpCircle, UserPlus } from 'lucide-react';
 import { Star, TrendingUp, Shield, Zap, Gift, Crown, Users, Clock, ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
 import CasinoCard from '../components/CasinoCard';
 import { businessLogicService } from "../services/businessLogicService";
 import { ListPayload } from "../models/ListPayload";
 // Match the interface with backend data
+  const [vipForm, setVipForm] = useState({
+    email: '',
+    name: '',
+    preferences: {
+      bonuses: false,
+      newCasinos: false,
+      pokies: false
+    }
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 interface Casino {
   id: number;
   name: string;
@@ -27,6 +37,47 @@ const LandingPage = () => {
 
   const toggleFAQ = (index: number) => {
     setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  const handleVipFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value, type, checked } = e.target;
+    
+    if (type === 'checkbox') {
+      setVipForm(prev => ({
+        ...prev,
+        preferences: {
+          ...prev.preferences,
+          [name]: checked
+        }
+      }));
+    } else {
+      setVipForm(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    }
+  };
+
+  const handleVipSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate form submission
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    
+    // Reset form
+    setVipForm({
+      email: '',
+      name: '',
+      preferences: {
+        bonuses: false,
+        newCasinos: false,
+        pokies: false
+      }
+    });
+    
+    setIsSubmitting(false);
+    alert('Welcome to VIP! Check your email for exclusive bonuses.');
   };
 
 const casinos = [
