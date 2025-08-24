@@ -8,6 +8,7 @@ interface Casino {
   rating: number;
   description: string;
   bonus: string;
+  isCasinoOfTheMonth?: boolean;
   features: {
     games: string;
     license: string;
@@ -24,7 +25,14 @@ interface CasinoCardProps {
 
 const CasinoCard: React.FC<CasinoCardProps> = ({ casino }) => {
   return (
-    <div className="casino-card glass-dark rounded-2xl p-6 shadow-xl">
+    <div className="casino-card glass-dark rounded-2xl p-6 shadow-xl relative overflow-hidden">
+      {/* COTM Ribbon */}
+      {casino.isCasinoOfTheMonth && (
+        <div className="absolute top-4 -right-8 bg-gradient-to-r from-yellow-400 to-yellow-200 text-black font-bold text-xs px-8 py-2 transform rotate-45 shadow-lg z-10">
+          COTM
+        </div>
+      )}
+      
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Casino Info */}
         <div className="lg:col-span-2">

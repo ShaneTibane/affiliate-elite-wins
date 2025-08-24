@@ -31,6 +31,7 @@ const casinos = [
       rating: 4.8,
       bonus: "200% up to $2,000 + 100 Free Spins",
       description: "Experience the ultimate in luxury gaming with Royal Palace Casino's extensive collection of premium slots and live dealer games.",
+      isCasinoOfTheMonth: true,
       features: {
         games: "2000+",
         license: "Malta Gaming Authority",
