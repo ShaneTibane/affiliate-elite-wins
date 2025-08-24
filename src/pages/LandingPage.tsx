@@ -1688,6 +1688,7 @@ const casinos = [
             </div>
           </div>
         </section>
+        </section>
       </div>
     </>
   );
