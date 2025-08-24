@@ -659,11 +659,13 @@ const casinos = [
                 <div className="flex items-start gap-6">
                   <div className="text-5xl flex-shrink-0">{game.icon}</div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-white mb-4">{game.name}</h3>
+                    <Link 
+                      to={`/casinos/${game.name.toLowerCase().replace('online ', '').replace(' ', '-')}`}
+                      className="text-2xl font-bold text-white mb-4 hover:text-yellow-400 transition-colors duration-300 underline decoration-yellow-400 decoration-2 underline-offset-4 hover:decoration-yellow-300"
+                    >
+                      {game.name}
+                    </Link>
                     <p className="text-gray-300 text-base mb-6 leading-relaxed">{game.description}</p>
-                    <button className="glossy-btn text-black font-semibold px-6 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
-                      Play Now
-                    </button>
                   </div>
                 </div>
               </div>
