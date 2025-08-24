@@ -1486,6 +1486,142 @@ const casinos = [
           </div>
         </section>
 
+        {/* VIP Signup Form */}
+        <section className="py-20 relative">
+          <div className="container mx-auto px-4">
+            <div className="max-w-2xl mx-auto">
+              <div className="glass-effect rounded-3xl p-8 text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-yellow-400 to-yellow-200 rounded-full mb-6">
+                  <UserPlus className="h-8 w-8 text-black" />
+                </div>
+                
+                <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
+                  Join Our VIP Club
+                </h2>
+                <p className="text-xl text-gray-300 mb-8">
+                  Get exclusive bonuses, early access to new casinos, and personalized recommendations delivered straight to your inbox.
+                </p>
+
+                <form onSubmit={handleVipSubmit} className="space-y-6">
+                  {/* Email Field */}
+                  <div className="text-left">
+                    <label htmlFor="vip-email" className="block text-white font-semibold mb-3">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      id="vip-email"
+                      name="email"
+                      value={vipForm.email}
+                      onChange={handleVipFormChange}
+                      required
+                      className="w-full px-6 py-4 rounded-xl bg-black bg-opacity-30 border border-yellow-400/30 text-white placeholder-gray-400 focus:outline-none focus:border-yellow-400 transition-all duration-300"
+                      placeholder="Enter your email address"
+                    />
+                  </div>
+
+                  {/* Name Field */}
+                  <div className="text-left">
+                    <label htmlFor="vip-name" className="block text-white font-semibold mb-3">
+                      Name (Optional)
+                    </label>
+                    <input
+                      type="text"
+                      id="vip-name"
+                      name="name"
+                      value={vipForm.name}
+                      onChange={handleVipFormChange}
+                      className="w-full px-6 py-4 rounded-xl bg-black bg-opacity-30 border border-yellow-400/30 text-white placeholder-gray-400 focus:outline-none focus:border-yellow-400 transition-all duration-300"
+                      placeholder="Enter your name"
+                    />
+                  </div>
+
+                  {/* Preferences */}
+                  <div className="text-left">
+                    <label className="block text-white font-semibold mb-4">
+                      What interests you most? (Select all that apply)
+                    </label>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <label className="flex items-center space-x-3 glass-dark rounded-xl p-4 cursor-pointer hover:bg-white hover:bg-opacity-5 transition-all duration-300">
+                        <input
+                          type="checkbox"
+                          name="bonuses"
+                          checked={vipForm.preferences.bonuses}
+                          onChange={handleVipFormChange}
+                          className="w-5 h-5 text-yellow-400 bg-transparent border-2 border-yellow-400 rounded focus:ring-yellow-400 focus:ring-2"
+                        />
+                        <span className="text-white font-medium">🎁 Bonuses</span>
+                      </label>
+                      
+                      <label className="flex items-center space-x-3 glass-dark rounded-xl p-4 cursor-pointer hover:bg-white hover:bg-opacity-5 transition-all duration-300">
+                        <input
+                          type="checkbox"
+                          name="newCasinos"
+                          checked={vipForm.preferences.newCasinos}
+                          onChange={handleVipFormChange}
+                          className="w-5 h-5 text-yellow-400 bg-transparent border-2 border-yellow-400 rounded focus:ring-yellow-400 focus:ring-2"
+                        />
+                        <span className="text-white font-medium">🆕 New Casinos</span>
+                      </label>
+                      
+                      <label className="flex items-center space-x-3 glass-dark rounded-xl p-4 cursor-pointer hover:bg-white hover:bg-opacity-5 transition-all duration-300">
+                        <input
+                          type="checkbox"
+                          name="pokies"
+                          checked={vipForm.preferences.pokies}
+                          onChange={handleVipFormChange}
+                          className="w-5 h-5 text-yellow-400 bg-transparent border-2 border-yellow-400 rounded focus:ring-yellow-400 focus:ring-2"
+                        />
+                        <span className="text-white font-medium">🎰 Pokies</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  {/* Cloudflare Turnstile */}
+                  <div className="flex justify-center">
+                    <div className="glass-dark rounded-xl p-4 border border-yellow-400/30">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-6 h-6 border-2 border-yellow-400 rounded bg-transparent flex items-center justify-center">
+                          <CheckCircle className="h-4 w-4 text-yellow-400" />
+                        </div>
+                        <div className="text-left">
+                          <p className="text-white font-medium text-sm">Verify you're human</p>
+                          <p className="text-gray-400 text-xs">Protected by Cloudflare</p>
+                        </div>
+                        <div className="text-gray-400">
+                          <Shield className="h-5 w-5" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Submit Button */}
+                  <button
+                    type="submit"
+                    disabled={isSubmitting || !vipForm.email}
+                    className={`glossy-btn w-full text-black font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg ${
+                      isSubmitting || !vipForm.email ? 'opacity-50 cursor-not-allowed' : ''
+                    }`}
+                  >
+                    {isSubmitting ? (
+                      <div className="flex items-center justify-center">
+                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-black mr-2"></div>
+                        Processing...
+                      </div>
+                    ) : (
+                      'Get Your Bonus'
+                    )}
+                  </button>
+
+                  <p className="text-gray-400 text-sm">
+                    By joining, you agree to receive promotional emails. Unsubscribe anytime. 18+ only.
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Newsletter Signup */}
         <div className="bg-gradient-to-br from-purple-900 via-gray-900 to-gray-800 py-20">
         </div>
