@@ -585,7 +585,7 @@ const casinos = [
         </div>
 
         {/* Casino Types by Game Section */}
-        <div className="mb-16 bg-gradient-to-br from-teal-900/70 to-cyan-900/80 rounded-3xl p-8 border border-teal-500/30">
+        <div className="mb-16 bg-gradient-to-br from-violet-900/80 to-purple-800/90 rounded-3xl p-8 border border-violet-500/30">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
               Discover the Best Australian Online Casinos by Game
@@ -602,7 +602,7 @@ const casinos = [
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
                 name: "Online Pokies",
@@ -655,19 +655,17 @@ const casinos = [
                 description: "Try your luck with this ancient Chinese dice game featuring multiple betting options and exciting payouts. Three dice determine your fate in this thrilling game of chance."
               }
             ].map((game, index) => (
-              <div key={index} className="casino-card glass-dark rounded-2xl p-6 text-center group hover:scale-105 transition-all duration-300">
-                <div className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {game.icon}
+              <div key={index} className="casino-card glass-dark rounded-2xl p-8 group hover:scale-105 transition-all duration-300">
+                <div className="flex items-start gap-6">
+                  <div className="text-5xl flex-shrink-0">{game.icon}</div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-white mb-4">{game.name}</h3>
+                    <p className="text-gray-300 text-base mb-6 leading-relaxed">{game.description}</p>
+                    <button className="glossy-btn text-black font-semibold px-6 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                      Play Now
+                    </button>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-yellow-400 transition-colors duration-300">
-                  {game.name}
-                </h3>
-                <p className="text-gray-300 text-sm leading-relaxed mb-4">
-                  {game.description}
-                </p>
-                <button className="glossy-btn w-full text-black font-semibold py-2 rounded-full text-sm hover:scale-105 transition-all duration-300">
-                  Play Now
-                </button>
               </div>
             ))}
           </div>
