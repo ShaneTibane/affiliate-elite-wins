@@ -583,6 +583,146 @@ const casinos = [
             </div>
           </div>
         </div>
+
+        {/* Top Online Casinos by Bonus */}
+        <div className="mb-16 bg-gradient-to-br from-violet-900/80 to-purple-800/90 rounded-3xl p-8 border border-violet-500/30">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
+              Top Online Casinos by Bonus
+            </h2>
+            <div className="max-w-4xl mx-auto space-y-4">
+              <p className="text-lg text-gray-200 leading-relaxed">
+                When playing at online casinos in Australia, securing the biggest bonuses can take your gaming to the next level. The right bonus means more spins, more playtime, and a greater chance to win real money.
+              </p>
+              <p className="text-lg text-gray-200 leading-relaxed">
+                Below, we've compared the top Australian online casinos with the best bonuses in 2025, so you can quickly see which sites offer the most rewarding welcome packages, free spins, and ongoing promotions.
+              </p>
+            </div>
+          </div>
+
+          {/* Bonus Comparison Table */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                name: "Royal Palace Casino",
+                logo: "https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg?auto=compress&cs=tinysrgb&w=150&h=150",
+                bonus: "200% up to $2,000",
+                freeSpins: "100 Free Spins",
+                wagering: "35x",
+                minDeposit: "$20",
+                rank: 1
+              },
+              {
+                name: "Diamond Jackpot",
+                logo: "https://images.pexels.com/photos/6963197/pexels-photo-6963197.jpeg?auto=compress&cs=tinysrgb&w=150&h=150",
+                bonus: "150% up to $1,500",
+                freeSpins: "200 Free Spins",
+                wagering: "40x",
+                minDeposit: "$25",
+                rank: 2
+              },
+              {
+                name: "Golden Crown",
+                logo: "https://images.pexels.com/photos/6963478/pexels-photo-6963478.jpeg?auto=compress&cs=tinysrgb&w=150&h=150",
+                bonus: "100% up to $1,000",
+                freeSpins: "50 Free Spins",
+                wagering: "30x",
+                minDeposit: "$10",
+                rank: 3
+              },
+              {
+                name: "Lucky Stars Casino",
+                logo: "https://images.pexels.com/photos/6963765/pexels-photo-6963765.jpeg?auto=compress&cs=tinysrgb&w=150&h=150",
+                bonus: "125% up to $800",
+                freeSpins: "75 Free Spins",
+                wagering: "35x",
+                minDeposit: "$15",
+                rank: 4
+              },
+              {
+                name: "Platinum Elite",
+                logo: "https://images.pexels.com/photos/6963886/pexels-photo-6963886.jpeg?auto=compress&cs=tinysrgb&w=150&h=150",
+                bonus: "100% up to $2,500",
+                freeSpins: "25 Free Spins",
+                wagering: "25x",
+                minDeposit: "$50",
+                rank: 5
+              },
+              {
+                name: "Neon Nights Casino",
+                logo: "https://images.pexels.com/photos/6963312/pexels-photo-6963312.jpeg?auto=compress&cs=tinysrgb&w=150&h=150",
+                bonus: "75% up to $600",
+                freeSpins: "150 Free Spins",
+                wagering: "45x",
+                minDeposit: "$20",
+                rank: 6
+              }
+            ].map((casino, index) => (
+              <div key={index} className="casino-card glass-dark rounded-2xl p-6 shadow-xl relative group">
+                {/* Rank Badge */}
+                <div className="absolute -top-3 -left-3 bg-gradient-to-r from-yellow-400 to-yellow-200 text-black font-bold w-8 h-8 rounded-full flex items-center justify-center text-sm shadow-lg">
+                  #{casino.rank}
+                </div>
+                
+                <div className="text-center mb-6">
+                  <img
+                    src={casino.logo}
+                    alt={`${casino.name} logo`}
+                    className="w-16 h-16 rounded-xl mx-auto mb-4 border-2 border-yellow-400 shadow-md"
+                  />
+                  <h3 className="text-xl font-bold text-white mb-2">{casino.name}</h3>
+                </div>
+
+                <div className="space-y-4 mb-6">
+                  <div className="bg-gradient-to-r from-yellow-400 to-yellow-200 rounded-xl p-4 text-center">
+                    <Gift className="h-6 w-6 text-black mx-auto mb-2" />
+                    <p className="text-black font-bold text-lg">{casino.bonus}</p>
+                    <p className="text-black font-semibold text-sm">+ {casino.freeSpins}</p>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3 text-sm">
+                    <div className="glass-effect rounded-lg p-3 text-center">
+                      <p className="text-gray-400">Wagering</p>
+                      <p className="text-white font-semibold">{casino.wagering}</p>
+                    </div>
+                    <div className="glass-effect rounded-lg p-3 text-center">
+                      <p className="text-gray-400">Min Deposit</p>
+                      <p className="text-white font-semibold">{casino.minDeposit}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <button className="glossy-btn w-full text-black font-bold py-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                    Claim Bonus
+                  </button>
+                  <button className="glass-effect w-full text-white font-semibold py-2 rounded-full border border-yellow-400/30 hover:border-yellow-400 transition-all duration-300 text-sm">
+                    View Details
+                  </button>
+                </div>
+
+                <div className="text-center text-gray-400 text-xs mt-4">
+                  <p>18+ | T&Cs Apply</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom CTA */}
+          <div className="text-center mt-12">
+            <div className="glass-effect rounded-2xl p-6 max-w-2xl mx-auto">
+              <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
+                Compare All Casino Bonuses
+              </h3>
+              <p className="text-gray-300 mb-6">
+                Want to see detailed bonus terms and conditions? Check out our comprehensive bonus comparison guide.
+              </p>
+              <button className="glossy-btn text-black font-bold px-6 py-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                View Full Comparison
+              </button>
+            </div>
+          </div>
+        </div>
         </section>
         {/* How We Review Casinos - CasinoBuddies Style */}
         <section className="py-20 relative">
