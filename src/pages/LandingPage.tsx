@@ -1734,9 +1734,12 @@ const casinos = [
          {/* Features Section */}
         <section className="py-20 relative">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
+            <h2 className="text-4xl font-bold text-center mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
               Why Choose EliteWins?
             </h2>
+            <p className="text-xl text-gray-300 text-center max-w-4xl mx-auto mb-16 leading-relaxed">
+              At Elite Wins, our mission is to guide Australian players toward the best online casino sites that accept AUD deposits and withdrawals. We only recommend casinos that are fully secure, reliable, and tailored for Aussie players. Whether you enjoy classic table games like roulette, blackjack, craps, baccarat, or sic bo, or prefer spinning the reels on real money online pokies, Elite Wins ensures you'll find safe, top-rated platforms to play and win.
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
                 { icon: Shield, title: "Trusted Reviews", description: "Honest, detailed reviews from casino experts" },
