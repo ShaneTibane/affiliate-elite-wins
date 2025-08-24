@@ -5,11 +5,7 @@ import CasinoCard from '../components/CasinoCard';
 import { businessLogicService } from "../services/businessLogicService";
 import { ListPayload } from "../models/ListPayload";
 // Match the interface with backend data
-  const [vipForm, setVipForm] = useState({
   const [openFaq, setOpenFaq] = React.useState<number | null>(null);
-  logo: string;
-  rating: number;
-  description: string;
   bonus: string;
   features: {
     games: string;
