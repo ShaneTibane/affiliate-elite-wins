@@ -950,6 +950,194 @@ const casinos = [
             </div>
           </div>
         </div>
+
+        {/* Online Gambling Tips For Australian Players */}
+        <div className="bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 py-20">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
+                Online Gambling Tips For Australian Players
+              </h2>
+              <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                Master the art of online gambling with expert tips designed specifically for Australian players. 
+                From bankroll management to game selection, these proven strategies will help you play smarter, 
+                stay safe, and maximize your entertainment value at Australia's top online casinos.
+              </p>
+            </div>
+
+            <div className="glass-effect rounded-3xl p-8 md:p-12">
+              {/* Essential Tips Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                {/* Tip 1 */}
+                <div className="glass-dark rounded-2xl p-6 hover:scale-105 transition-all duration-300">
+                  <div className="bg-gradient-to-r from-yellow-400 to-yellow-200 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                    <span className="text-black font-bold text-xl">💰</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">Bankroll Management</h3>
+                  <p className="text-gray-300 text-sm leading-relaxed">
+                    Set a gambling budget before you start and never exceed it. Use the 5% rule - never bet more than 5% of your total bankroll on a single game or session.
+                  </p>
+                </div>
+
+                {/* Tip 2 */}
+                <div className="glass-dark rounded-2xl p-6 hover:scale-105 transition-all duration-300">
+                  <div className="bg-gradient-to-r from-yellow-400 to-yellow-200 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                    <span className="text-black font-bold text-xl">🎯</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">Choose High RTP Games</h3>
+                  <p className="text-gray-300 text-sm leading-relaxed">
+                    Look for games with Return to Player (RTP) rates above 96%. Pokies like Starburst (96.1%) and Gonzo's Quest (95.97%) offer better long-term value.
+                  </p>
+                </div>
+
+                {/* Tip 3 */}
+                <div className="glass-dark rounded-2xl p-6 hover:scale-105 transition-all duration-300">
+                  <div className="bg-gradient-to-r from-yellow-400 to-yellow-200 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                    <span className="text-black font-bold text-xl">📖</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">Read Bonus Terms</h3>
+                  <p className="text-gray-300 text-sm leading-relaxed">
+                    Always read wagering requirements before claiming bonuses. Look for bonuses with 35x wagering or lower and check which games contribute to playthrough.
+                  </p>
+                </div>
+
+                {/* Tip 4 */}
+                <div className="glass-dark rounded-2xl p-6 hover:scale-105 transition-all duration-300">
+                  <div className="bg-gradient-to-r from-yellow-400 to-yellow-200 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                    <span className="text-black font-bold text-xl">⏰</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">Set Time Limits</h3>
+                  <p className="text-gray-300 text-sm leading-relaxed">
+                    Use casino time limit tools or set phone alarms. Take a 15-minute break every hour and never gamble when tired, stressed, or under the influence.
+                  </p>
+                </div>
+
+                {/* Tip 5 */}
+                <div className="glass-dark rounded-2xl p-6 hover:scale-105 transition-all duration-300">
+                  <div className="bg-gradient-to-r from-yellow-400 to-yellow-200 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                    <span className="text-black font-bold text-xl">🔒</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">Verify Casino Licenses</h3>
+                  <p className="text-gray-300 text-sm leading-relaxed">
+                    Only play at casinos licensed by reputable authorities like Malta Gaming Authority, UK Gambling Commission, or Curacao eGaming.
+                  </p>
+                </div>
+
+                {/* Tip 6 */}
+                <div className="glass-dark rounded-2xl p-6 hover:scale-105 transition-all duration-300">
+                  <div className="bg-gradient-to-r from-yellow-400 to-yellow-200 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                    <span className="text-black font-bold text-xl">🎮</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">Practice in Demo Mode</h3>
+                  <p className="text-gray-300 text-sm leading-relaxed">
+                    Try games in free play mode first to understand mechanics and features. This helps you develop strategies without risking real money.
+                  </p>
+                </div>
+              </div>
+
+              {/* Advanced Strategies */}
+              <div className="border-t border-yellow-400/20 pt-12">
+                <h3 className="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
+                  Advanced Strategies for Experienced Players
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {/* Strategy 1 */}
+                  <div className="glass-effect rounded-2xl p-6">
+                    <h4 className="text-xl font-bold text-white mb-4 flex items-center">
+                      <span className="bg-gradient-to-r from-yellow-400 to-yellow-200 text-black w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-3">1</span>
+                      Volatility Management
+                    </h4>
+                    <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                      Match your game choice to your bankroll size. High volatility pokies require larger bankrolls but offer bigger wins. 
+                      Low volatility games provide more frequent, smaller wins perfect for extended play sessions.
+                    </p>
+                    <div className="bg-yellow-400/10 border border-yellow-400/30 rounded-lg p-3">
+                      <p className="text-yellow-400 text-xs font-semibold">
+                        💡 Pro Tip: Start with low volatility games if you're new to online gambling
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Strategy 2 */}
+                  <div className="glass-effect rounded-2xl p-6">
+                    <h4 className="text-xl font-bold text-white mb-4 flex items-center">
+                      <span className="bg-gradient-to-r from-yellow-400 to-yellow-200 text-black w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-3">2</span>
+                      Bonus Hunting Strategy
+                    </h4>
+                    <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                      Focus on bonuses with reasonable wagering requirements (35x or lower) and favorable game contributions. 
+                      Pokies usually contribute 100%, while table games may contribute only 10-20%.
+                    </p>
+                    <div className="bg-yellow-400/10 border border-yellow-400/30 rounded-lg p-3">
+                      <p className="text-yellow-400 text-xs font-semibold">
+                        💡 Pro Tip: Calculate the true value of bonuses by considering wagering requirements
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Strategy 3 */}
+                  <div className="glass-effect rounded-2xl p-6">
+                    <h4 className="text-xl font-bold text-white mb-4 flex items-center">
+                      <span className="bg-gradient-to-r from-yellow-400 to-yellow-200 text-black w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-3">3</span>
+                      Payment Method Optimization
+                    </h4>
+                    <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                      Use e-wallets like PayPal, Skrill, or Neteller for faster withdrawals. Some casinos offer exclusive bonuses for specific payment methods. 
+                      Avoid credit cards for gambling to prevent debt accumulation.
+                    </p>
+                    <div className="bg-yellow-400/10 border border-yellow-400/30 rounded-lg p-3">
+                      <p className="text-yellow-400 text-xs font-semibold">
+                        💡 Pro Tip: Set up separate accounts for gambling funds to better track spending
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Strategy 4 */}
+                  <div className="glass-effect rounded-2xl p-6">
+                    <h4 className="text-xl font-bold text-white mb-4 flex items-center">
+                      <span className="bg-gradient-to-r from-yellow-400 to-yellow-200 text-black w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-3">4</span>
+                      VIP Program Maximization
+                    </h4>
+                    <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                      Focus your play on one or two casinos to climb VIP tiers faster. Higher tiers offer better bonuses, faster withdrawals, 
+                      and personal account managers. Track your progress and compare VIP benefits across casinos.
+                    </p>
+                    <div className="bg-yellow-400/10 border border-yellow-400/30 rounded-lg p-3">
+                      <p className="text-yellow-400 text-xs font-semibold">
+                        💡 Pro Tip: Ask about VIP program benefits before making large deposits
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Responsible Gambling Reminder */}
+              <div className="mt-12 bg-gradient-to-r from-red-900/30 to-orange-900/30 border border-red-400/30 rounded-2xl p-8 text-center">
+                <h4 className="text-2xl font-bold text-white mb-4 flex items-center justify-center">
+                  <span className="text-red-400 mr-3">⚠️</span>
+                  Remember: Gambling Should Be Fun
+                </h4>
+                <p className="text-gray-300 leading-relaxed mb-6">
+                  These tips are designed to help you play smarter, but remember that gambling should always be treated as entertainment, not as a way to make money. 
+                  If gambling stops being fun or starts affecting your life negatively, it's time to take a break.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a href="https://www.gamblinghelponline.org.au" target="_blank" rel="noopener noreferrer" 
+                     className="glass-effect text-white font-semibold px-6 py-3 rounded-full border border-red-400/50 hover:border-red-400 transition-all duration-300">
+                    Get Help - Gambling Help Online
+                  </a>
+                  <a href="https://www.gambleaware.org.au" target="_blank" rel="noopener noreferrer"
+                     className="glass-effect text-white font-semibold px-6 py-3 rounded-full border border-red-400/50 hover:border-red-400 transition-all duration-300">
+                    Gamble Aware Australia
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Newsletter Signup */}
+        <div className="bg-gradient-to-br from-purple-900 via-gray-900 to-gray-800 py-20">
         </section>
         {/* How We Review Casinos - CasinoBuddies Style */}
         <section className="py-20 relative">
