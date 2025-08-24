@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { Star, TrendingUp, Shield, Zap, Gift, Crown, Users, Clock } from 'lucide-react';
+import { Star, TrendingUp, Shield, Zap, Gift, Crown, Users, Clock, ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
 import CasinoCard from '../components/CasinoCard';
 import { businessLogicService } from "../services/businessLogicService";
 import { ListPayload } from "../models/ListPayload";
@@ -23,6 +23,12 @@ interface Casino {
 const LandingPage = () => {
  // const [casinos, setCasinos] = useState<Casino[]>([]);
  // const [loading, setLoading] = useState(true);
+  const [openFAQ, setOpenFAQ] = React.useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
 const casinos = [
     {
       id: 1,
@@ -162,6 +168,45 @@ const casinos = [
       casino: "Golden Crown",
       validUntil: "Ongoing",
       type: "VIP Only"
+    }
+  ];
+
+  const faqs = [
+    {
+      question: "Are online casinos legal in Australia?",
+      answer: "Online casino gambling operates in a legal grey area in Australia. While the Interactive Gambling Act 2001 prohibits Australian companies from offering online casino services to Australian residents, it doesn't specifically prohibit Australians from playing at offshore online casinos. Many Australian players access international casino sites that accept AUD and cater to Australian players. However, it's important to understand the current laws and play responsibly."
+    },
+    {
+      question: "What are the best online casino games for Australian players?",
+      answer: "Australian players enjoy a wide variety of casino games including online pokies (slots), blackjack, roulette, baccarat, craps, and sic bo. Online pokies are particularly popular among Aussie players, with thousands of titles available from top software providers like Microgaming, NetEnt, and Pragmatic Play. Live dealer games are also increasingly popular, offering an authentic casino experience from home."
+    },
+    {
+      question: "Can I play online casino games for real money in AUD?",
+      answer: "Yes, many reputable international online casinos accept Australian Dollar (AUD) deposits and withdrawals. This eliminates currency conversion fees and makes banking more convenient for Australian players. Look for casinos that specifically cater to the Australian market and offer AUD as a primary currency option."
+    },
+    {
+      question: "What payment methods can Australian players use at online casinos?",
+      answer: "Australian players have access to various payment methods including credit/debit cards (Visa, Mastercard), bank transfers, digital wallets (PayPal, Skrill, Neteller), prepaid cards (Paysafecard, Neosurf), mobile payments (Apple Pay, Google Pay), and cryptocurrencies (Bitcoin, Ethereum). Each method has different processing times and fee structures, so choose based on your preferences for speed and convenience."
+    },
+    {
+      question: "How do I choose a safe and reliable online casino?",
+      answer: "When selecting an online casino, look for valid gambling licenses from reputable jurisdictions like Malta, Gibraltar, or the UK. Check for SSL encryption, fair gaming certifications from eCOGRA or iTech Labs, positive player reviews, responsive customer support, and transparent terms and conditions. Avoid unlicensed operators and always verify the casino's reputation before depositing money."
+    },
+    {
+      question: "What bonuses are available at Australian online casinos?",
+      answer: "Australian players can access various casino bonuses including welcome bonuses (deposit matches and free spins), no deposit bonuses, reload bonuses, cashback offers, and VIP rewards. Welcome bonuses typically range from 100% to 200% match bonuses up to $1,000-$2,000, often accompanied by free spins on popular pokies. Always read the terms and conditions, including wagering requirements, before claiming any bonus."
+    },
+    {
+      question: "What are wagering requirements and how do they work?",
+      answer: "Wagering requirements specify how many times you must play through a bonus amount before you can withdraw winnings. For example, a $100 bonus with 35x wagering requires $3,500 in total bets. Different games contribute differently to wagering requirements - pokies usually contribute 100%, while table games may contribute 10-20%. Lower wagering requirements (20x-35x) are more player-friendly than higher ones (50x+)."
+    },
+    {
+      question: "Can I play online casino games on my mobile device?",
+      answer: "Yes, most modern online casinos offer mobile-optimized websites and dedicated apps for iOS and Android devices. Mobile casinos provide access to hundreds of games including pokies, table games, and live dealer games. The mobile experience is designed to be user-friendly with touch-screen controls, fast loading times, and secure banking options. You can play anywhere with a stable internet connection."
+    },
+    {
+      question: "How long do withdrawals take at Australian online casinos?",
+      answer: "Withdrawal times vary by payment method and casino processing policies. E-wallets (PayPal, Skrill) are typically fastest at 24-48 hours, credit/debit cards take 3-5 business days, and bank transfers can take 5-7 business days. Some casinos offer instant withdrawals for VIP players. Always complete account verification early to avoid delays, and check the casino's withdrawal limits and processing times before playing."
     }
   ];
 
@@ -1321,6 +1366,69 @@ const casinos = [
                       <p>• Contact customer support if you experience any banking issues</p>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Online Casinos in Australia FAQs */}
+        <section className="py-20 relative">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <HelpCircle className="h-16 w-16 text-yellow-400 mx-auto mb-6" />
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
+                Online Casinos in Australia FAQs
+              </h2>
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                Get answers to the most common questions about playing at online casinos in Australia. 
+                Our expert team has compiled comprehensive answers to help you make informed decisions.
+              </p>
+            </div>
+
+            <div className="max-w-4xl mx-auto">
+              <div className="glass-effect rounded-3xl p-8">
+                <div className="space-y-4">
+                  {faqs.map((faq, index) => (
+                    <div key={index} className="border-b border-yellow-400/20 last:border-b-0">
+                      <button
+                        onClick={() => toggleFAQ(index)}
+                        className="w-full text-left py-6 flex items-center justify-between hover:text-yellow-400 transition-colors duration-300"
+                      >
+                        <h3 className="text-xl font-bold text-white pr-4">
+                          {faq.question}
+                        </h3>
+                        <div className="flex-shrink-0">
+                          {openFAQ === index ? (
+                            <ChevronUp className="h-6 w-6 text-yellow-400" />
+                          ) : (
+                            <ChevronDown className="h-6 w-6 text-gray-400" />
+                          )}
+                        </div>
+                      </button>
+                      
+                      <div className={`overflow-hidden transition-all duration-300 ${
+                        openFAQ === index ? 'max-h-96 pb-6' : 'max-h-0'
+                      }`}>
+                        <div className="text-gray-300 leading-relaxed text-lg">
+                          {faq.answer}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Contact CTA */}
+                <div className="mt-12 pt-8 border-t border-yellow-400/20 text-center">
+                  <h4 className="text-2xl font-bold text-white mb-4">
+                    Still Have Questions?
+                  </h4>
+                  <p className="text-gray-300 mb-6">
+                    Our expert team is here to help you find the perfect online casino for your needs.
+                  </p>
+                  <button className="glossy-btn text-black font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                    Contact Our Experts
+                  </button>
                 </div>
               </div>
             </div>
