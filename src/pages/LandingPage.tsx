@@ -839,6 +839,117 @@ const casinos = [
             </div>
           </div>
         </div>
+
+        {/* Step-by-Step Guide Section */}
+        <div className="mb-20">
+          <div className="glass-effect rounded-3xl p-12">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
+                Step-by-Step Guide to Playing at Online Casinos in Australia
+              </h2>
+              <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                With so many online casinos available in Australia, choosing where to start can feel overwhelming—especially for beginners. The good news is that getting started is simple when you have the right guidance.
+              </p>
+              <p className="text-lg text-gray-400 max-w-4xl mx-auto mt-4">
+                This easy step-by-step guide, tailored for Australian players, will help you register, claim bonuses, and begin your online gambling journey with confidence.
+              </p>
+            </div>
+
+            {/* Steps */}
+            <div className="mb-16">
+              <h3 className="text-3xl font-bold text-center mb-10 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
+                How to Get Started
+              </h3>
+              <div className="space-y-8">
+                {[
+                  {
+                    step: "01",
+                    title: "Choose a Licensed Casino",
+                    description: "Select a reputable online casino that's licensed and regulated. Look for casinos with proper Australian licensing or international licenses from Malta, UK, or Curacao. Check our reviews to find casinos with excellent security, fair games, and reliable customer support.",
+                    icon: "🛡️"
+                  },
+                  {
+                    step: "02",
+                    title: "Create Your Account",
+                    description: "Click 'Sign Up' and fill in your personal details including name, email, date of birth, and address. Choose a strong password and ensure all information is accurate as you'll need to verify your identity later. The process typically takes 2-3 minutes.",
+                    icon: "📝"
+                  },
+                  {
+                    step: "03",
+                    title: "Verify Your Identity",
+                    description: "Upload required documents such as a driver's license or passport for identity verification, and a utility bill or bank statement for address confirmation. This step ensures your account security and enables withdrawals. Verification usually takes 24-48 hours.",
+                    icon: "✅"
+                  },
+                  {
+                    step: "04",
+                    title: "Make Your First Deposit",
+                    description: "Navigate to the cashier section and choose your preferred payment method (credit card, bank transfer, e-wallet, or cryptocurrency). Enter your deposit amount, ensuring it meets the minimum requirement to qualify for welcome bonuses. Most deposits are instant.",
+                    icon: "💳"
+                  },
+                  {
+                    step: "05",
+                    title: "Claim Your Bonus & Start Playing",
+                    description: "Activate your welcome bonus if available, read the terms and conditions, and start exploring games. Begin with free demos to familiarize yourself with games before wagering real money. Set your budget and enjoy responsible gaming.",
+                    icon: "🎮"
+                  }
+                ].map((step, index) => (
+                  <div key={index} className="flex items-start gap-6 glass-dark rounded-2xl p-6">
+                    <div className="flex-shrink-0">
+                      <div className="w-16 h-16 bg-gradient-to-r from-yellow-400 to-yellow-200 rounded-full flex items-center justify-center text-black font-bold text-xl">
+                        {step.step}
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3 mb-3">
+                        <span className="text-3xl">{step.icon}</span>
+                        <h4 className="text-2xl font-bold text-white">{step.title}</h4>
+                      </div>
+                      <p className="text-gray-300 leading-relaxed text-lg">{step.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Playing Smart Ideas */}
+            <div>
+              <h3 className="text-3xl font-bold text-center mb-10 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
+                Playing Smart Ideas
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {[
+                  {
+                    title: "Set a Budget & Stick to It",
+                    description: "Before you start playing, decide how much you can afford to lose and never exceed this amount. Use the casino's deposit limits and self-exclusion tools to help maintain control. Remember, gambling should be entertainment, not a way to make money.",
+                    icon: "💰",
+                    tip: "Pro Tip: Set daily, weekly, and monthly limits"
+                  },
+                  {
+                    title: "Understand Game Rules & Odds",
+                    description: "Take time to learn the rules and odds of games before playing with real money. Use free demo modes to practice and develop strategies. Focus on games with better RTP (Return to Player) percentages for better long-term value.",
+                    icon: "📚",
+                    tip: "Pro Tip: Look for games with 96%+ RTP"
+                  },
+                  {
+                    title: "Take Regular Breaks",
+                    description: "Avoid long gaming sessions that can lead to poor decision-making. Set time limits and take regular breaks to stay focused and in control. Use casino tools like session timers and reality checks to help manage your playing time effectively.",
+                    icon: "⏰",
+                    tip: "Pro Tip: Use the 20-20-20 rule - every 20 minutes, look away for 20 seconds"
+                  }
+                ].map((idea, index) => (
+                  <div key={index} className="glass-dark rounded-2xl p-6 text-center casino-card">
+                    <div className="text-5xl mb-4">{idea.icon}</div>
+                    <h4 className="text-xl font-bold text-white mb-4">{idea.title}</h4>
+                    <p className="text-gray-300 leading-relaxed mb-4">{idea.description}</p>
+                    <div className="bg-gradient-to-r from-yellow-400/20 to-yellow-200/20 rounded-lg p-3 border border-yellow-400/30">
+                      <p className="text-yellow-400 font-semibold text-sm">{idea.tip}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
         </section>
         {/* How We Review Casinos - CasinoBuddies Style */}
         <section className="py-20 relative">
