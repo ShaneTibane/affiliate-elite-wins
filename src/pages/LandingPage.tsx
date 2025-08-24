@@ -1138,7 +1138,7 @@ const casinos = [
 
         {/* Newsletter Signup */}
         <div className="bg-gradient-to-br from-purple-900 via-gray-900 to-gray-800 py-20">
-        </section>
+        </div>
         {/* How We Review Casinos - CasinoBuddies Style */}
         <section className="py-20 relative">
           <div className="container mx-auto px-4">
