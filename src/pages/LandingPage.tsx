@@ -191,116 +191,7 @@ const casinos = [
       </div>
     );
   } */
-        {/* Casino of the Month Section */}
-        <div className="mb-16 bg-gradient-to-r from-yellow-500/90 to-orange-500/90 rounded-3xl border border-yellow-400/50 overflow-hidden">
-          <div className="relative">
-            {/* Hero Background Image */}
-            <div className="absolute inset-0">
-              <img
-                src="https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600"
-                alt="Casino of the Month"
-                className="w-full h-full object-cover opacity-30"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60"></div>
-            </div>
-            
-            {/* Content */}
-            <div className="relative z-10 p-12">
-              <div className="text-center mb-8">
-                <div className="inline-flex items-center bg-gradient-to-r from-yellow-400 to-yellow-200 text-black px-6 py-3 rounded-full font-bold text-lg mb-4">
-                  <Crown className="h-6 w-6 mr-2" />
-                  Casino of the Month
-                </div>
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                  Royal Palace Casino
-                </h2>
-                <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-                  Experience luxury gaming at its finest with our handpicked casino of the month. 
-                  Exceptional bonuses, premium games, and unmatched service await.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-                {/* Casino Logo & Rating */}
-                <div className="text-center lg:text-left">
-                  <div className="inline-block relative mb-6">
-                    <img
-                      src="https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg?auto=compress&cs=tinysrgb&w=200&h=200"
-                      alt="Royal Palace Casino"
-                      className="w-32 h-32 rounded-2xl border-4 border-yellow-400 shadow-2xl mx-auto lg:mx-0"
-                    />
-                    <div className="absolute -top-2 -right-2 bg-gradient-to-r from-yellow-400 to-yellow-200 text-black w-10 h-10 rounded-full flex items-center justify-center font-bold">
-                      #1
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-center lg:justify-start mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-6 w-6 star-rating fill-current" />
-                    ))}
-                    <span className="ml-2 text-white font-bold text-xl">4.9</span>
-                  </div>
-                  <p className="text-gray-200 font-semibold">Rated #1 by Players</p>
-                </div>
-
-                {/* Features */}
-                <div className="space-y-4">
-                  <div className="glass-effect rounded-xl p-4 text-center">
-                    <Gift className="h-8 w-8 text-yellow-400 mx-auto mb-2" />
-                    <h4 className="text-white font-bold text-lg mb-1">Welcome Bonus</h4>
-                    <p className="text-yellow-400 font-semibold">200% up to $2,000</p>
-                    <p className="text-gray-300 text-sm">+ 100 Free Spins</p>
-                  </div>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="glass-effect rounded-xl p-3 text-center">
-                      <Zap className="h-6 w-6 text-yellow-400 mx-auto mb-1" />
-                      <p className="text-white font-semibold text-sm">2000+ Games</p>
-                    </div>
-                    <div className="glass-effect rounded-xl p-3 text-center">
-                      <Shield className="h-6 w-6 text-yellow-400 mx-auto mb-1" />
-                      <p className="text-white font-semibold text-sm">Licensed</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* CTA */}
-                <div className="text-center space-y-4">
-                  <button className="glossy-btn text-black font-bold px-10 py-4 rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-110 transition-all duration-300 text-xl">
-                    Play Now & Claim Bonus
-                  </button>
-                  <button className="glass-effect w-full text-white font-semibold py-3 rounded-full border-2 border-white/30 hover:border-white hover:bg-white hover:bg-opacity-10 transition-all duration-300">
-                    Read Full Review
-                  </button>
-                  <div className="text-center text-gray-300 text-sm">
-                    <p>18+ | Terms & Conditions Apply</p>
-                    <p>New Players Only | Gamble Responsibly</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Additional Features Bar */}
-              <div className="mt-8 pt-8 border-t border-white/20">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                  <div className="flex items-center justify-center text-white">
-                    <Clock className="h-5 w-5 text-yellow-400 mr-2" />
-                    <span className="font-semibold">24/7 Support</span>
-                  </div>
-                  <div className="flex items-center justify-center text-white">
-                    <Users className="h-5 w-5 text-yellow-400 mr-2" />
-                    <span className="font-semibold">VIP Program</span>
-                  </div>
-                  <div className="flex items-center justify-center text-white">
-                    <Zap className="h-5 w-5 text-yellow-400 mr-2" />
-                    <span className="font-semibold">Instant Withdrawals</span>
-                  </div>
-                  <div className="flex items-center justify-center text-white">
-                    <Shield className="h-5 w-5 text-yellow-400 mr-2" />
-                    <span className="font-semibold">SSL Encrypted</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      
 
   return (
     <>
@@ -347,12 +238,14 @@ const casinos = [
           </div>
         </section>
 
+       
+
         {/* Top Casino Comparison Table - Inspired by CasinoBuddies */}
         <section className="py-20 relative">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-                Top 6 Online Casinos Comparison 2025
+                Top Online Casinos in Australia Comparison 2025
               </h2>
             </div>
 
@@ -578,7 +471,118 @@ const casinos = [
             </div>
           </div>
         </section>
+ <section className="py-20 relative">
+            {/* Casino of the Month Section */}
+        <div className="container mx-auto px-4">
+          <div className="relative">
+            {/* Hero Background Image */}
+            <div className="absolute inset-0">
+              <img
+                src="https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600"
+                alt="Casino of the Month"
+                className="w-full h-full object-cover opacity-30"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60"></div>
+            </div>
+            
+            {/* Content */}
+            <div className="relative z-10 p-12">
+              <div className="text-center mb-8">
+                <div className="inline-flex items-center bg-gradient-to-r from-yellow-400 to-yellow-200 text-black px-6 py-3 rounded-full font-bold text-lg mb-4">
+                  <Crown className="h-6 w-6 mr-2" />
+                  Casino of the Month
+                </div>
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                  Royal Palace Casino
+                </h2>
+                <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+                  Experience luxury gaming at its finest with our handpicked casino of the month. 
+                  Exceptional bonuses, premium games, and unmatched service await.
+                </p>
+              </div>
 
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                {/* Casino Logo & Rating */}
+                <div className="text-center lg:text-left">
+                  <div className="inline-block relative mb-6">
+                    <img
+                      src="https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg?auto=compress&cs=tinysrgb&w=200&h=200"
+                      alt="Royal Palace Casino"
+                      className="w-32 h-32 rounded-2xl border-4 border-yellow-400 shadow-2xl mx-auto lg:mx-0"
+                    />
+                    <div className="absolute -top-2 -right-2 bg-gradient-to-r from-yellow-400 to-yellow-200 text-black w-10 h-10 rounded-full flex items-center justify-center font-bold">
+                      #1
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-center lg:justify-start mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-6 w-6 star-rating fill-current" />
+                    ))}
+                    <span className="ml-2 text-white font-bold text-xl">4.9</span>
+                  </div>
+                  <p className="text-gray-200 font-semibold">Rated #1 by Players</p>
+                </div>
+
+                {/* Features */}
+                <div className="space-y-4">
+                  <div className="glass-effect rounded-xl p-4 text-center">
+                    <Gift className="h-8 w-8 text-yellow-400 mx-auto mb-2" />
+                    <h4 className="text-white font-bold text-lg mb-1">Welcome Bonus</h4>
+                    <p className="text-yellow-400 font-semibold">200% up to $2,000</p>
+                    <p className="text-gray-300 text-sm">+ 100 Free Spins</p>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="glass-effect rounded-xl p-3 text-center">
+                      <Zap className="h-6 w-6 text-yellow-400 mx-auto mb-1" />
+                      <p className="text-white font-semibold text-sm">2000+ Games</p>
+                    </div>
+                    <div className="glass-effect rounded-xl p-3 text-center">
+                      <Shield className="h-6 w-6 text-yellow-400 mx-auto mb-1" />
+                      <p className="text-white font-semibold text-sm">Licensed</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* CTA */}
+                <div className="text-center space-y-4">
+                  <button className="glossy-btn text-black font-bold px-10 py-4 rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-110 transition-all duration-300 text-xl">
+                    Play Now & Claim Bonus
+                  </button>
+                  <button className="glass-effect w-full text-white font-semibold py-3 rounded-full border-2 border-white/30 hover:border-white hover:bg-white hover:bg-opacity-10 transition-all duration-300">
+                    Read Full Review
+                  </button>
+                  <div className="text-center text-gray-300 text-sm">
+                    <p>18+ | Terms & Conditions Apply</p>
+                    <p>New Players Only | Gamble Responsibly</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Additional Features Bar */}
+              <div className="mt-8 pt-8 border-t border-white/20">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                  <div className="flex items-center justify-center text-white">
+                    <Clock className="h-5 w-5 text-yellow-400 mr-2" />
+                    <span className="font-semibold">24/7 Support</span>
+                  </div>
+                  <div className="flex items-center justify-center text-white">
+                    <Users className="h-5 w-5 text-yellow-400 mr-2" />
+                    <span className="font-semibold">VIP Program</span>
+                  </div>
+                  <div className="flex items-center justify-center text-white">
+                    <Zap className="h-5 w-5 text-yellow-400 mr-2" />
+                    <span className="font-semibold">Instant Withdrawals</span>
+                  </div>
+                  <div className="flex items-center justify-center text-white">
+                    <Shield className="h-5 w-5 text-yellow-400 mr-2" />
+                    <span className="font-semibold">SSL Encrypted</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </section>
         {/* How We Review Casinos - CasinoBuddies Style */}
         <section className="py-20 relative">
           <div className="container mx-auto px-4">
