@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Star, Shield, Zap, Users, Clock, Gift, Crown, TrendingUp, Award, CheckCircle, Target, Heart, Mail, Phone, MapPin, Calendar, Tag, ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Star, TrendingUp, Shield, Zap, Gift, Crown, Users, Clock, ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
 import CasinoCard from '../components/CasinoCard';
 import { businessLogicService } from "../services/businessLogicService";
 import { ListPayload } from "../models/ListPayload";
 // Match the interface with backend data
-  const [openFaq, setOpenFaq] = React.useState<number | null>(null);
+interface Casino {
+  id: number;
+  name: string;
+  logo: string;
+  rating: number;
+  description: string;
   bonus: string;
   features: {
     games: string;
@@ -21,47 +27,6 @@ const LandingPage = () => {
 
   const toggleFAQ = (index: number) => {
     setOpenFAQ(openFAQ === index ? null : index);
-  };
-
-  const handleVipFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
-    
-    if (type === 'checkbox') {
-      setVipForm(prev => ({
-        ...prev,
-        preferences: {
-          ...prev.preferences,
-          [name]: checked
-        }
-      }));
-    } else {
-      setVipForm(prev => ({
-        ...prev,
-        [name]: value
-      }));
-    }
-  };
-
-  const handleVipSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    // Reset form
-    setVipForm({
-      email: '',
-      name: '',
-      preferences: {
-        bonuses: false,
-        newCasinos: false,
-        pokies: false
-      }
-    });
-    
-    setIsSubmitting(false);
-    alert('Welcome to VIP! Check your email for exclusive bonuses.');
   };
 
 const casinos = [
@@ -249,6 +214,30 @@ const casinos = [
     const fetchCasinos = async () => {
       const payload = new ListPayload("CasinoCard", "/casinoCards");
       try {
+        const res = await businessLogicService.listByQuery(payload);
+        console.log("RES", res.responseData.data);
+        const data = await res.responseData.data;
+        setCasinos(data);
+      } catch (error) {
+        console.error("Error fetching casinos:", error);
+        // Use fallback data when API is not available
+        setCasinos(fallbackCasinos);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCasinos();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <p className="text-white text-xl">Loading casinos...</p>
+      </div>
+    );
+  } */
+      
 
   return (
     <>
@@ -1231,9 +1220,157 @@ const casinos = [
                   },
                   {
                     name: "Digital Wallets",
+                    icon: "📱",
+                    methods: ["PayPal", "Skrill", "Neteller", "ecoPayz"],
+                    depositTime: "Instant",
+                    withdrawalTime: "24-48 hours",
+                    fees: "Low fees",
+                    pros: ["Fast withdrawals", "Extra security layer", "Easy to use"],
+                    cons: ["Not all casinos accept", "Account verification needed"]
+                  },
+                  {
+                    name: "Prepaid Cards",
+                    icon: "🎫",
+                    methods: ["Paysafecard", "Neosurf", "Flexepin"],
+                    depositTime: "Instant",
+                    withdrawalTime: "Not available",
+                    fees: "Purchase fees may apply",
+                    pros: ["Anonymous deposits", "Budget control", "No bank details needed"],
+                    cons: ["Deposit only", "Limited availability", "Purchase required"]
+                  },
+                  {
+                    name: "Cryptocurrency",
+                    icon: "₿",
+                    methods: ["Bitcoin", "Ethereum", "Litecoin", "Dogecoin"],
+                    depositTime: "15-60 minutes",
+                    withdrawalTime: "15-60 minutes",
+                    fees: "Network fees only",
+                    pros: ["Fast transactions", "Low fees", "High privacy"],
+                    cons: ["Price volatility", "Technical knowledge needed", "Limited acceptance"]
+                  },
+                  {
+                    name: "Mobile Payments",
+                    icon: "📲",
+                    methods: ["Apple Pay", "Google Pay", "Samsung Pay"],
+                    depositTime: "Instant",
+                    withdrawalTime: "Varies",
+                    fees: "Usually free",
+                    pros: ["Convenient", "Secure", "Quick setup"],
+                    cons: ["Limited casino support", "Deposit focused", "Device dependent"]
+                  }
+                ].map((method, index) => (
+                  <div key={index} className="casino-card glass-dark rounded-2xl p-6 hover:scale-105 transition-all duration-300">
+                    <div className="text-center mb-6">
+                      <div className="text-5xl mb-4">{method.icon}</div>
+                      <h3 className="text-2xl font-bold text-white mb-2">{method.name}</h3>
+                      <div className="flex flex-wrap justify-center gap-2 mb-4">
                         {method.methods.map((m, i) => (
+                          <span key={i} className="bg-yellow-400 bg-opacity-20 text-yellow-400 px-3 py-1 rounded-full text-sm font-semibold">
+                            {m}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="space-y-3 mb-6">
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-400">Deposit Time:</span>
+                        <span className="text-green-400 font-semibold">{method.depositTime}</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-400">Withdrawal Time:</span>
+                        <span className="text-blue-400 font-semibold">{method.withdrawalTime}</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-400">Fees:</span>
+                        <span className="text-yellow-400 font-semibold">{method.fees}</span>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 gap-4">
+                      <div className="glass-effect rounded-xl p-4">
+                        <h4 className="text-green-400 font-bold mb-2 flex items-center">
+                          <span className="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
+                          Pros
+                        </h4>
+                        <ul className="space-y-1">
+                          {method.pros.map((pro, i) => (
+                            <li key={i} className="text-gray-300 text-sm">• {pro}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="glass-effect rounded-xl p-4">
+                        <h4 className="text-red-400 font-bold mb-2 flex items-center">
+                          <span className="w-2 h-2 bg-red-400 rounded-full mr-2"></span>
+                          Cons
+                        </h4>
+                        <ul className="space-y-1">
+                          {method.cons.map((con, i) => (
+                            <li key={i} className="text-gray-300 text-sm">• {con}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Banking Tips */}
+              <div className="border-t border-yellow-400/20 pt-12">
+                <h3 className="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
+                  Smart Banking Tips for Australian Players
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {[
+                    {
+                      icon: "🔒",
+                      title: "Verify Security",
                       tip: "Always ensure the casino uses SSL encryption and secure payment gateways before making deposits."
+                    },
+                    {
+                      icon: "💰",
+                      title: "Check Limits",
+                      tip: "Review minimum and maximum deposit/withdrawal limits to ensure they match your playing style."
+                    },
+                    {
+                      icon: "⚡",
+                      title: "Consider Speed",
+                      tip: "Choose faster withdrawal methods like e-wallets if you prefer quick access to your winnings."
+                    },
+                    {
+                      icon: "📋",
                       title: "Read Terms",
+                      tip: "Always read the banking terms and conditions, including any fees or processing times."
+                    }
+                  ].map((tip, index) => (
+                    <div key={index} className="glass-dark rounded-xl p-6 text-center hover:scale-105 transition-all duration-300">
+                      <div className="text-4xl mb-4">{tip.icon}</div>
+                      <h4 className="text-white font-bold mb-3">{tip.title}</h4>
+                      <p className="text-gray-300 text-sm leading-relaxed">{tip.tip}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Important Notice */}
+              <div className="mt-12 glass-dark rounded-2xl p-8 border-l-4 border-yellow-400">
+                <div className="flex items-start gap-4">
+                  <div className="text-3xl">⚠️</div>
+                  <div>
+                    <h4 className="text-yellow-400 font-bold text-xl mb-3">Important Banking Information</h4>
+                    <div className="space-y-2 text-gray-300">
+                      <p>• Always verify your identity before making your first withdrawal to avoid delays</p>
+                      <p>• Some banks may block gambling transactions - contact your bank if deposits are declined</p>
+                      <p>• Keep records of all transactions for tax purposes as gambling winnings may be taxable</p>
+                      <p>• Use the same payment method for deposits and withdrawals when possible</p>
+                      <p>• Contact customer support if you experience any banking issues</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Online Casinos in Australia FAQs */}
         <section className="py-20 relative">
@@ -1293,142 +1430,6 @@ const casinos = [
                     Contact Our Experts
                   </button>
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* VIP Signup Form */}
-        <section className="py-20 relative">
-          <div className="container mx-auto px-4">
-            <div className="max-w-2xl mx-auto">
-              <div className="glass-effect rounded-3xl p-8 text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-yellow-400 to-yellow-200 rounded-full mb-6">
-                  <UserPlus className="h-8 w-8 text-black" />
-                </div>
-                
-                <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-                  Join Our VIP Club
-                </h2>
-                <p className="text-xl text-gray-300 mb-8">
-                  Get exclusive bonuses, early access to new casinos, and personalized recommendations delivered straight to your inbox.
-                </p>
-
-                <form onSubmit={handleVipSubmit} className="space-y-6">
-                  {/* Email Field */}
-                  <div className="text-left">
-                    <label htmlFor="vip-email" className="block text-white font-semibold mb-3">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      id="vip-email"
-                      name="email"
-                      value={vipForm.email}
-                      onChange={handleVipFormChange}
-                      required
-                      className="w-full px-6 py-4 rounded-xl bg-black bg-opacity-30 border border-yellow-400/30 text-white placeholder-gray-400 focus:outline-none focus:border-yellow-400 transition-all duration-300"
-                      placeholder="Enter your email address"
-                    />
-                  </div>
-
-                  {/* Name Field */}
-                  <div className="text-left">
-                    <label htmlFor="vip-name" className="block text-white font-semibold mb-3">
-                      Name (Optional)
-                    </label>
-                    <input
-                      type="text"
-                      id="vip-name"
-                      name="name"
-                      value={vipForm.name}
-                      onChange={handleVipFormChange}
-                      className="w-full px-6 py-4 rounded-xl bg-black bg-opacity-30 border border-yellow-400/30 text-white placeholder-gray-400 focus:outline-none focus:border-yellow-400 transition-all duration-300"
-                      placeholder="Enter your name"
-                    />
-                  </div>
-
-                  {/* Preferences */}
-                  <div className="text-left">
-                    <label className="block text-white font-semibold mb-4">
-                      What interests you most? (Select all that apply)
-                    </label>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      <label className="flex items-center space-x-3 glass-dark rounded-xl p-4 cursor-pointer hover:bg-white hover:bg-opacity-5 transition-all duration-300">
-                        <input
-                          type="checkbox"
-                          name="bonuses"
-                          checked={vipForm.preferences.bonuses}
-                          onChange={handleVipFormChange}
-                          className="w-5 h-5 text-yellow-400 bg-transparent border-2 border-yellow-400 rounded focus:ring-yellow-400 focus:ring-2"
-                        />
-                        <span className="text-white font-medium">🎁 Bonuses</span>
-                      </label>
-                      
-                      <label className="flex items-center space-x-3 glass-dark rounded-xl p-4 cursor-pointer hover:bg-white hover:bg-opacity-5 transition-all duration-300">
-                        <input
-                          type="checkbox"
-                          name="newCasinos"
-                          checked={vipForm.preferences.newCasinos}
-                          onChange={handleVipFormChange}
-                          className="w-5 h-5 text-yellow-400 bg-transparent border-2 border-yellow-400 rounded focus:ring-yellow-400 focus:ring-2"
-                        />
-                        <span className="text-white font-medium">🆕 New Casinos</span>
-                      </label>
-                      
-                      <label className="flex items-center space-x-3 glass-dark rounded-xl p-4 cursor-pointer hover:bg-white hover:bg-opacity-5 transition-all duration-300">
-                        <input
-                          type="checkbox"
-                          name="pokies"
-                          checked={vipForm.preferences.pokies}
-                          onChange={handleVipFormChange}
-                          className="w-5 h-5 text-yellow-400 bg-transparent border-2 border-yellow-400 rounded focus:ring-yellow-400 focus:ring-2"
-                        />
-                        <span className="text-white font-medium">🎰 Pokies</span>
-                      </label>
-                    </div>
-                  </div>
-
-                  {/* Cloudflare Turnstile */}
-                  <div className="flex justify-center">
-                    <div className="glass-dark rounded-xl p-4 border border-yellow-400/30">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-6 h-6 border-2 border-yellow-400 rounded bg-transparent flex items-center justify-center">
-                          <CheckCircle className="h-4 w-4 text-yellow-400" />
-                        </div>
-                        <div className="text-left">
-                          <p className="text-white font-medium text-sm">Verify you're human</p>
-                          <p className="text-gray-400 text-xs">Protected by Cloudflare</p>
-                        </div>
-                        <div className="text-gray-400">
-                          <Shield className="h-5 w-5" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Submit Button */}
-                  <button
-                    type="submit"
-                    disabled={isSubmitting || !vipForm.email}
-                    className={`glossy-btn w-full text-black font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg ${
-                      isSubmitting || !vipForm.email ? 'opacity-50 cursor-not-allowed' : ''
-                    }`}
-                  >
-                    {isSubmitting ? (
-                      <div className="flex items-center justify-center">
-                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-black mr-2"></div>
-                        Processing...
-                      </div>
-                    ) : (
-                      'Get Your Bonus'
-                    )}
-                  </button>
-
-                  <p className="text-gray-400 text-sm">
-                    By joining, you agree to receive promotional emails. Unsubscribe anytime. 18+ only.
-                  </p>
-                </form>
               </div>
             </div>
           </div>
