@@ -276,4 +276,11 @@ const casinos = [
                 </Link>
                 <Link
                   to="/promotions"
-                  className="glass-effect text-white font-semibold px-8 py-
+                  className="glass-effect text-white font-semibold px-8 py-4 rounded-full border border-white border-opacity-30 hover:bg-white hover:bg-opacity-10 transition-all duration-300 text-lg"
+                >
+                  🎁 View All Bonuses
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
