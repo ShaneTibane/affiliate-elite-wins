@@ -282,7 +282,6 @@ const casinos = [
                 </Link>
               </div>
             </div>
-          </div>
         </section>
       </div>
     </>
