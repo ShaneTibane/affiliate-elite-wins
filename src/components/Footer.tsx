@@ -225,6 +225,72 @@ const Footer = () => {
               We are committed to providing honest, unbiased information to help you make informed decisions about online gambling.
             </p>
           </div>
+
+          {/* Trust Logos Section */}
+          <div className="mt-6 pt-6 border-t border-gray-700">
+            <h4 className="text-center text-gray-400 text-sm font-semibold mb-4">Trusted By Players Worldwide</h4>
+            <div className="flex flex-wrap justify-center items-center gap-8 opacity-60 hover:opacity-80 transition-opacity duration-300">
+              {/* Trustpilot */}
+              <div className="flex items-center space-x-2">
+                <div className="w-8 h-8 bg-green-500 rounded flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">T</span>
+                </div>
+                <span className="text-gray-400 text-sm font-medium">Trustpilot</span>
+              </div>
+              
+              {/* Help Online */}
+              <div className="flex items-center space-x-2">
+                <div className="w-8 h-8 bg-blue-500 rounded flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">H</span>
+                </div>
+                <span className="text-gray-400 text-sm font-medium">Help Online</span>
+              </div>
+              
+              {/* As Seen On */}
+              <div className="flex items-center space-x-2">
+                <div className="w-8 h-8 bg-purple-500 rounded flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">AS</span>
+                </div>
+                <span className="text-gray-400 text-sm font-medium">As Seen On</span>
+              </div>
+              
+              {/* Community */}
+              <div className="flex items-center space-x-2">
+                <div className="w-8 h-8 bg-orange-500 rounded flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">C</span>
+                </div>
+                <span className="text-gray-400 text-sm font-medium">Community</span>
+              </div>
+              
+              {/* SSL Secured */}
+              <div className="flex items-center space-x-2">
+                <div className="w-8 h-8 bg-green-600 rounded flex items-center justify-center">
+                  <span className="text-white font-bold text-xs">SSL</span>
+                </div>
+                <span className="text-gray-400 text-sm font-medium">SSL Secured</span>
+              </div>
+              
+              {/* 256-bit Encryption */}
+              <div className="flex items-center space-x-2">
+                <div className="w-8 h-8 bg-red-500 rounded flex items-center justify-center">
+                  <span className="text-white font-bold text-xs">256</span>
+                </div>
+                <span className="text-gray-400 text-sm font-medium">256-bit Encryption</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Additional Disclaimer */}
+          <div className="mt-6 pt-4 border-t border-gray-700">
+            <p className="text-gray-500 text-xs text-center leading-relaxed">
+              <strong>Disclaimer:</strong> The information provided on this website is for informational purposes only and should not be considered as professional advice. 
+              Gambling involves risk and may not be suitable for all individuals. Please gamble responsibly and within your means. 
+              If you believe you may have a gambling problem, please seek help from organizations such as GamCare, Gamblers Anonymous, or similar support groups in your jurisdiction. 
+              EliteWins is not responsible for any losses incurred as a result of gambling activities. 
+              All casino reviews and ratings are based on our independent analysis at the time of review and may change. 
+              Always verify current terms and conditions directly with the casino before playing.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
