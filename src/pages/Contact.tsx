@@ -29,7 +29,7 @@ const Contact = () => {
       icon: Mail,
       title: "Email Support",
       description: "Get detailed responses within 24 hours",
-      contact: "support@elitewins.com",
+      contact: "support@Elite Wins.com",
       available: "24/7"
     },
     {
@@ -70,8 +70,8 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>Contact EliteWins - Expert Casino Review Support</title>
-        <meta name="description" content="Get in touch with EliteWins' casino experts. Contact us for personalized recommendations, questions about our reviews, or general support." />
+        <title>Contact Elite Wins - Expert Casino Review Support</title>
+        <meta name="description" content="Get in touch with Elite Wins' casino experts. Contact us for personalized recommendations, questions about our reviews, or general support." />
         <meta name="keywords" content="contact casino experts, casino review support, gambling advice, online casino help" />
       </Helmet>
 
@@ -243,7 +243,7 @@ const Contact = () => {
                   ))}
                 </div>
                 <p className="text-gray-300 text-sm italic mb-3">
-                  "EliteWins team helped me find the perfect casino for my preferences. Their expert advice saved me time and money!"
+                  "Elite Wins team helped me find the perfect casino for my preferences. Their expert advice saved me time and money!"
                 </p>
                 <p className="text-yellow-400 font-semibold text-sm">- Sarah M., Verified Player</p>
               </div>
@@ -272,7 +272,7 @@ const Contact = () => {
               <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
                 Our Office
               </h2>
-              <p className="text-xl text-gray-300 mb-2">EliteWins Gaming Reviews</p>
+              <p className="text-xl text-gray-300 mb-2">Elite Wins Gaming Reviews</p>
               <p className="text-gray-400">123 Casino Boulevard, Gaming District</p>
               <p className="text-gray-400">Las Vegas, NV 89101, USA</p>
               <p className="text-gray-400 mt-4">

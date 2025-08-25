@@ -36,7 +36,7 @@ const Header = () => {
               <div className="absolute inset-0 bg-yellow-400 opacity-20 blur-lg group-hover:opacity-30 transition-opacity"></div>
             </div>
             <span className="text-2xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-              EliteWins
+              Elite Wins
             </span>
           </Link>
 
