@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Crown, Mail, Phone, MapPin, Twitter, Facebook, Instagram, Youtube } from 'lucide-react';
+import { Mail, Phone, MapPin, Twitter, Facebook, Instagram, Youtube } from 'lucide-react';
+import Logo from './Logo';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -47,10 +48,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center space-x-2 mb-6 group">
-              <div className="relative">
-                <Crown className="h-10 w-10 text-yellow-400 group-hover:text-yellow-300 transition-colors" />
-                <div className="absolute inset-0 bg-yellow-400 opacity-20 blur-lg group-hover:opacity-30 transition-opacity"></div>
-              </div>
+              <Logo size="lg" className="group-hover:scale-110 transition-transform duration-300" />
               <span className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
                 EliteWins
               </span>

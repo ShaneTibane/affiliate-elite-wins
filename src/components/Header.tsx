@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Crown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import Logo from './Logo';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,10 +32,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
-            <div className="relative">
-              <Crown className="h-8 w-8 text-yellow-400 group-hover:text-yellow-300 transition-colors" />
-              <div className="absolute inset-0 bg-yellow-400 opacity-20 blur-lg group-hover:opacity-30 transition-opacity"></div>
-            </div>
+            <Logo size="md" className="group-hover:scale-110 transition-transform duration-300" />
             <span className="text-2xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
               EliteWins
             </span>
