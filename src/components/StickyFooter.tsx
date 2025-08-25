@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Star, Gift, ChevronUp } from 'lucide-react';
+import { Star, Gift, ChevronUp, X } from 'lucide-react';
 import Logo from './Logo';
 
 const StickyFooter = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isClosed, setIsClosed] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
@@ -11,7 +12,7 @@ const StickyFooter = () => {
       const currentScrollY = window.scrollY;
       
       // Show footer when scrolling down and past 300px
-      if (currentScrollY > 300 && currentScrollY > lastScrollY) {
+      if (currentScrollY > 300 && currentScrollY > lastScrollY && !isClosed) {
         setIsVisible(true);
       }
       // Hide footer when scrolling up
@@ -38,6 +39,11 @@ const StickyFooter = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const closeFooter = () => {
+    setIsClosed(true);
+    setIsVisible(false);
+  };
+
   return (
     <div className={`fixed bottom-0 left-0 right-0 z-40 transform transition-transform duration-300 ${
       isVisible ? 'translate-y-0' : 'translate-y-full'
@@ -45,6 +51,15 @@ const StickyFooter = () => {
       <div className="glass-dark border-t border-yellow-400/20 shadow-2xl">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
+            {/* Close Button */}
+            <button
+              onClick={closeFooter}
+              className="glass-effect p-2 rounded-full hover:bg-white hover:bg-opacity-10 transition-all duration-300 mr-4"
+              aria-label="Close sticky footer"
+            >
+              <X className="h-4 w-4 text-gray-400 hover:text-white" />
+            </button>
+
             {/* Casino Info */}
             <div className="flex items-center gap-4 flex-1">
               <div className="relative">
@@ -54,7 +69,7 @@ const StickyFooter = () => {
                   className="w-12 h-12 rounded-lg border-2 border-yellow-400"
                 />
                 <div className="absolute -top-1 -right-1 bg-gradient-to-r from-yellow-400 to-yellow-200 w-6 h-6 rounded-full flex items-center justify-center">
-                  <Logo size="sm" className="scale-75" />
+                  <Logo size="sm" className="scale-75 [&_path]:fill-black [&_circle]:fill-black" />
                 </div>
               </div>
               
