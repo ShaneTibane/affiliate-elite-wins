@@ -284,3 +284,9 @@ const casinos = [
             </div>
           </div>
         </section>
+      </div>
+    </>
+  );
+};
+
+export default LandingPage;
