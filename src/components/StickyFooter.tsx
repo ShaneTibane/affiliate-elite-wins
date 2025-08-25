@@ -54,7 +54,7 @@ const StickyFooter = () => {
                   className="w-12 h-12 rounded-lg border-2 border-yellow-400"
                 />
                 <div className="absolute -top-1 -right-1 bg-gradient-to-r from-yellow-400 to-yellow-200 text-black text-xs font-bold px-2 py-1 rounded-full">
-                  <Logo size="sm" />
+                  COTM
                 </div>
               </div>
               
