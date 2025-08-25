@@ -119,7 +119,7 @@ const Promotions = () => {
   return (
     <>
       <Helmet>
-        <title>Casino Promotions & Bonuses - EliteWins | Latest Offers</title>
+        <title>Casino Promotions & Bonuses - Elite Wins | Latest Offers</title>
         <meta name="description" content="Discover the latest casino promotions, bonuses, and exclusive offers. Get free spins, welcome bonuses, and VIP rewards from top online casinos." />
         <meta name="keywords" content="casino promotions, casino bonuses, free spins, welcome bonus, no deposit bonus" />
       </Helmet>
