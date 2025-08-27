@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://shanetibane-affiliat-itlk.bolt.host/sitemap.xml
+
+# Disallow admin or sensitive areas (if any in future)
+# Disallow: /admin/
+# Disallow: /private/

@@ -54,9 +54,6 @@ const Header = () => {
                 )}
               </Link>
             ))}
-            <button className="glossy-btn text-black font-semibold px-6 py-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
-              Join Now
-            </button>
           </div>
 
           {/* Mobile Menu Button */}
