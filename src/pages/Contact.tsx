@@ -29,22 +29,8 @@ const Contact = () => {
       icon: Mail,
       title: "Email Support",
       description: "Get detailed responses within 24 hours",
-      contact: "support@Elite Wins.com",
+      contact: "support@elitewins.net",
       available: "24/7"
-    },
-    {
-      icon: MessageCircle,
-      title: "Live Chat",
-      description: "Instant support from our experts",
-      contact: "Available on website",
-      available: "9 AM - 11 PM GMT"
-    },
-    {
-      icon: Phone,
-      title: "Phone Support",
-      description: "Speak directly with our team",
-      contact: "+1 (555) 123-4567",
-      available: "Mon-Fri 9 AM - 6 PM"
     }
   ];
 
@@ -229,9 +215,6 @@ const Contact = () => {
                 </div>
                 <ul className="space-y-2 text-gray-300 text-sm">
                   <li>• Email inquiries: Within 24 hours</li>
-                  <li>• Live chat: Instant response</li>
-                  <li>• Phone calls: Same day callback</li>
-                  <li>• Complex cases: 2-3 business days</li>
                 </ul>
               </div>
 
@@ -266,20 +249,7 @@ const Contact = () => {
           </div>
 
           {/* Office Location */}
-          <div className="mt-16">
-            <div className="glass-effect rounded-3xl p-12 text-center">
-              <MapPin className="h-12 w-12 text-yellow-400 mx-auto mb-6" />
-              <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-                Our Office
-              </h2>
-              <p className="text-xl text-gray-300 mb-2">Elite Wins Gaming Reviews</p>
-              <p className="text-gray-400">123 Casino Boulevard, Gaming District</p>
-              <p className="text-gray-400">Las Vegas, NV 89101, USA</p>
-              <p className="text-gray-400 mt-4">
-                <strong>Business Hours:</strong> Monday - Friday, 9:00 AM - 6:00 PM PST
-              </p>
-            </div>
-          </div>
+        
         </div>
       </div>
     </>

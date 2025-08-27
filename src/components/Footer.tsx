@@ -61,16 +61,9 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center text-gray-300">
                 <Mail className="h-5 w-5 text-yellow-400 mr-3" />
-                <span>support@Elite Wins.com</span>
+                <span>support@elitewins.net</span>
               </div>
-              <div className="flex items-center text-gray-300">
-                <Phone className="h-5 w-5 text-yellow-400 mr-3" />
-                <span>+1 (555) 123-4567</span>
-              </div>
-              <div className="flex items-center text-gray-300">
-                <MapPin className="h-5 w-5 text-yellow-400 mr-3" />
-                <span>Las Vegas, NV</span>
-              </div>
+              
             </div>
           </div>
 
