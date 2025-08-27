@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Debug FTP input (do not keep this in production)
+        run: | 
+          echo "FTP server: ${{ secrets.FTP_SERVER != '' && '✅ set' || '❌ missing' }}"
       - name: Checkout Repository
         uses: actions/checkout@v3
 
