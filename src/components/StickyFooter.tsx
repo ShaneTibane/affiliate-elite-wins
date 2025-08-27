@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Star, Gift, ChevronUp } from 'lucide-react';
+import { Star, Gift, ChevronUp, X } from 'lucide-react';
 import Logo from './Logo';
 
 const StickyFooter = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isClosed, setIsClosed] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
@@ -11,7 +12,7 @@ const StickyFooter = () => {
       const currentScrollY = window.scrollY;
       
       // Show footer when scrolling down and past 300px
-      if (currentScrollY > 300 && currentScrollY > lastScrollY) {
+      if (currentScrollY > 300 && currentScrollY > lastScrollY && !isClosed) {
         setIsVisible(true);
       }
       // Hide footer when scrolling up
@@ -38,33 +39,47 @@ const StickyFooter = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const closeFooter = () => {
+    setIsClosed(true);
+    setIsVisible(false);
+  };
+
   return (
     <div className={`fixed bottom-0 left-0 right-0 z-40 transform transition-transform duration-300 ${
       isVisible ? 'translate-y-0' : 'translate-y-full'
     }`}>
       <div className="glass-dark border-t border-yellow-400/20 shadow-2xl">
-        <div className="container mx-auto px-4 py-4">
+        <div className="container mx-auto px-4 py-2">
           <div className="flex items-center justify-between">
+            {/* Close Button */}
+            <button
+              onClick={closeFooter}
+              className="glass-effect p-1.5 rounded-full hover:bg-white hover:bg-opacity-10 transition-all duration-300 mr-3"
+              aria-label="Close sticky footer"
+            >
+              <X className="h-3 w-3 text-gray-400 hover:text-white" />
+            </button>
+
             {/* Casino Info */}
-            <div className="flex items-center gap-4 flex-1">
+            <div className="flex items-center gap-3 flex-1">
               <div className="relative">
                 <img
                   src={casinoOfTheMonth.logo}
                   alt={`${casinoOfTheMonth.name} logo`}
-                  className="w-12 h-12 rounded-lg border-2 border-yellow-400"
+                  className="w-10 h-10 rounded-lg border-2 border-yellow-400"
                 />
-                <div className="absolute -top-1 -right-1 bg-gradient-to-r from-yellow-400 to-yellow-200 text-black text-xs font-bold px-2 py-1 rounded-full">
-                  <Logo size="sm" />
+                <div className="absolute -top-1 -right-1 bg-gradient-to-r from-yellow-400 to-yellow-200 w-5 h-5 rounded-full flex items-center justify-center">
+                  <Logo size="sm" className="scale-75 [&_path]:fill-black [&_circle]:fill-black" />
                 </div>
               </div>
               
               <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 mb-1">
+                <div className="flex items-center gap-2 mb-0.5">
                   <span className="bg-gradient-to-r from-yellow-400 to-yellow-200 text-black text-xs font-bold px-2 py-1 rounded-full">
                     {casinoOfTheMonth.badge}
                   </span>
                 </div>
-                <h3 className="text-white font-bold text-sm md:text-base truncate">
+                <h3 className="text-white font-bold text-xs md:text-sm truncate">
                   {casinoOfTheMonth.name}
                 </h3>
                 <div className="flex items-center gap-2">
@@ -72,14 +87,14 @@ const StickyFooter = () => {
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
-                        className={`h-3 w-3 ${i < Math.floor(casinoOfTheMonth.rating) ? 'star-rating fill-current' : 'text-gray-600'}`}
+                        className={`h-2.5 w-2.5 ${i < Math.floor(casinoOfTheMonth.rating) ? 'star-rating fill-current' : 'text-gray-600'}`}
                       />
                     ))}
                     <span className="ml-1 text-yellow-400 font-bold text-xs">
                       {casinoOfTheMonth.rating}
                     </span>
                   </div>
-                  <span className="text-gray-300 text-xs hidden sm:inline">
+                  <span className="text-gray-300 text-xs hidden md:inline">
                     • {casinoOfTheMonth.bonus}
                   </span>
                 </div>
@@ -87,25 +102,25 @@ const StickyFooter = () => {
             </div>
 
             {/* Bonus Display - Hidden on mobile */}
-            <div className="hidden md:flex items-center gap-4">
+            <div className="hidden lg:flex items-center gap-3">
               <div className="text-center">
-                <Gift className="h-5 w-5 text-yellow-400 mx-auto mb-1" />
-                <p className="text-yellow-400 font-bold text-sm">Welcome Bonus</p>
+                <Gift className="h-4 w-4 text-yellow-400 mx-auto mb-0.5" />
+                <p className="text-yellow-400 font-bold text-xs">Welcome Bonus</p>
                 <p className="text-white text-xs">{casinoOfTheMonth.bonus}</p>
               </div>
             </div>
 
             {/* CTAs */}
-            <div className="flex items-center gap-3 ml-4">
-              <button className="glossy-btn text-black font-bold px-4 py-2 rounded-full text-sm hover:scale-105 transition-all duration-300">
+            <div className="flex items-center gap-2 ml-3">
+              <button className="glossy-btn text-black font-bold px-3 py-1.5 rounded-full text-xs hover:scale-105 transition-all duration-300">
                 Play Now
               </button>
               <button
                 onClick={scrollToTop}
-                className="glass-effect p-2 rounded-full hover:bg-white hover:bg-opacity-10 transition-all duration-300"
+                className="glass-effect p-1.5 rounded-full hover:bg-white hover:bg-opacity-10 transition-all duration-300"
                 aria-label="Scroll to top"
               >
-                <ChevronUp className="h-5 w-5 text-white" />
+                <ChevronUp className="h-4 w-4 text-white" />
               </button>
             </div>
           </div>
