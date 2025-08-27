@@ -8,6 +8,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment: LIVE 
 
     steps:
       - name: Debug FTP input (do not keep this in production)
