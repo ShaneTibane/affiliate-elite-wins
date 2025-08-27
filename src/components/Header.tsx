@@ -82,9 +82,6 @@ const Header = () => {
                 {link.name}
               </Link>
             ))}
-            <button className="glossy-btn text-black font-semibold px-6 py-2 rounded-full shadow-lg w-full">
-              Join Now
-            </button>
           </div>
         </div>
       </nav>
