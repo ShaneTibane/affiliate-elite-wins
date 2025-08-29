@@ -46,10 +46,47 @@ const Blog = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [categoryId, setCategoryId] = useState<number | null>(null);
 
   const postsPerPage = 6;
 
   useEffect(() => {
+    fetchCategoryId();
+  }, []);
+
+  useEffect(() => {
+    if (categoryId !== null) {
+      fetchPosts();
+    }
+  }, [currentPage, searchTerm, categoryId]);
+
+  const fetchCategoryId = async () => {
+    try {
+      const response = await fetch(
+        `https://elitewins.net/wp/wp-json/wp/v2/categories?slug=elitewins`
+      );
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch category');
+      }
+      
+      const categories = await response.json();
+      if (categories.length > 0) {
+        setCategoryId(categories[0].id);
+      } else {
+        setError('Category "elitewins" not found. Please check if the category exists in your WordPress site.');
+        setLoading(false);
+      }
+    } catch (err) {
+      setError('Failed to load category information. Please try again later.');
+      setLoading(false);
+      console.error('Error fetching category:', err);
+    }
+  };
+
+  const fetchPosts = async () => {
+    if (categoryId === null) return;
+    
     fetchPosts();
   }, [currentPage, searchTerm]);
 
@@ -59,8 +96,9 @@ const Blog = () => {
     
     try {
       const searchQuery = searchTerm ? `&search=${encodeURIComponent(searchTerm)}` : '';
+      const categoryQuery = `&categories=${categoryId}`;
       const response = await fetch(
-        `https://elitewins.net/wp/wp-json/wp/v2/posts?per_page=${postsPerPage}&page=${currentPage}&_embed${searchQuery}`
+        `https://elitewins.net/wp/wp-json/wp/v2/posts?per_page=${postsPerPage}&page=${currentPage}&_embed${searchQuery}${categoryQuery}`
       );
       
       if (!response.ok) {
@@ -83,7 +121,6 @@ const Blog = () => {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     setCurrentPage(1);
-    fetchPosts();
   };
 
   const formatDate = (dateString: string) => {
