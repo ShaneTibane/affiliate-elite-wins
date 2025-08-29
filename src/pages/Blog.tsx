@@ -87,10 +87,6 @@ const Blog = () => {
   const fetchPosts = async () => {
     if (categoryId === null) return;
     
-    fetchPosts();
-  }, [currentPage, searchTerm]);
-
-  const fetchPosts = async () => {
     setLoading(true);
     setError(null);
     
