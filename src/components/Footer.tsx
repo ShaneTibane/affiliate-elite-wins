@@ -16,6 +16,7 @@ const Footer = () => {
     reviews: [
       { name: 'Casino Reviews', path: '/casino-reviews' },
       { name: 'Latest Promotions', path: '/promotions' },
+      { name: 'Blog', path: '/blog' },
       { name: 'Game Reviews', path: '/games' },
       { name: 'Bonus Guide', path: '/bonus-guide' }
     ],

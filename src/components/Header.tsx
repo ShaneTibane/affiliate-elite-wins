@@ -20,6 +20,7 @@ const Header = () => {
     { name: 'Home', path: '/' },
     { name: 'Casino Reviews', path: '/casino-reviews' },
     { name: 'Promotions', path: '/promotions' },
+    { name: 'Blog', path: '/blog' },
     { name: 'About Us', path: '/about' },
     { name: 'Contact', path: '/contact' }
   ];
