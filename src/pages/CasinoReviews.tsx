@@ -163,100 +163,68 @@ const CasinoReviews = () => {
           {/* Casino Cards */}
           <div className="space-y-8">
             {filteredCasinos.map((casino) => (
-              <div key={casino.id} className="casino-card glass-dark rounded-3xl p-8 shadow-2xl">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div key={casino.id} className="casino-card glass-dark rounded-2xl p-6 shadow-xl">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                   {/* Casino Info */}
                   <div className="lg:col-span-2">
-                    <div className="flex items-start gap-6 mb-6">
+                    <div className="flex items-start gap-4 mb-4">
                       <img
                         src={casino.logo}
                         alt={`${casino.name} logo`}
-                        className="w-24 h-24 rounded-2xl border-4 border-yellow-400 shadow-lg"
+                        className="w-16 h-16 rounded-xl border-2 border-yellow-400 shadow-md"
                       />
                       <div className="flex-1">
-                        <h2 className="text-3xl font-bold text-white mb-2">{casino.name}</h2>
-                        <div className="flex items-center gap-4 mb-4">
+                        <h2 className="text-2xl font-bold text-white mb-1">{casino.name}</h2>
+                        <div className="flex items-center gap-2 mb-3">
                           <div className="flex items-center">
                             {[...Array(5)].map((_, i) => (
                               <Star
                                 key={i}
-                                className={`h-6 w-6 ${i < Math.floor(casino.rating) ? 'star-rating fill-current' : 'text-gray-600'}`}
+                                className={`h-5 w-5 ${i < Math.floor(casino.rating) ? 'star-rating fill-current' : 'text-gray-600'}`}
                               />
                             ))}
-                            <span className="ml-2 text-yellow-400 font-bold text-xl">{casino.rating}</span>
+                            <span className="ml-1 text-yellow-400 font-bold text-lg">{casino.rating}</span>
                           </div>
                         </div>
-                        <p className="text-gray-300 text-lg leading-relaxed">{casino.description}</p>
+                        <p className="text-gray-300 text-sm leading-relaxed">{casino.description}</p>
                       </div>
                     </div>
 
                     {/* Features Grid */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                       {Object.entries(casino.features).map(([key, value]) => (
-                        <div key={key} className="glass-effect rounded-xl p-4 text-center">
-                          <div className="text-yellow-400 mb-2">
-                            {key === 'games' && <Zap className="h-6 w-6 mx-auto" />}
-                            {key === 'license' && <Shield className="h-6 w-6 mx-auto" />}
-                            {key === 'support' && <Users className="h-6 w-6 mx-auto" />}
-                            {key === 'withdrawal' && <Clock className="h-6 w-6 mx-auto" />}
+                        <div key={key} className="glass-effect rounded-lg p-3 text-center">
+                          <div className="text-yellow-400 mb-1">
+                            {key === 'games' && <Zap className="h-5 w-5 mx-auto" />}
+                            {key === 'license' && <Shield className="h-5 w-5 mx-auto" />}
+                            {key === 'support' && <Users className="h-5 w-5 mx-auto" />}
+                            {key === 'withdrawal' && <Clock className="h-5 w-5 mx-auto" />}
                           </div>
-                          <p className="text-white font-semibold capitalize">{key}</p>
-                          <p className="text-gray-300 text-sm">{value}</p>
+                          <p className="text-white font-semibold capitalize text-sm">{key}</p>
+                          <p className="text-gray-300 text-xs">{value}</p>
                         </div>
                       ))}
-                    </div>
-
-                    {/* Pros and Cons */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="glass-effect rounded-xl p-6">
-                        <h4 className="text-green-400 font-bold text-xl mb-4 flex items-center">
-                          <Shield className="h-5 w-5 mr-2" />
-                          Pros
-                        </h4>
-                        <ul className="space-y-2">
-                          {casino.pros.map((pro, index) => (
-                            <li key={index} className="text-gray-300 flex items-center">
-                              <div className="w-2 h-2 bg-green-400 rounded-full mr-3"></div>
-                              {pro}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div className="glass-effect rounded-xl p-6">
-                        <h4 className="text-red-400 font-bold text-xl mb-4 flex items-center">
-                          <Shield className="h-5 w-5 mr-2" />
-                          Cons
-                        </h4>
-                        <ul className="space-y-2">
-                          {casino.cons.map((con, index) => (
-                            <li key={index} className="text-gray-300 flex items-center">
-                              <div className="w-2 h-2 bg-red-400 rounded-full mr-3"></div>
-                              {con}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
                     </div>
                   </div>
 
                   {/* Bonus & CTA */}
-                  <div className="space-y-6">
-                    <div className="bg-gradient-to-br from-yellow-400 to-yellow-200 rounded-2xl p-6 text-center">
-                      <Gift className="h-8 w-8 text-black mx-auto mb-4" />
-                      <h3 className="text-black font-bold text-2xl mb-2">Welcome Bonus</h3>
-                      <p className="text-black font-semibold text-lg">{casino.bonus}</p>
+                  <div className="space-y-4">
+                    <div className="bg-gradient-to-br from-yellow-400 to-yellow-200 rounded-xl p-4 text-center">
+                      <Gift className="h-6 w-6 text-black mx-auto mb-2" />
+                      <h3 className="text-black font-bold text-xl mb-1">Welcome Bonus</h3>
+                      <p className="text-black font-semibold text-md">{casino.bonus}</p>
                     </div>
                     
                     <div className="space-y-4">
-                      <button className="glossy-btn w-full text-black font-bold py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg">
+                      <button className="glossy-btn w-full text-black font-bold py-3 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 text-base">
                         Play Now
                       </button>
-                      <button className="glass-effect w-full text-white font-semibold py-4 rounded-full border border-yellow-400 hover:bg-white hover:bg-opacity-10 transition-all duration-300">
+                      <button className="glass-effect w-full text-white font-semibold py-3 rounded-full border border-yellow-400 hover:bg-white hover:bg-opacity-10 transition-all duration-300 text-sm">
                         Read Full Review
                       </button>
                     </div>
 
-                    <div className="text-center text-gray-400 text-sm">
+                    <div className="text-center text-gray-400 text-xs">
                       <p>18+ | Terms & Conditions Apply</p>
                       <p>Gamble Responsibly</p>
                     </div>
