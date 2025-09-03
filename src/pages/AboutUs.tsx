@@ -1,8 +1,11 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Shield, Users, Award, Target, Heart, Star, Clock, CheckCircle } from 'lucide-react';
+import { useGeoLocation } from '../hooks/useGeoLocation';
 
 const AboutUs = () => {
+  const { country } = useGeoLocation();
+
   const teamMembers = [
     {
       name: "Sarah Johnson",
@@ -60,9 +63,9 @@ const AboutUs = () => {
   return (
     <>
       <Helmet>
-        <title>About Elite Wins - Your Trusted Casino Review Experts</title>
-        <meta name="description" content="Learn about Elite Wins' mission to provide honest casino reviews, expert analysis, and player protection. Meet our team of gaming industry professionals." />
-        <meta name="keywords" content="casino review experts, gambling professionals, online casino analysis, player protection" />
+        <title>{`About Elite Wins - Your Trusted Casino Review Experts for ${country} Players`}</title>
+        <meta name="description" content={`Learn about Elite Wins' mission to provide honest casino reviews, expert analysis, and player protection for ${country} residents. Meet our team of gaming industry professionals.`} />
+        <meta name="keywords" content={`casino review experts ${country}, gambling professionals ${country}, online casino analysis, player protection ${country}`} />
       </Helmet>
 
       <div className="pt-20 min-h-screen">
@@ -73,7 +76,7 @@ const AboutUs = () => {
               About Elite Wins
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Your trusted partner in finding the world's best online casinos. We combine industry expertise with player advocacy to deliver honest, comprehensive reviews.
+              Your trusted partner in finding the world's best online casinos for {country} players. We combine industry expertise with player advocacy to deliver honest, comprehensive reviews tailored for {country} residents.
             </p>
           </div>
 
@@ -85,10 +88,10 @@ const AboutUs = () => {
                   Our Mission
                 </h2>
                 <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                  At Elite Wins, we believe every player deserves a safe, fair, and enjoyable gaming experience. Our mission is to bridge the gap between players and reputable online casinos through transparent reviews, expert analysis, and unwavering commitment to player protection.
+                  At Elite Wins, we believe every {country} player deserves a safe, fair, and enjoyable gaming experience. Our mission is to bridge the gap between {country} players and reputable online casinos through transparent reviews, expert analysis, and unwavering commitment to player protection.
                 </p>
                 <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                  We don't just review casinos – we test them rigorously, analyze their practices, and ensure they meet our strict standards for security, fairness, and player satisfaction.
+                  We don't just review casinos – we test them rigorously with a focus on {country} player needs, analyze their practices, and ensure they meet our strict standards for security, fairness, and player satisfaction in {country}.
                 </p>
                 <div className="flex items-center text-yellow-400">
                   <Heart className="h-6 w-6 mr-2" />
@@ -196,7 +199,7 @@ const AboutUs = () => {
               Questions About Our Reviews?
             </h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              We're always here to help. Contact our team of experts for personalized recommendations or any questions about our review process.
+              We're always here to help {country} players. Contact our team of experts for personalized recommendations or any questions about our review process for {country} casinos.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="glossy-btn text-black font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">

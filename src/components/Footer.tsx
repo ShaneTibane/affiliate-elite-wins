@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Twitter, Facebook, Instagram, Youtube } from 'lucide-react';
 import Logo from './Logo';
+import { useGeoLocation } from '../hooks/useGeoLocation';
 
 const Footer = () => {
+  const { country } = useGeoLocation();
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
@@ -56,7 +58,7 @@ const Footer = () => {
             </Link>
             
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Your trusted partner for honest casino reviews, exclusive bonuses, and expert gaming advice. We help players find the perfect online casino experience.
+              Your trusted partner for honest casino reviews, exclusive bonuses, and expert gaming advice. We help {country} players find the perfect online casino experience.
             </p>
             
             <div className="space-y-3">
@@ -213,8 +215,8 @@ const Footer = () => {
           <div className="mt-4 pt-4 border-t border-gray-700">
             <p className="text-gray-500 text-xs text-center leading-relaxed">
               <strong>Affiliate Disclaimer:</strong> Elite Wins may receive compensation when you click on links to casinos on our website. 
-              This does not influence our reviews or rankings, which are based on our independent analysis and testing. 
-              We are committed to providing honest, unbiased information to help you make informed decisions about online gambling.
+              This does not influence our reviews or rankings, which are based on our independent analysis and testing specifically for {country} players. 
+              We are committed to providing honest, unbiased information to help {country} residents make informed decisions about online gambling.
             </p>
           </div>
 
@@ -275,10 +277,10 @@ const Footer = () => {
           {/* Additional Disclaimer */}
           <div className="mt-6 pt-4 border-t border-gray-700">
             <p className="text-gray-500 text-xs text-center leading-relaxed">
-              <strong>Disclaimer:</strong> The information provided on this website is for informational purposes only and should not be considered as professional advice. 
-              Gambling involves risk and may not be suitable for all individuals. Please gamble responsibly and within your means. 
+              <strong>Disclaimer:</strong> The information provided on this website is for informational purposes only for {country} residents and should not be considered as professional advice. 
+              Gambling involves risk and may not be suitable for all individuals in {country}. Please gamble responsibly and within your means. 
               If you believe you may have a gambling problem, please seek help from organizations such as GamCare, Gamblers Anonymous, or similar support groups in your jurisdiction. 
-              Elite Wins is not responsible for any losses incurred as a result of gambling activities. 
+              Elite Wins is not responsible for any losses incurred as a result of gambling activities by {country} players. 
               All casino reviews and ratings are based on our independent analysis at the time of review and may change. 
               Always verify current terms and conditions directly with the casino before playing.
             </p>

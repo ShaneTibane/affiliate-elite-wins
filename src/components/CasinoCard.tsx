@@ -1,5 +1,7 @@
 import React from "react";
 import { Star, Zap, Shield, Users, Clock, Gift } from "lucide-react";
+import { useGeoLocation } from "../hooks/useGeoLocation";
+
 // Define the shape of casino data
 interface Casino {
   id: number;
@@ -24,6 +26,8 @@ interface CasinoCardProps {
 
 
 const CasinoCard: React.FC<CasinoCardProps> = ({ casino }) => {
+  const { country } = useGeoLocation();
+
   return (
     <div className="casino-card glass-dark rounded-2xl p-6 shadow-xl relative overflow-hidden">
       {/* COTM Ribbon */}
@@ -105,7 +109,7 @@ const CasinoCard: React.FC<CasinoCardProps> = ({ casino }) => {
 
           <div className="text-center text-gray-400 text-xs">
             <p>18+ | Terms & Conditions Apply</p>
-            <p>Gamble Responsibly</p>
+            <p>Gamble Responsibly in {country}</p>
           </div>
         </div>
       </div>

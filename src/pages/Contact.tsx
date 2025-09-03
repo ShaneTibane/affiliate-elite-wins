@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Mail, Phone, MapPin, Clock, Send, MessageCircle, Shield, Star } from 'lucide-react';
+import { useGeoLocation } from '../hooks/useGeoLocation';
 
 const Contact = () => {
+  const { country } = useGeoLocation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -56,9 +58,9 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Elite Wins - Expert Casino Review Support</title>
-        <meta name="description" content="Get in touch with Elite Wins' casino experts. Contact us for personalized recommendations, questions about our reviews, or general support." />
-        <meta name="keywords" content="contact casino experts, casino review support, gambling advice, online casino help" />
+        <title>{`Contact Elite Wins - Expert Casino Review Support for ${country} Players`}</title>
+        <meta name="description" content={`Get in touch with Elite Wins' casino experts. Contact us for personalized recommendations for ${country} players, questions about our reviews, or general support.`} />
+        <meta name="keywords" content={`contact casino experts ${country}, casino review support ${country}, gambling advice ${country}, online casino help`} />
       </Helmet>
 
       <div className="pt-20 min-h-screen">
@@ -69,7 +71,7 @@ const Contact = () => {
               Contact Our Experts
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Have questions about our casino reviews? Need personalized recommendations? Our team of experts is here to help you find the perfect gaming experience.
+              Have questions about our casino reviews? Need personalized recommendations for {country} players? Our team of experts is here to help you find the perfect gaming experience in {country}.
             </p>
           </div>
 
@@ -229,6 +231,7 @@ const Contact = () => {
                   "Elite Wins team helped me find the perfect casino for my preferences. Their expert advice saved me time and money!"
                 </p>
                 <p className="text-yellow-400 font-semibold text-sm">- Sarah M., Verified Player</p>
+                <p className="text-yellow-400 font-semibold text-sm">- Sarah M., Verified {country} Player</p>
               </div>
             </div>
           </div>
