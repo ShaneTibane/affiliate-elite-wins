@@ -35,10 +35,10 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: Twitter, href: 'https://twitter.com/Elite Wins', label: 'Twitter' },
-    { icon: Facebook, href: 'https://facebook.com/Elite Wins', label: 'Facebook' },
-    { icon: Instagram, href: 'https://instagram.com/Elite Wins', label: 'Instagram' },
-    { icon: Youtube, href: 'https://youtube.com/Elite Wins', label: 'YouTube' }
+    { icon: Twitter, href: 'https://twitter.com/Elite Casinos', label: 'Twitter' },
+    { icon: Facebook, href: 'https://facebook.com/Elite Casinos', label: 'Facebook' },
+    { icon: Instagram, href: 'https://instagram.com/Elite Casinos', label: 'Instagram' },
+    { icon: Youtube, href: 'https://youtube.com/Elite Casinos', label: 'YouTube' }
   ];
 
   return (
@@ -51,7 +51,7 @@ const Footer = () => {
             <Link to="/" className="flex items-center space-x-2 mb-6 group">
               <Logo size="lg" className="group-hover:scale-110 transition-transform duration-300" />
               <span className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-                Elite Wins
+                Elite Casinos
               </span>
             </Link>
             
@@ -191,7 +191,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-center md:text-left">
               <p className="text-gray-400 text-sm">
-                © {currentYear} Elite Wins. All rights reserved.
+                © {currentYear} Elite Casinos. All rights reserved.
               </p>
               <p className="text-gray-500 text-xs mt-1">
                 Licensed and regulated. Gambling can be addictive. Play responsibly.
@@ -212,7 +212,7 @@ const Footer = () => {
           {/* Affiliate Disclaimer */}
           <div className="mt-4 pt-4 border-t border-gray-700">
             <p className="text-gray-500 text-xs text-center leading-relaxed">
-              <strong>Affiliate Disclaimer:</strong> Elite Wins may receive compensation when you click on links to casinos on our website. 
+              <strong>Affiliate Disclaimer:</strong> Elite Casinos may receive compensation when you click on links to casinos on our website. 
               This does not influence our reviews or rankings, which are based on our independent analysis and testing. 
               We are committed to providing honest, unbiased information to help you make informed decisions about online gambling.
             </p>
@@ -278,7 +278,7 @@ const Footer = () => {
               <strong>Disclaimer:</strong> The information provided on this website is for informational purposes only and should not be considered as professional advice. 
               Gambling involves risk and may not be suitable for all individuals. Please gamble responsibly and within your means. 
               If you believe you may have a gambling problem, please seek help from organizations such as GamCare, Gamblers Anonymous, or similar support groups in your jurisdiction. 
-              Elite Wins is not responsible for any losses incurred as a result of gambling activities. 
+              Elite Casinos is not responsible for any losses incurred as a result of gambling activities. 
               All casino reviews and ratings are based on our independent analysis at the time of review and may change. 
               Always verify current terms and conditions directly with the casino before playing.
             </p>

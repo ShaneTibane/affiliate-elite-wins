@@ -56,8 +56,8 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Elite Wins - Expert Casino Review Support</title>
-        <meta name="description" content="Get in touch with Elite Wins' casino experts. Contact us for personalized recommendations, questions about our reviews, or general support." />
+        <title>Contact Elite Casinos - Expert Casino Review Support</title>
+        <meta name="description" content="Get in touch with Elite Casinos' casino experts. Contact us for personalized recommendations, questions about our reviews, or general support." />
         <meta name="keywords" content="contact casino experts, casino review support, gambling advice, online casino help" />
       </Helmet>
 
@@ -226,7 +226,7 @@ const Contact = () => {
                   ))}
                 </div>
                 <p className="text-gray-300 text-sm italic mb-3">
-                  "Elite Wins team helped me find the perfect casino for my preferences. Their expert advice saved me time and money!"
+                  "Elite Casinos team helped me find the perfect casino for my preferences. Their expert advice saved me time and money!"
                 </p>
                 <p className="text-yellow-400 font-semibold text-sm">- Sarah M., Verified Player</p>
               </div>

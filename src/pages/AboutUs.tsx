@@ -60,8 +60,8 @@ const AboutUs = () => {
   return (
     <>
       <Helmet>
-        <title>About Elite Wins - Your Trusted Casino Review Experts</title>
-        <meta name="description" content="Learn about Elite Wins' mission to provide honest casino reviews, expert analysis, and player protection. Meet our team of gaming industry professionals." />
+        <title>About Elite Casinos - Your Trusted Casino Review Experts</title>
+        <meta name="description" content="Learn about Elite Casinos' mission to provide honest casino reviews, expert analysis, and player protection. Meet our team of gaming industry professionals." />
         <meta name="keywords" content="casino review experts, gambling professionals, online casino analysis, player protection" />
       </Helmet>
 
@@ -70,7 +70,7 @@ const AboutUs = () => {
           {/* Header */}
           <div className="text-center mb-16">
             <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-              About Elite Wins
+              About Elite Casinos
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Your trusted partner in finding the world's best online casinos. We combine industry expertise with player advocacy to deliver honest, comprehensive reviews.
@@ -85,7 +85,7 @@ const AboutUs = () => {
                   Our Mission
                 </h2>
                 <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                  At Elite Wins, we believe every player deserves a safe, fair, and enjoyable gaming experience. Our mission is to bridge the gap between players and reputable online casinos through transparent reviews, expert analysis, and unwavering commitment to player protection.
+                  At Elite Casinos, we believe every player deserves a safe, fair, and enjoyable gaming experience. Our mission is to bridge the gap between players and reputable online casinos through transparent reviews, expert analysis, and unwavering commitment to player protection.
                 </p>
                 <p className="text-lg text-gray-300 mb-8 leading-relaxed">
                   We don't just review casinos – we test them rigorously, analyze their practices, and ensure they meet our strict standards for security, fairness, and player satisfaction.

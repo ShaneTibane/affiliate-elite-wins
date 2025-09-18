@@ -35,7 +35,7 @@ const Header = () => {
           <Link to="/" className="flex items-center space-x-2 group">
             <Logo size="md" className="group-hover:scale-110 transition-transform duration-300" />
             <span className="text-2xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-              Elite Wins
+              Elite Casinos
             </span>
           </Link>
 
