@@ -126,7 +126,7 @@ const CasinoReviews = () => {
   return (
     <>
       <Helmet>
-        <title>Casino Reviews - Elite Wins | In-Depth Casino Analysis</title>
+        <title>Casino Reviews - Elite Casinos | In-Depth Casino Analysis</title>
         <meta name="description" content="Read comprehensive casino reviews with ratings, bonuses, pros & cons. Find the perfect online casino for your gaming preferences." />
         <meta name="keywords" content="casino reviews, online casino ratings, casino bonuses, gambling reviews" />
       </Helmet>

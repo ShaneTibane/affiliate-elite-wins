@@ -141,8 +141,8 @@ const Blog = () => {
   return (
     <>
       <Helmet>
-        <title>Casino Blog - Elite Wins | Expert Gaming Insights & Tips</title>
-        <meta name="description" content="Read the latest casino news, gaming tips, and expert insights from Elite Wins. Stay updated with industry trends and winning strategies." />
+        <title>Casino Blog - Elite Casinos | Expert Gaming Insights & Tips</title>
+        <meta name="description" content="Read the latest casino news, gaming tips, and expert insights from Elite Casinos. Stay updated with industry trends and winning strategies." />
         <meta name="keywords" content="casino blog, gambling tips, casino news, gaming strategies, online casino insights" />
       </Helmet>
 

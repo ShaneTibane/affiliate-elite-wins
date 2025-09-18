@@ -255,8 +255,8 @@ const casinos = [
     <>
       <Helmet>
         <title>Best Online Casinos - Top Online Casinos in 2025</title>
-        <meta name="description" content="Discover the best online casinos with exclusive bonuses, honest reviews, and top promotions. Join Elite Wins for premium casino experiences." />
-        <meta name="keywords" content={`${country} online casinos, casino reviews ${country}, best casinos ${countryCode}, online gambling ${country}`} />
+        <meta name="description" content="Discover the best online casinos with exclusive bonuses, honest reviews, and top promotions. Join Elite Casinos for premium casino experiences." />
+        <meta name="keywords" content="online casino, casino bonus, casino reviews, gambling, slots, jackpots" />
       </Helmet>
 {/* */}
       <div className="pt-20">
@@ -278,7 +278,7 @@ const casinos = [
                Best Online Casinos In {country} 2025
             </h1>
             <p className="text-base md:text-lg text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-              Welcome to Elite Wins, your trusted partner in finding the top online casinos in Australia for 2025. Whether you're a seasoned player or just getting started, we'll guide you through the best online casino platforms that offers the biggest bonuses, exciting online pokies, and secure real-money gameplay.
+              Welcome to Elite Casinos, your trusted partner in finding the top online casinos in Australia for 2025. Whether you're a seasoned player or just getting started, we'll guide you through the best online casino platforms that offers the biggest bonuses, exciting online pokies, and secure real-money gameplay.
             </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Link
@@ -1623,10 +1623,10 @@ const casinos = [
         <section className="py-20 relative">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold text-center mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-              Why Choose Elite Wins?
+              Why Choose Elite Casinos?
             </h2>
             <p className="text-xl text-gray-300 text-center max-w-4xl mx-auto mb-16 leading-relaxed">
-              At Elite Wins, our mission is to guide Australian players toward the best online casino sites that accept AUD deposits and withdrawals. We only recommend casinos that are fully secure, reliable, and tailored for Aussie players. Whether you enjoy classic table games like roulette, blackjack, craps, baccarat, or sic bo, or prefer spinning the reels on real money online pokies, Elite Wins ensures you'll find safe, top-rated platforms to play and win.
+              At Elite Casinos, our mission is to guide Australian players toward the best online casino sites that accept AUD deposits and withdrawals. We only recommend casinos that are fully secure, reliable, and tailored for Aussie players. Whether you enjoy classic table games like roulette, blackjack, craps, baccarat, or sic bo, or prefer spinning the reels on real money online pokies, Elite Casinos ensures you'll find safe, top-rated platforms to play and win.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
@@ -1734,7 +1734,7 @@ const casinos = [
                 Ready to Win Big?
               </h2>
               <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-                Join thousands of players who trust Elite Wins for the best casino experiences and exclusive bonuses
+                Join thousands of players who trust Elite Casinos for the best casino experiences and exclusive bonuses
               </p>
               <Link
                 to="/casino-reviews"
