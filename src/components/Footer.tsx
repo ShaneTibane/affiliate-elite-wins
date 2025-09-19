@@ -251,30 +251,6 @@ const Footer = () => {
                 </svg>
                 <span className="text-gray-400 text-sm font-medium">256-bit Encryption</span>
               </div>
-              
-              {/* Help Online */}
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-blue-500 rounded flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">H</span>
-                </div>
-                <span className="text-gray-400 text-sm font-medium">Help Online</span>
-              </div>
-              
-              {/* Community */}
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-orange-500 rounded flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">C</span>
-                </div>
-                <span className="text-gray-400 text-sm font-medium">Community</span>
-              </div>
-              
-              {/* As Seen On */}
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-purple-500 rounded flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">AS</span>
-                </div>
-                <span className="text-gray-400 text-sm font-medium">As Seen On</span>
-              </div>
             </div>
           </div>
 
