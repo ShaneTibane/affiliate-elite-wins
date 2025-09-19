@@ -1,34 +1,11 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Shield, Users, Award, Target, Heart, Star, Clock, CheckCircle } from 'lucide-react';
+import { Shield, Users, Award, Target, Heart } from 'lucide-react';
 import { useGeoLocation } from '../hooks/useGeoLocation';
 
 const AboutUs = () => {
   const { country } = useGeoLocation();
 
-  const teamMembers = [
-    {
-      name: "Sarah Johnson",
-      role: "Chief Casino Analyst",
-      experience: "12+ years",
-      image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=300&h=300",
-      expertise: ["Live Casino Review", "Bonus Analysis", "Player Safety"]
-    },
-    {
-      name: "Michael Chen",
-      role: "Security Expert",
-      experience: "15+ years",
-      image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=300&h=300",
-      expertise: ["Cybersecurity", "License Verification", "Payment Security"]
-    },
-    {
-      name: "Elena Rodriguez",
-      role: "Gaming Specialist",
-      experience: "10+ years",
-      image: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=300&h=300",
-      expertise: ["Slot Games", "Software Testing", "Mobile Gaming"]
-    }
-  ];
 
   const values = [
     {
@@ -131,44 +108,6 @@ const AboutUs = () => {
             </div>
           </div>
 
-          {/* Team Section */}
-          <div className="mb-16">
-            <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-              Meet Our Expert Team
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {teamMembers.map((member, index) => (
-                <div key={index} className="casino-card glass-dark rounded-2xl p-8 text-center group">
-                  <div className="relative mb-6">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-32 h-32 rounded-full mx-auto border-4 border-yellow-400 shadow-lg group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute -top-2 -right-2 bg-gradient-to-r from-yellow-400 to-yellow-200 text-black w-8 h-8 rounded-full flex items-center justify-center">
-                      <Star className="h-4 w-4" />
-                    </div>
-                  </div>
-                  
-                  <h3 className="text-2xl font-bold text-white mb-2">{member.name}</h3>
-                  <p className="text-yellow-400 font-semibold mb-2">{member.role}</p>
-                  <div className="flex items-center justify-center text-gray-400 mb-4">
-                    <Clock className="h-4 w-4 mr-2" />
-                    <span>{member.experience} experience</span>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    {member.expertise.map((skill, skillIndex) => (
-                      <div key={skillIndex} className="flex items-center text-gray-300">
-                        <CheckCircle className="h-4 w-4 text-green-400 mr-2" />
-                        <span>{skill}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
 
           {/* Process Section */}
           <div className="glass-effect rounded-3xl p-12 mb-16">
