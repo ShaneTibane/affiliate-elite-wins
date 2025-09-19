@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Star, Shield, Zap, Users, Clock, Gift, Filter } from 'lucide-react';
 import CasinoCard from '../components/CasinoCard';
-import VipListForm from '../components/VipListForm';
 
 const CasinoReviews = () => {
   const [selectedFilter, setSelectedFilter] = useState('all');
