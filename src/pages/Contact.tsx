@@ -31,7 +31,7 @@ const Contact = () => {
       icon: Mail,
       title: "Email Support",
       description: "Get detailed responses within 24 hours",
-      contact: "support@elitewins.net",
+      contact: "support@elitecasinos.net",
       available: "24/7"
     }
   ];

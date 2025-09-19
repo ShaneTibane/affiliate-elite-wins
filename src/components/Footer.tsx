@@ -11,22 +11,12 @@ const Footer = () => {
   const footerLinks = {
     company: [
       { name: 'About Us', path: '/about' },
-      { name: 'Our Team', path: '/about#team' },
-      { name: 'Careers', path: '/careers' },
-      { name: 'Press', path: '/press' }
     ],
     reviews: [
       { name: 'Casino Reviews', path: '/casino-reviews' },
-      { name: 'Latest Promotions', path: '/promotions' },
-      { name: 'Blog', path: '/blog' },
-      { name: 'Game Reviews', path: '/games' },
-      { name: 'Bonus Guide', path: '/bonus-guide' }
     ],
     support: [
       { name: 'Contact Us', path: '/contact' },
-      { name: 'Help Center', path: '/help' },
-      { name: 'Responsible Gaming', path: '/responsible-gaming' },
-      { name: 'Problem Gambling', path: '/problem-gambling' }
     ],
     legal: [
       { name: 'Terms of Service', path: '/terms' },
@@ -64,7 +54,7 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center text-gray-300">
                 <Mail className="h-5 w-5 text-yellow-400 mr-3" />
-                <span>support@elitewins.net</span>
+                <span>support@elitecasinos.net</span>
               </div>
               
             </div>
@@ -153,38 +143,7 @@ const Footer = () => {
         </div>
 
         {/* Social Media & Newsletter */}
-        <div className="border-t border-yellow-400/20 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            {/* Social Media */}
-            <div className="flex items-center space-x-6">
-              <span className="text-white font-semibold">Follow Us:</span>
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="glass-effect p-3 rounded-full hover:bg-yellow-400 hover:bg-opacity-20 transition-all duration-300 hover:scale-110 transform"
-                >
-                  <social.icon className="h-5 w-5 text-gray-300 hover:text-yellow-400 transition-colors" />
-                </a>
-              ))}
-            </div>
-
-            {/* Newsletter Signup */}
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md">
-              <input
-                type="email"
-                placeholder="Subscribe to our newsletter"
-                className="flex-1 px-4 py-3 rounded-full bg-black bg-opacity-30 border border-yellow-400/30 text-white placeholder-gray-400 focus:outline-none focus:border-yellow-400 text-sm"
-              />
-              <button className="glossy-btn text-black font-semibold px-6 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </div>
+        
       </div>
 
       {/* Bottom Bar */}
