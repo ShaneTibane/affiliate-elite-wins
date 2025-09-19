@@ -158,10 +158,6 @@ const CasinoReviews = () => {
           </div>
 
           {/* Bottom CTA */}
-          <div className="mb-16">
-            <VipListForm />
-          </div>
-
           <div className="text-center mt-16">
             <div className="glass-effect rounded-2xl p-8 max-w-2xl mx-auto">
               <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
