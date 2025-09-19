@@ -226,10 +226,30 @@ const Footer = () => {
             <div className="flex flex-wrap justify-center items-center gap-8 opacity-60 hover:opacity-80 transition-opacity duration-300">
               {/* Trustpilot */}
               <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-green-500 rounded flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">T</span>
-                </div>
-                <span className="text-gray-400 text-sm font-medium">Trustpilot</span>
+                <img 
+                  src="https://cdn.trustpilot.net/brand-assets/4.1.0/logo-white.svg" 
+                  alt="Trustpilot" 
+                  className="h-6 w-auto"
+                />
+              </div>
+              
+              {/* SSL Secured */}
+              <div className="flex items-center space-x-2">
+                <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2L3 7V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V7L12 2Z" fill="#10B981"/>
+                  <path d="M9 12L11 14L15 10" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                <span className="text-gray-400 text-sm font-medium">SSL Secured</span>
+              </div>
+              
+              {/* 256-bit Encryption */}
+              <div className="flex items-center space-x-2">
+                <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="3" y="11" width="18" height="10" rx="2" ry="2" fill="#EF4444"/>
+                  <circle cx="12" cy="16" r="1" fill="white"/>
+                  <path d="M7 11V7C7 4.79086 8.79086 3 11 3H13C15.2091 3 17 4.79086 17 7V11" stroke="#EF4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                <span className="text-gray-400 text-sm font-medium">256-bit Encryption</span>
               </div>
               
               {/* Help Online */}
@@ -240,14 +260,6 @@ const Footer = () => {
                 <span className="text-gray-400 text-sm font-medium">Help Online</span>
               </div>
               
-              {/* As Seen On */}
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-purple-500 rounded flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">AS</span>
-                </div>
-                <span className="text-gray-400 text-sm font-medium">As Seen On</span>
-              </div>
-              
               {/* Community */}
               <div className="flex items-center space-x-2">
                 <div className="w-8 h-8 bg-orange-500 rounded flex items-center justify-center">
@@ -256,20 +268,12 @@ const Footer = () => {
                 <span className="text-gray-400 text-sm font-medium">Community</span>
               </div>
               
-              {/* SSL Secured */}
+              {/* As Seen On */}
               <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-green-600 rounded flex items-center justify-center">
-                  <span className="text-white font-bold text-xs">SSL</span>
+                <div className="w-8 h-8 bg-purple-500 rounded flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">AS</span>
                 </div>
-                <span className="text-gray-400 text-sm font-medium">SSL Secured</span>
-              </div>
-              
-              {/* 256-bit Encryption */}
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-red-500 rounded flex items-center justify-center">
-                  <span className="text-white font-bold text-xs">256</span>
-                </div>
-                <span className="text-gray-400 text-sm font-medium">256-bit Encryption</span>
+                <span className="text-gray-400 text-sm font-medium">As Seen On</span>
               </div>
             </div>
           </div>
