@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Star, Shield, Zap, Users, Clock, Gift, Filter } from 'lucide-react';
+import CasinoCard from '../components/CasinoCard';
 import VipListForm from '../components/VipListForm';
 
 const CasinoReviews = () => {
@@ -14,8 +15,7 @@ const CasinoReviews = () => {
       rating: 4.8,
       bonus: "200% up to $2,000 + 100 Free Spins",
       description: "Experience the ultimate in luxury gaming with Royal Palace Casino's extensive collection of premium slots and live dealer games.",
-      pros: ["Excellent customer support", "Fast withdrawals", "VIP program", "Mobile optimized"],
-      cons: ["High wagering requirements", "Limited cryptocurrency options"],
+      isCasinoOfTheMonth: true,
       features: {
         games: "2000+",
         license: "Malta Gaming Authority",
@@ -31,8 +31,6 @@ const CasinoReviews = () => {
       rating: 4.7,
       bonus: "100 Free Spins No Deposit",
       description: "Diamond Jackpot offers an impressive selection of progressive jackpots and innovative slot games with stunning graphics.",
-      pros: ["No deposit bonus", "Progressive jackpots", "Regular tournaments", "Crypto friendly"],
-      cons: ["Limited live dealer games", "Restricted in some countries"],
       features: {
         games: "1500+",
         license: "Curacao eGaming",
@@ -48,8 +46,6 @@ const CasinoReviews = () => {
       rating: 4.9,
       bonus: "$500 Welcome Package + 200 FS",
       description: "Golden Crown stands out with its exceptional live casino experience and exclusive VIP rewards program.",
-      pros: ["Premium live dealers", "Exclusive VIP perks", "High betting limits", "Multiple languages"],
-      cons: ["Higher minimum deposits", "Complex bonus terms"],
       features: {
         games: "1800+",
         license: "UK Gambling Commission",
@@ -65,8 +61,6 @@ const CasinoReviews = () => {
       rating: 4.6,
       bonus: "150% up to $1,500",
       description: "Lucky Stars Casino provides a perfect balance of classic and modern games with generous daily promotions.",
-      pros: ["Daily promotions", "Classic game variety", "User-friendly interface", "Regular bonuses"],
-      cons: ["Limited payment methods", "Average customer support"],
       features: {
         games: "1200+",
         license: "Malta Gaming Authority",
@@ -82,8 +76,6 @@ const CasinoReviews = () => {
       rating: 4.9,
       bonus: "$1,000 High Roller Bonus",
       description: "Platinum Elite caters to high rollers with exclusive tables, personal account managers, and luxury rewards.",
-      pros: ["High roller focus", "Personal managers", "Luxury rewards", "Premium experience"],
-      cons: ["High minimum bets", "Exclusive membership required"],
       features: {
         games: "1000+",
         license: "Gibraltar Gambling Commission",
@@ -99,8 +91,6 @@ const CasinoReviews = () => {
       rating: 4.5,
       bonus: "50 Free Spins + 100% Match",
       description: "Neon Nights brings a modern, vibrant gaming experience with cutting-edge slots and innovative features.",
-      pros: ["Modern interface", "Innovative games", "Mobile-first design", "Social features"],
-      cons: ["New in market", "Limited game providers"],
       features: {
         games: "800+",
         license: "Curacao eGaming",
@@ -162,76 +152,9 @@ const CasinoReviews = () => {
           </div>
 
           {/* Casino Cards */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             {filteredCasinos.map((casino) => (
-              <div key={casino.id} className="casino-card glass-dark rounded-2xl p-6 shadow-xl">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                  {/* Casino Info */}
-                  <div className="lg:col-span-2">
-                    <div className="flex items-start gap-4 mb-4">
-                      <img
-                        src={casino.logo}
-                        alt={`${casino.name} logo`}
-                        className="w-16 h-16 rounded-xl border-2 border-yellow-400 shadow-md"
-                      />
-                      <div className="flex-1">
-                        <h2 className="text-2xl font-bold text-white mb-1">{casino.name}</h2>
-                        <div className="flex items-center gap-2 mb-3">
-                          <div className="flex items-center">
-                            {[...Array(5)].map((_, i) => (
-                              <Star
-                                key={i}
-                                className={`h-5 w-5 ${i < Math.floor(casino.rating) ? 'star-rating fill-current' : 'text-gray-600'}`}
-                              />
-                            ))}
-                            <span className="ml-1 text-yellow-400 font-bold text-lg">{casino.rating}</span>
-                          </div>
-                        </div>
-                        <p className="text-gray-300 text-sm leading-relaxed">{casino.description}</p>
-                      </div>
-                    </div>
-
-                    {/* Features Grid */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                      {Object.entries(casino.features).map(([key, value]) => (
-                        <div key={key} className="glass-effect rounded-lg p-3 text-center">
-                          <div className="text-yellow-400 mb-1">
-                            {key === 'games' && <Zap className="h-5 w-5 mx-auto" />}
-                            {key === 'license' && <Shield className="h-5 w-5 mx-auto" />}
-                            {key === 'support' && <Users className="h-5 w-5 mx-auto" />}
-                            {key === 'withdrawal' && <Clock className="h-5 w-5 mx-auto" />}
-                          </div>
-                          <p className="text-white font-semibold capitalize text-sm">{key}</p>
-                          <p className="text-gray-300 text-xs">{value}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Bonus & CTA */}
-                  <div className="space-y-4">
-                    <div className="bg-gradient-to-br from-yellow-400 to-yellow-200 rounded-xl p-4 text-center">
-                      <Gift className="h-6 w-6 text-black mx-auto mb-2" />
-                      <h3 className="text-black font-bold text-xl mb-1">Welcome Bonus</h3>
-                      <p className="text-black font-semibold text-md">{casino.bonus}</p>
-                    </div>
-                    
-                    <div className="space-y-4">
-                      <button className="glossy-btn w-full text-black font-bold py-3 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 text-base">
-                        Play Now
-                      </button>
-                      <button className="glass-effect w-full text-white font-semibold py-3 rounded-full border border-yellow-400 hover:bg-white hover:bg-opacity-10 transition-all duration-300 text-sm">
-                        Read Full Review
-                      </button>
-                    </div>
-
-                    <div className="text-center text-gray-400 text-xs">
-                      <p>18+ | Terms & Conditions Apply</p>
-                      <p>Gamble Responsibly</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <CasinoCard key={casino.id} casino={casino} />
             ))}
           </div>
 
