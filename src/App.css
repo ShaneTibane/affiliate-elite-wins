@@ -1,4 +1,19 @@
 /* Custom glassmorphism and glossy effects */
+@keyframes pulse-glow {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6), 0 0 30px rgba(255, 215, 0, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.1), 0 0 50px rgba(255, 215, 0, 0.5);
+  }
+}
+
+.glow-pulse {
+  animation: pulse-glow 5s infinite;
+}
+
 .glass-effect {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);

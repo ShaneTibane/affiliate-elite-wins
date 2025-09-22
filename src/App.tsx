@@ -11,6 +11,7 @@ import AboutUs from './pages/AboutUs';
 import Contact from './pages/Contact';
 import StickyFooter from './components/StickyFooter';
 import './App.css';
+import ScrollToTop from './ScrollToTop';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-800">
           <Header />
           <main>
+             <ScrollToTop />   {/* 👈 add this once, inside Router */}
             <Routes>
               <Route path="/" element={<LandingPage />} />
               <Route path="/casino-reviews" element={<CasinoReviews />} />
