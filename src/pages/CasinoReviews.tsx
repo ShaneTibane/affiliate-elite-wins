@@ -125,10 +125,10 @@ const CasinoReviews = () => {
           {/* Header */}
           <div className="text-center mb-12">
             <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-              Casino Reviews
+              Best Online Casinos In Canada 2025
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Discover comprehensive reviews of the world's top online casinos. Our expert analysis covers bonuses, games, security, and user experience.
+              Discover the best of Canadas top online casinos. Our expert analysis covers bonuses, games, security, and user experience.
             </p>
           </div>
 
@@ -151,11 +151,13 @@ const CasinoReviews = () => {
           </div>
 
           {/* Casino Cards */}
-          <div className="space-y-6">
+          <div className="space-y-6 max-w-5xl mx-auto p-4">
             {filteredCasinos.map((casino) => (
               <CasinoCard key={casino.id} casino={casino} />
             ))}
           </div>
+
+         
 
           {/* Bottom CTA */}
           <div className="text-center mt-16">
