@@ -176,28 +176,28 @@ const LandingPage = () => {
 
   const faqs = [
     {
-      question: "Are online casinos legal in Australia?",
-      answer: "Online casino gambling operates in a legal grey area in Australia. While the Interactive Gambling Act 2001 prohibits Australian companies from offering online casino services to Australian residents, it doesn't specifically prohibit Australians from playing at offshore online casinos. Many Australian players access international casino sites that accept AUD and cater to Australian players. However, it's important to understand the current laws and play responsibly."
+      question: "Are online casinos legal in Canada?",
+      answer: "Online casino gambling operates in a legal grey area in Canada. While the Interactive Gambling Act 2001 prohibits Canadan companies from offering online casino services to Canadan residents, it doesn't specifically prohibit Canadans from playing at offshore online casinos. Many Canadan players access international casino sites that accept AUD and cater to Canadan players. However, it's important to understand the current laws and play responsibly."
     },
     {
-      question: "What are the best online casino games for Australian players?",
-      answer: "Australian players enjoy a wide variety of casino games including online pokies (slots), blackjack, roulette, baccarat, craps, and sic bo. Online pokies are particularly popular among Aussie players, with thousands of titles available from top software providers like Microgaming, NetEnt, and Pragmatic Play. Live dealer games are also increasingly popular, offering an authentic casino experience from home."
+      question: "What are the best online casino games for Canadan players?",
+      answer: "Canadan players enjoy a wide variety of casino games including online pokies (slots), blackjack, roulette, baccarat, craps, and sic bo. Online pokies are particularly popular among Aussie players, with thousands of titles available from top software providers like Microgaming, NetEnt, and Pragmatic Play. Live dealer games are also increasingly popular, offering an authentic casino experience from home."
     },
     {
       question: "Can I play online casino games for real money in AUD?",
-      answer: "Yes, many reputable international online casinos accept Australian Dollar (AUD) deposits and withdrawals. This eliminates currency conversion fees and makes banking more convenient for Australian players. Look for casinos that specifically cater to the Australian market and offer AUD as a primary currency option."
+      answer: "Yes, many reputable international online casinos accept Canadan Dollar (AUD) deposits and withdrawals. This eliminates currency conversion fees and makes banking more convenient for Canadan players. Look for casinos that specifically cater to the Canadan market and offer AUD as a primary currency option."
     },
     {
-      question: "What payment methods can Australian players use at online casinos?",
-      answer: "Australian players have access to various payment methods including credit/debit cards (Visa, Mastercard), bank transfers, digital wallets (PayPal, Skrill, Neteller), prepaid cards (Paysafecard, Neosurf), mobile payments (Apple Pay, Google Pay), and cryptocurrencies (Bitcoin, Ethereum). Each method has different processing times and fee structures, so choose based on your preferences for speed and convenience."
+      question: "What payment methods can Canadan players use at online casinos?",
+      answer: "Canadan players have access to various payment methods including credit/debit cards (Visa, Mastercard), bank transfers, digital wallets (PayPal, Skrill, Neteller), prepaid cards (Paysafecard, Neosurf), mobile payments (Apple Pay, Google Pay), and cryptocurrencies (Bitcoin, Ethereum). Each method has different processing times and fee structures, so choose based on your preferences for speed and convenience."
     },
     {
       question: "How do I choose a safe and reliable online casino?",
       answer: "When selecting an online casino, look for valid gambling licenses from reputable jurisdictions like Malta, Gibraltar, or the UK. Check for SSL encryption, fair gaming certifications from eCOGRA or iTech Labs, positive player reviews, responsive customer support, and transparent terms and conditions. Avoid unlicensed operators and always verify the casino's reputation before depositing money."
     },
     {
-      question: "What bonuses are available at Australian online casinos?",
-      answer: "Australian players can access various casino bonuses including welcome bonuses (deposit matches and free spins), no deposit bonuses, reload bonuses, cashback offers, and VIP rewards. Welcome bonuses typically range from 100% to 200% match bonuses up to $1,000-$2,000, often accompanied by free spins on popular pokies. Always read the terms and conditions, including wagering requirements, before claiming any bonus."
+      question: "What bonuses are available at Canadan online casinos?",
+      answer: "Canadan players can access various casino bonuses including welcome bonuses (deposit matches and free spins), no deposit bonuses, reload bonuses, cashback offers, and VIP rewards. Welcome bonuses typically range from 100% to 200% match bonuses up to $1,000-$2,000, often accompanied by free spins on popular pokies. Always read the terms and conditions, including wagering requirements, before claiming any bonus."
     },
     {
       question: "What are wagering requirements and how do they work?",
@@ -208,7 +208,7 @@ const LandingPage = () => {
       answer: "Yes, most modern online casinos offer mobile-optimized websites and dedicated apps for iOS and Android devices. Mobile casinos provide access to hundreds of games including pokies, table games, and live dealer games. The mobile experience is designed to be user-friendly with touch-screen controls, fast loading times, and secure banking options. You can play anywhere with a stable internet connection."
     },
     {
-      question: "How long do withdrawals take at Australian online casinos?",
+      question: "How long do withdrawals take at Canadan online casinos?",
       answer: "Withdrawal times vary by payment method and casino processing policies. E-wallets (PayPal, Skrill) are typically fastest at 24-48 hours, credit/debit cards take 3-5 business days, and bank transfers can take 5-7 business days. Some casinos offer instant withdrawals for VIP players. Always complete account verification early to avoid delays, and check the casino's withdrawal limits and processing times before playing."
     }
   ];
@@ -279,7 +279,7 @@ const LandingPage = () => {
               Best Online Casinos In {country} 2025
             </h1>
             <p className="text-base md:text-lg text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-              Welcome to Elite Casinos, your trusted partner in finding the top online casinos in Australia for 2025. Whether you're a seasoned player or just getting started, we'll guide you through the best online casino platforms that offers the biggest bonuses, exciting online pokies, and secure real-money gameplay.
+              Welcome to Elite Casinos, your trusted partner in finding the top online casinos in Canada for 2025. Whether you're a seasoned player or just getting started, we'll guide you through the best online casino platforms that offers the biggest bonuses, exciting online pokies, and secure real-money gameplay.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
@@ -299,7 +299,7 @@ const LandingPage = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-                Top Online Casinos in Australia Comparison 2025
+                Top Online Casinos in Canada Comparison 2025
               </h2>
             </div>
 
@@ -641,12 +641,12 @@ const LandingPage = () => {
           <div className="mb-16 bg-gradient-to-br from-violet-900/80 to-purple-800/90 rounded-3xl p-8 border border-violet-500/30">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-                Discover the Best Australian Online Casinos by Game
+                Discover the Best Canadan Online Casinos by Game
               </h2>
               <div className="max-w-4xl mx-auto text-gray-300 space-y-4">
                 <p className="text-lg leading-relaxed">
-                  Looking for the top online casino games in Australia? Whether you're a fan of real money pokies and online slots,
-                  or you prefer classic table games like blackjack, baccarat, or roulette, Australia's leading casino sites have something for everyone.
+                  Looking for the top online casino games in Canada? Whether you're a fan of real money pokies and online slots,
+                  or you prefer classic table games like blackjack, baccarat, or roulette, Canada's leading casino sites have something for everyone.
                 </p>
                 <p className="text-lg leading-relaxed">
                   The best online casinos offer a massive game selection, often with demo play options so you can try before wagering.
@@ -660,12 +660,12 @@ const LandingPage = () => {
                 {
                   name: "Online Pokies",
                   icon: "🎰",
-                  description: "Spin the reels on Australia's most popular pokies with massive jackpots, bonus rounds, and free spins. From classic 3-reel slots to modern video pokies with stunning graphics."
+                  description: "Spin the reels on Canada's most popular pokies with massive jackpots, bonus rounds, and free spins. From classic 3-reel slots to modern video pokies with stunning graphics."
                 },
                 {
                   name: "Online Poker",
                   icon: "♠️",
-                  description: "Test your skills at Texas Hold'em, Omaha, and other poker variants. Join tournaments or cash games with players from around the world in Australia's top poker rooms."
+                  description: "Test your skills at Texas Hold'em, Omaha, and other poker variants. Join tournaments or cash games with players from around the world in Canada's top poker rooms."
                 },
                 {
                   name: "Online Roulette",
@@ -675,7 +675,7 @@ const LandingPage = () => {
                 {
                   name: "Online Blackjack",
                   icon: "🃏",
-                  description: "Master the art of 21 with classic blackjack, Spanish 21, and other exciting variants. Perfect your strategy and beat the dealer in Australia's premier blackjack games."
+                  description: "Master the art of 21 with classic blackjack, Spanish 21, and other exciting variants. Perfect your strategy and beat the dealer in Canada's premier blackjack games."
                 },
                 {
                   name: "Online Baccarat",
@@ -695,7 +695,7 @@ const LandingPage = () => {
                 {
                   name: "Online Craps",
                   icon: "🎲",
-                  description: "Roll the dice in this exciting table game with multiple betting options and social gameplay. Learn the basics or master advanced strategies in Australia's best craps games."
+                  description: "Roll the dice in this exciting table game with multiple betting options and social gameplay. Learn the basics or master advanced strategies in Canada's best craps games."
                 },
                 {
                   name: "Online Keno",
@@ -732,7 +732,7 @@ const LandingPage = () => {
                   Ready to Start Playing?
                 </h3>
                 <p className="text-gray-300 mb-6">
-                  Explore Australia's top-rated online casinos and find your perfect gaming experience today.
+                  Explore Canada's top-rated online casinos and find your perfect gaming experience today.
                 </p>
                   <button
       onClick={() => navigate("/casino-reviews")}
@@ -753,10 +753,10 @@ const LandingPage = () => {
               </h2>
               <div className="max-w-4xl mx-auto space-y-4">
                 <p className="text-lg text-gray-200 leading-relaxed">
-                  When playing at online casinos in Australia, securing the biggest bonuses can take your gaming to the next level. The right bonus means more spins, more playtime, and a greater chance to win real money.
+                  When playing at online casinos in Canada, securing the biggest bonuses can take your gaming to the next level. The right bonus means more spins, more playtime, and a greater chance to win real money.
                 </p>
                 <p className="text-lg text-gray-200 leading-relaxed">
-                  Below, we've compared the top Australian online casinos with the best bonuses in 2025, so you can quickly see which sites offer the most rewarding welcome packages, free spins, and ongoing promotions.
+                  Below, we've compared the top Canadan online casinos with the best bonuses in 2025, so you can quickly see which sites offer the most rewarding welcome packages, free spins, and ongoing promotions.
                 </p>
               </div>
             </div>
@@ -890,13 +890,13 @@ const LandingPage = () => {
             <div className="glass-effect rounded-3xl p-12">
               <div className="text-center mb-12">
                 <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-                  Step-by-Step Guide to Playing at Online Casinos in Australia
+                  Step-by-Step Guide to Playing at Online Casinos in Canada
                 </h2>
                 <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                  With so many online casinos available in Australia, choosing where to start can feel overwhelming—especially for beginners. The good news is that getting started is simple when you have the right guidance.
+                  With so many online casinos available in Canada, choosing where to start can feel overwhelming—especially for beginners. The good news is that getting started is simple when you have the right guidance.
                 </p>
                 <p className="text-lg text-gray-400 max-w-4xl mx-auto mt-4">
-                  This easy step-by-step guide, tailored for Australian players, will help you register, claim bonuses, and begin your online gambling journey with confidence.
+                  This easy step-by-step guide, tailored for Canadan players, will help you register, claim bonuses, and begin your online gambling journey with confidence.
                 </p>
               </div>
 
@@ -910,7 +910,7 @@ const LandingPage = () => {
                     {
                       step: "01",
                       title: "Choose a Licensed Casino",
-                      description: "Select a reputable online casino that's licensed and regulated. Look for casinos with proper Australian licensing or international licenses from Malta, UK, or Curacao. Check our reviews to find casinos with excellent security, fair games, and reliable customer support.",
+                      description: "Select a reputable online casino that's licensed and regulated. Look for casinos with proper Canadan licensing or international licenses from Malta, UK, or Curacao. Check our reviews to find casinos with excellent security, fair games, and reliable customer support.",
                       icon: "🛡️"
                     },
                     {
@@ -996,17 +996,17 @@ const LandingPage = () => {
             </div>
           </div>
 
-          {/* Online Gambling Tips For Australian Players */}
+          {/* Online Gambling Tips For Canadan Players */}
           <div className="bg-gradient-to-br from-gray-800 via-gray-900 to-purple-900 py-20">
             <div className="container mx-auto px-4">
               <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-                  Online Gambling Tips For Australian Players
+                  Online Gambling Tips For Canadan Players
                 </h2>
                 <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                  Master the art of online gambling with expert tips designed specifically for Australian players.
+                  Master the art of online gambling with expert tips designed specifically for Canadan players.
                   From bankroll management to game selection, these proven strategies will help you play smarter,
-                  stay safe, and maximize your entertainment value at Australia's top online casinos.
+                  stay safe, and maximize your entertainment value at Canada's top online casinos.
                 </p>
               </div>
 
@@ -1178,15 +1178,15 @@ const LandingPage = () => {
             </div>
           </div>
 
-          {/* Best Banking Options For Online Casinos In Australia */}
+          {/* Best Banking Options For Online Casinos In Canada */}
           <section className="py-20 relative">
             <div className="container mx-auto px-4">
               <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-                  Best Banking Options For Online Casinos In Australia
+                  Best Banking Options For Online Casinos In Canada
                 </h2>
                 <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                  Australian players have access to a wide variety of secure and convenient banking methods for online casino deposits and withdrawals.
+                  Canadan players have access to a wide variety of secure and convenient banking methods for online casino deposits and withdrawals.
                   From traditional bank transfers to modern digital wallets and cryptocurrencies, choose the payment option that best suits your needs.
                 </p>
               </div>
@@ -1315,7 +1315,7 @@ const LandingPage = () => {
                 {/* Banking Tips */}
                 <div className="border-t border-yellow-400/20 pt-12">
                   <h3 className="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-                    Smart Banking Tips for Australian Players
+                    Smart Banking Tips for Canadan Players
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {[
@@ -1369,16 +1369,16 @@ const LandingPage = () => {
             </div>
           </section>
 
-          {/* Online Casinos in Australia FAQs */}
+          {/* Online Casinos in Canada FAQs */}
           <section className="py-20 relative">
             <div className="container mx-auto px-4">
               <div className="text-center mb-16">
                 <HelpCircle className="h-16 w-16 text-yellow-400 mx-auto mb-6" />
                 <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-                  Online Casinos in Australia FAQs
+                  Online Casinos in Canada FAQs
                 </h2>
                 <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                  Get answers to the most common questions about playing at online casinos in Australia.
+                  Get answers to the most common questions about playing at online casinos in Canada.
                   Our expert team has compiled comprehensive answers to help you make informed decisions.
                 </p>
               </div>
@@ -1516,7 +1516,7 @@ const LandingPage = () => {
                 Why Choose Elite Casinos?
               </h2>
               <p className="text-xl text-gray-300 text-center max-w-4xl mx-auto mb-16 leading-relaxed">
-                At Elite Casinos, our mission is to guide Australian players toward the best online casino sites that accept AUD deposits and withdrawals. We only recommend casinos that are fully secure, reliable, and tailored for Aussie players. Whether you enjoy classic table games like roulette, blackjack, craps, baccarat, or sic bo, or prefer spinning the reels on real money online pokies, Elite Casinos ensures you'll find safe, top-rated platforms to play and win.
+                At Elite Casinos, our mission is to guide Canadan players toward the best online casino sites that accept AUD deposits and withdrawals. We only recommend casinos that are fully secure, reliable, and tailored for Aussie players. Whether you enjoy classic table games like roulette, blackjack, craps, baccarat, or sic bo, or prefer spinning the reels on real money online pokies, Elite Casinos ensures you'll find safe, top-rated platforms to play and win.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {[

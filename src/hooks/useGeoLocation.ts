@@ -9,7 +9,7 @@ interface GeoLocationData {
 
 export const useGeoLocation = (): GeoLocationData => {
   const [geoData, setGeoData] = useState<GeoLocationData>({
-    country: 'Australia', // Default fallback
+    country: 'Canada', // Default fallback
     countryCode: 'AU',
     loading: true,
     error: null
@@ -50,7 +50,7 @@ export const useGeoLocation = (): GeoLocationData => {
           try {
             // Use timezone as a fallback method
             const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-            let country = 'Australia'; // Default
+            let country = 'Canada'; // Default
             let countryCode = 'AU';
 
             // Map common timezones to countries
@@ -70,13 +70,13 @@ export const useGeoLocation = (): GeoLocationData => {
               'Europe/London': { country: 'United Kingdom', code: 'GB' },
               'Europe/Paris': { country: 'France', code: 'FR' },
               'Europe/Berlin': { country: 'Germany', code: 'DE' },
-              'Australia/Sydney': { country: 'Australia', code: 'AU' },
-              'Australia/Melbourne': { country: 'Australia', code: 'AU' },
-              'Australia/Perth': { country: 'Australia', code: 'AU' },
-              'Australia/Brisbane': { country: 'Australia', code: 'AU' },
-              'Australia/Adelaide': { country: 'Australia', code: 'AU' },
-              'Australia/Darwin': { country: 'Australia', code: 'AU' },
-              'Australia/Hobart': { country: 'Australia', code: 'AU' }
+              'Canada/Sydney': { country: 'Canada', code: 'AU' },
+              'Canada/Melbourne': { country: 'Canada', code: 'AU' },
+              'Canada/Perth': { country: 'Canada', code: 'AU' },
+              'Canada/Brisbane': { country: 'Canada', code: 'AU' },
+              'Canada/Adelaide': { country: 'Canada', code: 'AU' },
+              'Canada/Darwin': { country: 'Canada', code: 'AU' },
+              'Canada/Hobart': { country: 'Canada', code: 'AU' }
             };
 
             if (timezoneCountryMap[timezone]) {

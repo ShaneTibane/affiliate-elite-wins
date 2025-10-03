@@ -1,28 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { Star, Zap, Shield, Users, Clock, Gift } from "lucide-react";
 import { useGeoLocation } from "../hooks/useGeoLocation";
 
 // Define the shape of casino data
 interface Casino {
-  id: number;
+   id: string;
   name: string;
-  logo: string;
+  affiliateLink:string,
+  location: string;
   rating: number;
-  description: string;
-  bonus: string;
-  isCasinoOfTheMonth?: boolean;
-  features: {
-    games: string;
-    license: string;
-    support: string;
-    withdrawal: string;
-  };
+  affiliate: string,
+  bonus: string,
+  category: string,
+  description: string,
+  features: object,
+  imageUrl: string,
+  logo: string,
+  isCasinoOfTheMonth: boolean
+  
 }
 
 // Props type for the component
 interface CasinoCardProps {
   casino: Casino;
 }
+ 
 
 
 const CasinoCard: React.FC<CasinoCardProps> = ({ casino }) => {
@@ -42,7 +44,7 @@ const CasinoCard: React.FC<CasinoCardProps> = ({ casino }) => {
         <div className="lg:col-span-2">
           <div className="flex items-start gap-4 mb-4">
             <img
-              src={casino.logo}
+              src={casino.imageUrl}
               alt={`${casino.name} logo`}
               className="w-16 h-16 rounded-xl border-2 border-yellow-400 shadow-md"
             />

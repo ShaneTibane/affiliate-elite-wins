@@ -1,11 +1,51 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Star, Shield, Zap, Users, Clock, Gift, Filter } from 'lucide-react';
 import CasinoCard from '../components/CasinoCard';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from "../firebase";
+type Casino = {
+  id: string;
+  name: string;
+  affiliateLink:string,
+  location: string;
+  rating: number;
+  affiliate: string,
+  bonus: string,
+  category: string,
+  description: string,
+  features: object,
+  imageUrl: string,
+  logo: string,
+  isCasinoOfTheMonth: boolean
 
+
+
+};
 const CasinoReviews = () => {
+  const [loading, setLoading] = useState(true);
   const [selectedFilter, setSelectedFilter] = useState('all');
-  
+  const [testcasinos, setTestCasinos] = useState<Casino[]>([]);
+  useEffect(() => {
+    async function fetchData() {
+      setLoading(true);
+      try {
+        const querySnapshot = await getDocs(collection(db, "casinocards"));
+        const data: Casino[] = querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...(doc.data() as Omit<Casino, "id">), // cast doc.data()
+        }));
+        setTestCasinos(data);
+      } catch (err) {
+        console.error('Error fetching posts:', err);
+      } finally {
+        setLoading(false);
+      }
+
+    }
+    fetchData();
+  }, []);
+  console.log("DATA:::", testcasinos)
   const casinos = [
     {
       id: 1,
@@ -100,9 +140,9 @@ const CasinoReviews = () => {
     }
   ];
 
-  const filteredCasinos = selectedFilter === 'all' 
-    ? casinos 
-    : casinos.filter(casino => casino.category === selectedFilter);
+  const filteredCasinos = selectedFilter === 'all'
+    ? testcasinos
+    : testcasinos.filter(casino => casino.category === selectedFilter);
 
   const filters = [
     { value: 'all', label: 'All Casinos' },
@@ -138,11 +178,10 @@ const CasinoReviews = () => {
               <button
                 key={filter.value}
                 onClick={() => setSelectedFilter(filter.value)}
-                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                  selectedFilter === filter.value
+                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${selectedFilter === filter.value
                     ? 'glossy-btn text-black'
                     : 'glass-effect text-white hover:bg-white hover:bg-opacity-10'
-                }`}
+                  }`}
               >
                 <Filter className="inline h-4 w-4 mr-2" />
                 {filter.label}
@@ -157,7 +196,13 @@ const CasinoReviews = () => {
             ))}
           </div>
 
-         
+          {/* Loading State */}
+          {loading && (
+            <div className="text-center py-16">
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-400"></div>
+              <p className="text-gray-300 mt-4">Loading Casinos...</p>
+            </div>
+          )}
 
           {/* Bottom CTA */}
           <div className="text-center mt-16">
