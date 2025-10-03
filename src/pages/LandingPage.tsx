@@ -7,31 +7,94 @@ import { businessLogicService } from "../services/businessLogicService";
 import { ListPayload } from "../models/ListPayload";
 import { useGeoLocation } from '../hooks/useGeoLocation';
 import { useNavigate } from "react-router-dom";
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from "../firebase";
 // Match the interface with backend data
-interface Casino {
-  id: number;
+type Casino = {
+  id: string;
   name: string;
-  logo: string;
+  affiliateLink: string,
+  location: string;
   rating: number;
-  description: string;
-  bonus: string;
+  affiliate: string,
+  bonus: string,
+  category: string,
+  description: string,
   features: {
     games: string;
-    license: string;
     support: string;
     withdrawal: string;
+    license: string;
+    features: string;
+    freespins: string;
+    wagering:string;
+    mindeposit:string
   };
+   extraFeatures: {
+    freespins: string;
+    wagering:string;
+    mindeposit:string
+  };
+  imageUrl: string,
+  logo: string,
+  isCasinoOfTheMonth: boolean,
+  highlight: boolean,
+  games: string,
+  payoutTime: string,
+  isCasinoActive: boolean
+
+
+
+
 }
+
+
+
+
+
+
+
 const LandingPage = () => {
   // const [casinos, setCasinos] = useState<Casino[]>([]);
   // const [loading, setLoading] = useState(true);
   const [openFAQ, setOpenFAQ] = React.useState<number | null>(null);
   const { country, countryCode, loading: geoLoading } = useGeoLocation();
 
+  const [loading, setLoading] = useState(true);
+  const [testcasinos, setTestCasinos] = useState<Casino[]>([]);
+  const [casinoOfTheMonth, setCasinoOfTheMonth] = useState<Casino | null>(null);
+  useEffect(() => {
+    async function fetchData() {
+      setLoading(true);
+      try {
+        const querySnapshot = await getDocs(collection(db, "casinocards"));
+        const data: Casino[] = querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...(doc.data() as Omit<Casino, "id">), // cast doc.data()
+        }));
+        setTestCasinos(data);
+         const featuredCasino = data.find(casino => casino.isCasinoOfTheMonth);
+      if (featuredCasino) {
+        console.log("Casino of the Month:", featuredCasino);
+        setCasinoOfTheMonth(featuredCasino || null);
+        // You can set it in state if you want
+        // setCasinoOfTheMonth(featuredCasino);
+      }
+      } catch (err) {
+        console.error('Error fetching posts:', err);
+      } finally {
+        setLoading(false);
+      }
+
+    }
+    fetchData();
+  }, []);
+  console.log("DATA:::", testcasinos)
+
   const toggleFAQ = (index: number) => {
     setOpenFAQ(openFAQ === index ? null : index);
   };
- const navigate = useNavigate();
+  const navigate = useNavigate();
   const casinos = [
     {
       id: 1,
@@ -318,75 +381,22 @@ const LandingPage = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {[
-                    {
-                      name: "Royal Palace Casino",
-                      logo: "https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg?auto=compress&cs=tinysrgb&w=80&h=80",
-                      rating: 4.8,
-                      bonus: "200% up to $2,000",
-                      freeSpins: "100 FS",
-                      games: "2000+",
-                      payoutTime: "1-3 days",
-                      highlight: true
-                    },
-                    {
-                      name: "Golden Crown",
-                      logo: "https://images.pexels.com/photos/6963478/pexels-photo-6963478.jpeg?auto=compress&cs=tinysrgb&w=80&h=80",
-                      rating: 4.9,
-                      bonus: "$500 Package",
-                      freeSpins: "200 FS",
-                      games: "1800+",
-                      payoutTime: "Same day",
-                      highlight: false
-                    },
-                    {
-                      name: "Diamond Jackpot",
-                      logo: "https://images.pexels.com/photos/6963197/pexels-photo-6963197.jpeg?auto=compress&cs=tinysrgb&w=80&h=80",
-                      rating: 4.7,
-                      bonus: "100% up to $1,000",
-                      freeSpins: "50 FS",
-                      games: "1500+",
-                      payoutTime: "24-48 hours",
-                      highlight: false
-                    },
-                    {
-                      name: "Platinum Elite",
-                      logo: "https://images.pexels.com/photos/6963886/pexels-photo-6963886.jpeg?auto=compress&cs=tinysrgb&w=80&h=80",
-                      rating: 4.9,
-                      bonus: "$1,000 High Roller",
-                      freeSpins: "0 FS",
-                      games: "1000+",
-                      payoutTime: "Instant",
-                      highlight: false
-                    },
-                    {
-                      name: "Lucky Stars Casino",
-                      logo: "https://images.pexels.com/photos/6963765/pexels-photo-6963765.jpeg?auto=compress&cs=tinysrgb&w=80&h=80",
-                      rating: 4.6,
-                      bonus: "150% up to $1,500",
-                      freeSpins: "75 FS",
-                      games: "1200+",
-                      payoutTime: "2-5 days",
-                      highlight: false
-                    },
-                    {
-                      name: "Neon Nights Casino",
-                      logo: "https://images.pexels.com/photos/6963312/pexels-photo-6963312.jpeg?auto=compress&cs=tinysrgb&w=80&h=80",
-                      rating: 4.5,
-                      bonus: "100% up to $800",
-                      freeSpins: "50 FS",
-                      games: "800+",
-                      payoutTime: "1-2 days",
-                      highlight: false
-                    }
-                  ].map((casino, index) => (
-                    <tr key={index} className={`border-b border-gray-700 hover:bg-white hover:bg-opacity-5 transition-all duration-300 ${casino.highlight ? 'bg-yellow-400 bg-opacity-10' : ''}`}>
+                  {testcasinos.map((casino, index) => (
+                    <tr
+                      key={index}
+                      className={`border-b border-gray-700 hover:bg-white hover:bg-opacity-5 transition-all duration-300 ${casino.highlight ? "bg-yellow-400 bg-opacity-10" : ""
+                        }`}
+                    >
                       <td className="py-6 px-4">
                         <div className="flex items-center space-x-3">
-                          <img src={casino.logo} alt={casino.name} className="w-12 h-12 rounded-lg border-2 border-yellow-400" />
+                          <img
+                            src={casino.logo}
+                            alt={casino.name}
+                            className="w-12 h-12 rounded-lg border-2 border-yellow-400"
+                          />
                           <div>
                             <div className="text-white font-semibold">{casino.name}</div>
-                            {casino.highlight && (
+                            {casino.isCasinoOfTheMonth && (
                               <div className="text-yellow-400 text-xs font-bold">🏆 EDITOR'S CHOICE</div>
                             )}
                           </div>
@@ -395,7 +405,13 @@ const LandingPage = () => {
                       <td className="py-6 px-4 text-center">
                         <div className="flex items-center justify-center space-x-1">
                           {[...Array(5)].map((_, i) => (
-                            <Star key={i} className={`h-4 w-4 ${i < Math.floor(casino.rating) ? 'star-rating fill-current' : 'text-gray-600'}`} />
+                            <Star
+                              key={i}
+                              className={`h-4 w-4 ${i < Math.floor(casino.rating)
+                                ? "star-rating fill-current"
+                                : "text-gray-600"
+                                }`}
+                            />
                           ))}
                         </div>
                         <div className="text-yellow-400 font-bold text-sm mt-1">{casino.rating}</div>
@@ -404,19 +420,25 @@ const LandingPage = () => {
                         <div className="text-white font-semibold">{casino.bonus}</div>
                       </td>
                       <td className="py-6 px-4 text-center">
-                        <div className="text-green-400 font-semibold">{casino.freeSpins}</div>
+                        <div className="text-green-400 font-semibold">{casino.features.freespins}</div>
                       </td>
                       <td className="py-6 px-4 text-center">
-                        <div className="text-white font-semibold">{casino.games}</div>
+                        <div className="text-white font-semibold">{casino.features.games}</div>
                       </td>
                       <td className="py-6 px-4 text-center">
-                        <div className="text-blue-400 font-semibold">{casino.payoutTime}</div>
+                        <div className="text-blue-400 font-semibold">{casino.features.withdrawal}</div>
                       </td>
                       <td className="py-6 px-4 text-center">
-                        <button className="glossy-btn text-black font-bold px-6 py-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm">
+                        <a
+                          href={casino.affiliateLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="glossy-btn text-black font-bold px-6 py-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm inline-block"
+                        >
                           Play Now
-                        </button>
+                        </a>
                       </td>
+
                     </tr>
                   ))}
                 </tbody>
@@ -531,109 +553,126 @@ const LandingPage = () => {
             <div className="relative">
               {/* Hero Background Image */}
               <div className="absolute inset-0">
-                <img
-                  src="https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600"
-                  alt="Casino of the Month"
-                  className="w-full h-full object-cover opacity-30"
-                />
+            
                 <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60"></div>
               </div>
 
               {/* Content */}
-              <div className="relative z-10 p-12">
-                <div className="text-center mb-8">
-                  <div className="inline-flex items-center bg-gradient-to-r from-yellow-400 to-yellow-200 text-black px-6 py-3 rounded-full font-bold text-lg mb-4">
-                    <Crown className="h-6 w-6 mr-2" />
-                    Casino of the Month
-                  </div>
-                  <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                    Royal Palace Casino
-                  </h2>
-                  <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-                    Experience luxury gaming at its finest with our handpicked casino of the month.
-                    Exceptional bonuses, premium games, and unmatched service await.
-                  </p>
-                </div>
+             {casinoOfTheMonth && (
+  <div className="relative z-10 p-12">
+    <div className="text-center mb-8">
+      <div className="inline-flex items-center bg-gradient-to-r from-yellow-400 to-yellow-200 text-black px-6 py-3 rounded-full font-bold text-lg mb-4">
+        <Crown className="h-6 w-6 mr-2" />
+        Casino of the Month
+      </div>
+      <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+        {casinoOfTheMonth.name}
+      </h2>
+      <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+        {casinoOfTheMonth.description}
+      </p>
+    </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-                  {/* Casino Logo & Rating */}
-                  <div className="text-center lg:text-left">
-                    <div className="inline-block relative mb-6">
-                      <img
-                        src="https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg?auto=compress&cs=tinysrgb&w=200&h=200"
-                        alt="Royal Palace Casino"
-                        className="w-32 h-32 rounded-2xl border-4 border-yellow-400 shadow-2xl mx-auto lg:mx-0"
-                      />
-                      <div className="absolute -top-2 -right-2 bg-gradient-to-r from-yellow-400 to-yellow-200 text-black w-10 h-10 rounded-full flex items-center justify-center font-bold">
-                        #1
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-center lg:justify-start mb-4">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="h-6 w-6 star-rating fill-current" />
-                      ))}
-                      <span className="ml-2 text-white font-bold text-xl">4.9</span>
-                    </div>
-                    <p className="text-gray-200 font-semibold">Rated #1 by Players</p>
-                  </div>
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+      {/* Casino Logo & Rating */}
+      <div className="text-center lg:text-left">
+        <div className="inline-block relative mb-6">
+          <img
+            src={casinoOfTheMonth.imageUrl}
+            alt={casinoOfTheMonth.name}
+            className="w-32 h-32 rounded-2xl border-4 border-yellow-400 shadow-2xl mx-auto lg:mx-0"
+          />
+          <div className="absolute -top-2 -right-2 bg-gradient-to-r from-yellow-400 to-yellow-200 text-black w-10 h-10 rounded-full flex items-center justify-center font-bold">
+            #1
+          </div>
+        </div>
+        <div className="flex items-center justify-center lg:justify-start mb-4">
+          {[...Array(5)].map((_, i) => (
+            <Star
+              key={i}
+              className={`h-6 w-6 ${
+                i < Math.floor(casinoOfTheMonth.rating)
+                  ? "star-rating fill-current"
+                  : "text-gray-600"
+              }`}
+            />
+          ))}
+          <span className="ml-2 text-white font-bold text-xl">
+            {casinoOfTheMonth.rating}
+          </span>
+        </div>
+        <p className="text-gray-200 font-semibold">Rated #1 by Players</p>
+      </div>
 
-                  {/* Features */}
-                  <div className="space-y-4">
-                    <div className="glass-effect rounded-xl p-4 text-center">
-                      <Gift className="h-8 w-8 text-yellow-400 mx-auto mb-2" />
-                      <h4 className="text-white font-bold text-lg mb-1">Welcome Bonus</h4>
-                      <p className="text-yellow-400 font-semibold">200% up to $2,000</p>
-                      <p className="text-gray-300 text-sm">+ 100 Free Spins</p>
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="glass-effect rounded-xl p-3 text-center">
-                        <Zap className="h-6 w-6 text-yellow-400 mx-auto mb-1" />
-                        <p className="text-white font-semibold text-sm">2000+ Games</p>
-                      </div>
-                      <div className="glass-effect rounded-xl p-3 text-center">
-                        <Shield className="h-6 w-6 text-yellow-400 mx-auto mb-1" />
-                        <p className="text-white font-semibold text-sm">Licensed</p>
-                      </div>
-                    </div>
-                  </div>
+      {/* Features */}
+      <div className="space-y-4">
+        <div className="glass-effect rounded-xl p-4 text-center">
+          <Gift className="h-8 w-8 text-yellow-400 mx-auto mb-2" />
+          <h4 className="text-white font-bold text-lg mb-1">Welcome Bonus</h4>
+          <p className="text-yellow-400 font-semibold">
+            {casinoOfTheMonth.bonus}
+          </p>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="glass-effect rounded-xl p-3 text-center">
+            <Zap className="h-6 w-6 text-yellow-400 mx-auto mb-1" />
+            <p className="text-white font-semibold text-sm">
+              {casinoOfTheMonth.features?.games}
+            </p>
+          </div>
+          <div className="glass-effect rounded-xl p-3 text-center">
+            <Shield className="h-6 w-6 text-yellow-400 mx-auto mb-1" />
+            <p className="text-white font-semibold text-sm">
+              {casinoOfTheMonth.features?.license}
+            </p>
+          </div>
+        </div>
+      </div>
 
-                  {/* CTA */}
-                  <div className="text-center space-y-4">
-                    <button className="glossy-btn text-black font-bold px-10 py-4 rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-110 transition-all duration-300 text-xl">
-                      Play Now & Claim Bonus
-                    </button>
-                    <button className="glass-effect w-full text-white font-semibold py-3 rounded-full border-2 border-white/30 hover:border-white hover:bg-white hover:bg-opacity-10 transition-all duration-300">
-                      Read Full Review
-                    </button>
-                    <div className="text-center text-gray-300 text-sm">
-                      <p>18+ | Terms & Conditions Apply</p>
-                      <p>New Players Only | Gamble Responsibly</p>
-                    </div>
-                  </div>
-                </div>
+      {/* CTA */}
+      <div className="text-center space-y-4">
+        <a
+          href={casinoOfTheMonth.affiliateLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="glossy-btn text-black font-bold px-10 py-4 rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-110 transition-all duration-300 text-xl inline-block"
+        >
+          Play Now & Claim Bonus
+        </a>
+        <button className="glass-effect w-full text-white font-semibold py-3 rounded-full border-2 border-white/30 hover:border-white hover:bg-white hover:bg-opacity-10 transition-all duration-300">
+          Read Full Review
+        </button>
+        <div className="text-center text-gray-300 text-sm">
+          <p>18+ | Terms & Conditions Apply</p>
+          <p>New Players Only | Gamble Responsibly</p>
+        </div>
+      </div>
+    </div>
 
-                {/* Additional Features Bar */}
-                <div className="mt-8 pt-8 border-t border-white/20">
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                    <div className="flex items-center justify-center text-white">
-                      <Clock className="h-5 w-5 text-yellow-400 mr-2" />
-                      <span className="font-semibold">24/7 Support</span>
-                    </div>
-                    <div className="flex items-center justify-center text-white">
-                      <Users className="h-5 w-5 text-yellow-400 mr-2" />
-                      <span className="font-semibold">VIP Program</span>
-                    </div>
-                    <div className="flex items-center justify-center text-white">
-                      <Zap className="h-5 w-5 text-yellow-400 mr-2" />
-                      <span className="font-semibold">Instant Withdrawals</span>
-                    </div>
-                    <div className="flex items-center justify-center text-white">
-                      <Shield className="h-5 w-5 text-yellow-400 mr-2" />
-                      <span className="font-semibold">SSL Encrypted</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    {/* Additional Features Bar */}
+    <div className="mt-8 pt-8 border-t border-white/20">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <div className="flex items-center justify-center text-white">
+          <Clock className="h-5 w-5 text-yellow-400 mr-2" />
+          <span className="font-semibold">{casinoOfTheMonth.features?.support}</span>
+        </div>
+        <div className="flex items-center justify-center text-white">
+          <Users className="h-5 w-5 text-yellow-400 mr-2" />
+          <span className="font-semibold">VIP Program</span>
+        </div>
+        <div className="flex items-center justify-center text-white">
+          <Zap className="h-5 w-5 text-yellow-400 mr-2" />
+          <span className="font-semibold">{casinoOfTheMonth.features?.withdrawal}</span>
+        </div>
+        <div className="flex items-center justify-center text-white">
+          <Shield className="h-5 w-5 text-yellow-400 mr-2" />
+          <span className="font-semibold">SSL Encrypted</span>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+
             </div>
           </div>
 
@@ -734,13 +773,13 @@ const LandingPage = () => {
                 <p className="text-gray-300 mb-6">
                   Explore Canada's top-rated online casinos and find your perfect gaming experience today.
                 </p>
-                  <button
-      onClick={() => navigate("/casino-reviews")}
-      className="glossy-btn text-black font-bold px-8 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
-    >
-      View All Casinos
-    </button>
-                
+                <button
+                  onClick={() => navigate("/casino-reviews")}
+                  className="glossy-btn text-black font-bold px-8 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+                >
+                  View All Casinos
+                </button>
+
               </div>
             </div>
           </div>
@@ -762,127 +801,87 @@ const LandingPage = () => {
             </div>
 
             {/* Bonus Comparison Table */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                {
-                  name: "Royal Palace Casino",
-                  logo: "https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg?auto=compress&cs=tinysrgb&w=150&h=150",
-                  bonus: "200% up to $2,000",
-                  freeSpins: "100 Free Spins",
-                  wagering: "35x",
-                  minDeposit: "$20",
-                  rank: 1
-                },
-                {
-                  name: "Diamond Jackpot",
-                  logo: "https://images.pexels.com/photos/6963197/pexels-photo-6963197.jpeg?auto=compress&cs=tinysrgb&w=150&h=150",
-                  bonus: "150% up to $1,500",
-                  freeSpins: "200 Free Spins",
-                  wagering: "40x",
-                  minDeposit: "$25",
-                  rank: 2
-                },
-                {
-                  name: "Golden Crown",
-                  logo: "https://images.pexels.com/photos/6963478/pexels-photo-6963478.jpeg?auto=compress&cs=tinysrgb&w=150&h=150",
-                  bonus: "100% up to $1,000",
-                  freeSpins: "50 Free Spins",
-                  wagering: "30x",
-                  minDeposit: "$10",
-                  rank: 3
-                },
-                {
-                  name: "Lucky Stars Casino",
-                  logo: "https://images.pexels.com/photos/6963765/pexels-photo-6963765.jpeg?auto=compress&cs=tinysrgb&w=150&h=150",
-                  bonus: "125% up to $800",
-                  freeSpins: "75 Free Spins",
-                  wagering: "35x",
-                  minDeposit: "$15",
-                  rank: 4
-                },
-                {
-                  name: "Platinum Elite",
-                  logo: "https://images.pexels.com/photos/6963886/pexels-photo-6963886.jpeg?auto=compress&cs=tinysrgb&w=150&h=150",
-                  bonus: "100% up to $2,500",
-                  freeSpins: "25 Free Spins",
-                  wagering: "25x",
-                  minDeposit: "$50",
-                  rank: 5
-                },
-                {
-                  name: "Neon Nights Casino",
-                  logo: "https://images.pexels.com/photos/6963312/pexels-photo-6963312.jpeg?auto=compress&cs=tinysrgb&w=150&h=150",
-                  bonus: "75% up to $600",
-                  freeSpins: "150 Free Spins",
-                  wagering: "45x",
-                  minDeposit: "$20",
-                  rank: 6
-                }
-              ].map((casino, index) => (
-                <div key={index} className="casino-card glass-dark rounded-xl p-4 shadow-xl relative group">
-                  {/* Rank Badge */}
-                  <div className="absolute -top-1 -left-1 bg-gradient-to-r from-yellow-400 to-yellow-200 text-black font-bold w-8 h-8 rounded-full flex items-center justify-center text-sm shadow-lg z-10">
-                    #{index + 1}
-                  </div>
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  {testcasinos.map((casino, index) => (
+    <div
+      key={casino.id}
+      className="casino-card glass-dark rounded-xl p-4 shadow-xl relative group"
+    >
+      {/* Rank Badge */}
+      <div className="absolute -top-1 -left-1 bg-gradient-to-r from-yellow-400 to-yellow-200 text-black font-bold w-8 h-8 rounded-full flex items-center justify-center text-sm shadow-lg z-10">
+        #{index + 1}
+      </div>
 
-                  <div className="flex items-center gap-3 mb-3">
-                    <img
-                      src={casino.logo}
-                      alt={`${casino.name} logo`}
-                      className="w-12 h-12 rounded-lg border-2 border-yellow-400 shadow-md"
-                    />
-                    <div className="flex-1">
-                      <h3 className="text-lg font-bold text-white mb-1">{casino.name}</h3>
-                      <div className="flex items-center text-sm">
-                        {[...Array(5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            className={`h-3 w-3 ${i < Math.floor(casino.rating) ? 'star-rating fill-current' : 'text-gray-600'}`}
-                          />
-                        ))}
-                        <span className="ml-1 text-yellow-400 font-bold text-xs">{casino.rating}</span>
-                      </div>
-                    </div>
-                  </div>
+      {/* Casino Info */}
+      <div className="flex items-center gap-3 mb-3">
+        <img
+          src={casino.imageUrl} // API field
+          alt={`${casino.name} logo`}
+          className="w-12 h-12 rounded-lg border-2 border-yellow-400 shadow-md"
+        />
+        <div className="flex-1">
+          <h3 className="text-lg font-bold text-white mb-1">{casino.name}</h3>
+          <div className="flex items-center text-sm">
+            {[...Array(5)].map((_, i) => (
+              <Star
+                key={i}
+                className={`h-3 w-3 ${
+                  i < Math.floor(casino.rating ?? 0)
+                    ? 'star-rating fill-current'
+                    : 'text-gray-600'
+                }`}
+              />
+            ))}
+            <span className="ml-1 text-yellow-400 font-bold text-xs">
+              {casino.rating ?? '-'}
+            </span>
+          </div>
+        </div>
+      </div>
 
-                  {/* Bonus Display */}
-                  <div className="bg-gradient-to-br from-yellow-400 to-yellow-200 rounded-lg p-3 text-center mb-3">
-                    <Gift className="h-4 w-4 text-black mx-auto mb-1" />
-                    <p className="text-black font-bold text-base mb-1">{casino.bonus}</p>
-                    <p className="text-black font-semibold text-xs">{casino.freeSpins}</p>
-                  </div>
+      {/* Bonus Display */}
+      <div className="bg-gradient-to-br from-yellow-400 to-yellow-200 rounded-lg p-3 text-center mb-3">
+        <Gift className="h-4 w-4 text-black mx-auto mb-1" />
+        <p className="text-black font-bold text-base mb-1">{casino.bonus}</p>
+        <p className="text-black font-semibold text-xs">{casino.features.freespins}</p>
+      </div>
 
-                  {/* Details Grid */}
-                  <div className="grid grid-cols-2 gap-2 mb-3">
-                    <div className="glass-effect rounded-md p-2 text-center">
-                      <p className="text-gray-400 text-xs mb-1">Wagering</p>
-                      <p className="text-white font-semibold text-xs">{casino.wagering}</p>
-                    </div>
-                    <div className="glass-effect rounded-md p-2 text-center">
-                      <p className="text-gray-400 text-xs mb-1">Min Deposit</p>
-                      <p className="text-white font-semibold text-xs">{casino.minDeposit}</p>
-                    </div>
-                  </div>
+      {/* Details Grid */}
+      <div className="grid grid-cols-2 gap-2 mb-3">
+        <div className="glass-effect rounded-md p-2 text-center">
+          <p className="text-gray-400 text-xs mb-1">Wagering</p>
+          <p className="text-white font-semibold text-xs">{casino.features.freespins ?? '-'}</p>
+        </div>
+        <div className="glass-effect rounded-md p-2 text-center">
+          <p className="text-gray-400 text-xs mb-1">Min Deposit</p>
+          <p className="text-white font-semibold text-xs">{casino.features.mindeposit ?? '-'}</p>
+        </div>
+      </div>
 
-                  {/* CTAs */}
-                  <div className="space-y-2">
-                    <button className="glossy-btn w-full text-black font-bold py-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm">
-                      Claim Bonus
-                    </button>
+      {/* CTAs */}
+      <div className="space-y-2">
+          <button
+  onClick={() => window.open(casino.affiliateLink, "_blank", "noopener,noreferrer")}
+  className="glossy-btn w-full text-black font-bold py-2 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-sm"
+>
+  Claim Bonus
+</button>
+                          
                     <button className="glass-effect w-full text-white font-semibold py-2 rounded-full border border-yellow-400/30 hover:border-yellow-400 transition-all duration-300 text-xs">
                       View Details
                     </button>
-                  </div>
+      </div>
 
-                  <div className="text-center text-gray-400 text-xs mt-4">
-                    <p>18+ | T&Cs Apply</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+      <div className="text-center text-gray-400 text-xs mt-4">
+        <p>18+ | T&Cs Apply</p>
+      </div>
+    </div>
+  ))}
+</div>
+
 
             {/* Bottom CTA */}
-          
+
           </div>
 
           {/* Step-by-Step Guide Section */}
@@ -1171,7 +1170,7 @@ const LandingPage = () => {
                       className="glass-effect text-white font-semibold px-6 py-3 rounded-full border border-red-400/50 hover:border-red-400 transition-all duration-300">
                       Get Help - Gambling Help Online
                     </a>
-                 
+
                   </div>
                 </div>
               </div>
@@ -1415,14 +1414,14 @@ const LandingPage = () => {
                   </div>
 
                   {/* Contact CTA */}
-                
+
                 </div>
               </div>
             </div>
           </section>
 
           {/* Newsletter Signup */}
-         
+
           {/* How We Review Casinos - CasinoBuddies Style */}
           <section className="py-20 relative">
             <div className="container mx-auto px-4">
@@ -1504,11 +1503,11 @@ const LandingPage = () => {
           </section>
 
           {/* Casino Cards */}
-         
 
 
 
-          
+
+
           {/* Features Section */}
           <section className="py-20 relative">
             <div className="container mx-auto px-4">
@@ -1537,7 +1536,7 @@ const LandingPage = () => {
           </section>
 
 
-        
+
 
           {/* CTA Section */}
           <section className="py-20 relative">
@@ -1562,7 +1561,7 @@ const LandingPage = () => {
       </div>
     </>
   );
-  
+
 };
 
 export default LandingPage;
