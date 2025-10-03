@@ -10,6 +10,7 @@ import Blog from './pages/Blog';
 import AboutUs from './pages/AboutUs';
 import Contact from './pages/Contact';
 import Pokies from './pages/Pokies';
+import Poker from './pages/Poker';
 import StickyFooter from './components/StickyFooter';
 import './App.css';
 import ScrollToTop from './ScrollToTop';
@@ -27,6 +28,7 @@ function App() {
               <Route path="/casino-reviews" element={<CasinoReviews />} />
               <Route path="/promotions" element={<Promotions />} />
               <Route path="/pokies" element={<Pokies />} />
+              <Route path="/poker" element={<Poker />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/about" element={<AboutUs />} />
               <Route path="/contact" element={<Contact />} />

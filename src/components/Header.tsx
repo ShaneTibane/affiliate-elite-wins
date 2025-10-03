@@ -19,7 +19,8 @@ const Header = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Casinos', path: '/casino-reviews' },
-    { name: 'Online Pokies', path: '/pokies' }
+    { name: 'Online Pokies', path: '/pokies' },
+    { name: 'Online Poker', path: '/poker' }
   ];
 
   return (
