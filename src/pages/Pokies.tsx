@@ -40,7 +40,7 @@ const Pokies = () => {
               >
                 🎰 Play Top Pokies Now
               </Link>
-            </div>
+            </div> 
           </div>
         </section>
 
