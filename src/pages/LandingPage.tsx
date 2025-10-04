@@ -7,7 +7,7 @@ import { businessLogicService } from "../services/businessLogicService";
 import { ListPayload } from "../models/ListPayload";
 import { useGeoLocation } from '../hooks/useGeoLocation';
 import { useNavigate } from "react-router-dom";
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from "../firebase";
 // Match the interface with backend data
 type Casino = {
@@ -63,32 +63,43 @@ const LandingPage = () => {
   const [loading, setLoading] = useState(true);
   const [testcasinos, setTestCasinos] = useState<Casino[]>([]);
   const [casinoOfTheMonth, setCasinoOfTheMonth] = useState<Casino | null>(null);
-  useEffect(() => {
-    async function fetchData() {
-      setLoading(true);
-      try {
-        const querySnapshot = await getDocs(collection(db, "casinocards"));
-        const data: Casino[] = querySnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...(doc.data() as Omit<Casino, "id">), // cast doc.data()
-        }));
-        setTestCasinos(data);
-         const featuredCasino = data.find(casino => casino.isCasinoOfTheMonth);
+
+
+useEffect(() => {
+  async function fetchData() {
+    setLoading(true);
+    try {
+      // Create a query to only get active casinos
+      const q = query(
+        collection(db, "casinocards"),
+        where("isCasinoActive", "==", true)
+      );
+
+      const querySnapshot = await getDocs(q);
+      const data: Casino[] = querySnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...(doc.data() as Omit<Casino, "id">),
+      }));
+
+      setTestCasinos(data);
+
+      // Find the featured casino
+      const featuredCasino = data.find(casino => casino.isCasinoOfTheMonth);
       if (featuredCasino) {
         console.log("Casino of the Month:", featuredCasino);
-        setCasinoOfTheMonth(featuredCasino || null);
-        // You can set it in state if you want
-        // setCasinoOfTheMonth(featuredCasino);
-      }
-      } catch (err) {
-        console.error('Error fetching posts:', err);
-      } finally {
-        setLoading(false);
+        setCasinoOfTheMonth(featuredCasino);
       }
 
+    } catch (err) {
+      console.error("Error fetching posts:", err);
+    } finally {
+      setLoading(false);
     }
-    fetchData();
-  }, []);
+  }
+
+  fetchData();
+}, []);
+
   console.log("DATA:::", testcasinos)
 
   const toggleFAQ = (index: number) => {
@@ -706,7 +717,7 @@ const LandingPage = () => {
                   icon: "♠️",
                   description: "Test your skills at Texas Hold'em, Omaha, and other poker variants. Join tournaments or cash games with players from around the world in Canada's top poker rooms."
                 },
-                {
+                /*{
                   name: "Online Roulette",
                   icon: "🎡",
                   description: "Experience the thrill of the spinning wheel with European, American, and French roulette variants. Live dealer options bring the authentic casino atmosphere to your screen."
@@ -745,7 +756,7 @@ const LandingPage = () => {
                   name: "Online Sic Bo",
                   icon: "⚂",
                   description: "Try your luck with this ancient Chinese dice game featuring multiple betting options and exciting payouts. Three dice determine your fate in this thrilling game of chance."
-                }
+                }*/
               ].map((game, index) => (
                 <div key={index} className="casino-card glass-dark rounded-2xl p-8 group hover:scale-105 transition-all duration-300">
                   <div className="flex items-start gap-6">
