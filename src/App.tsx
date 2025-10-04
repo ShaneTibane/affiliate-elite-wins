@@ -13,6 +13,7 @@ import Pokies from './pages/Pokies';
 import Poker from './pages/Poker';
 import TermsOfService from './pages/TermsOfService';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import CookiePolicy from './pages/CookiePolicy';
 import StickyFooter from './components/StickyFooter';
 import './App.css';
 import ScrollToTop from './ScrollToTop';
@@ -36,6 +37,7 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/terms" element={<TermsOfService />} />
               <Route path="/privacy" element={<PrivacyPolicy />} />
+              <Route path="/cookies" element={<CookiePolicy />} />
             </Routes>
           </main>
           <Footer />
