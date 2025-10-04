@@ -12,6 +12,7 @@ import Contact from './pages/Contact';
 import Pokies from './pages/Pokies';
 import Poker from './pages/Poker';
 import TermsOfService from './pages/TermsOfService';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 import StickyFooter from './components/StickyFooter';
 import './App.css';
 import ScrollToTop from './ScrollToTop';
@@ -34,6 +35,7 @@ function App() {
               <Route path="/about" element={<AboutUs />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/terms" element={<TermsOfService />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
             </Routes>
           </main>
           <Footer />
