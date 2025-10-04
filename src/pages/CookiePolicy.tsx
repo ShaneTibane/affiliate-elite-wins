@@ -381,9 +381,9 @@ const CookiePolicy = () => {
                       <h4 className="text-xl font-semibold text-white mb-2">Third-Party Opt-Out</h4>
                       <p className="mb-2">You can opt out of certain third-party cookies:</p>
                       <ul className="list-disc list-inside space-y-2 ml-4">
-                        <li><strong>Google Analytics:</strong> <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:text-yellow-300 underline">Google Analytics Opt-out Browser Add-on</a></li>
-                        <li><strong>Advertising:</strong> <a href="http://www.youronlinechoices.com" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:text-yellow-300 underline">Your Online Choices</a></li>
-                        <li><strong>Network Advertising:</strong> <a href="http://optout.networkadvertising.org" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:text-yellow-300 underline">NAI Opt-out</a></li>
+                        <li><strong>Google Analytics:</strong> <a href="https://tools.google.com/dlpage/gaoptout" target=\"_blank" rel="noopener noreferrer\" className="text-yellow-400 hover:text-yellow-300 underline">Google Analytics Opt-out Browser Add-on</a></li>
+                        <li><strong>Advertising:</strong> <a href="http://www.youronlinechoices.com" target=\"_blank" rel="noopener noreferrer\" className="text-yellow-400 hover:text-yellow-300 underline">Your Online Choices</a></li>
+                        <li><strong>Network Advertising:</strong> <a href="http://optout.networkadvertising.org" target=\"_blank" rel="noopener noreferrer\" className="text-yellow-400 hover:text-yellow-300 underline">NAI Opt-out</a></li>
                       </ul>
                     </div>
                   </div>
