@@ -31,10 +31,17 @@ const CasinoReviews = () => {
       setLoading(true);
       try {
         const querySnapshot = await getDocs(collection(db, "casinocards"));
-        const data: Casino[] = querySnapshot.docs.map(doc => ({
+        let data: Casino[] = querySnapshot.docs.map(doc => ({
           id: doc.id,
           ...(doc.data() as Omit<Casino, "id">), // cast doc.data()
-        }));
+        })); 
+         data = data.sort((a, b) => {
+        // Move the one with isCasinoOfTheMonth true to the top
+        if (a.isCasinoOfTheMonth && !b.isCasinoOfTheMonth) return -1;
+        if (!a.isCasinoOfTheMonth && b.isCasinoOfTheMonth) return 1;
+        return 0;
+      });
+        console.log("DATA 2",data)
         setTestCasinos(data);
       } catch (err) {
         console.error('Error fetching posts:', err);

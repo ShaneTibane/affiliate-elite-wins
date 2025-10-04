@@ -8,7 +8,7 @@ const Pokies = () => {
     <>
       <Helmet>
         <title>Online Pokies - Best Pokies Games & Casinos 2025</title>
-        <meta name="description" content="Discover the best online pokies in Australia. Play top-rated slot games with massive jackpots, bonus rounds, and free spins at Elite Casinos." />
+        <meta name="description" content="Discover the best online pokies in Canada. Play top-rated slot games with massive jackpots, bonus rounds, and free spins at Elite Casinos." />
         <meta name="keywords" content="online pokies, pokies games, slot machines, online slots, casino pokies, free spins" />
       </Helmet>
 
@@ -27,10 +27,10 @@ const Pokies = () => {
           <div className="relative z-10 text-center max-w-6xl mx-auto px-4 py-12">
             <div className="text-6xl mb-6">🎰</div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-              Best Online Pokies in Australia 2025
+              Best Online Pokies in Canada 2025
             </h1>
             <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-              Spin the reels on Australia's most popular pokies with massive jackpots, exciting bonus rounds, and free spins.
+              Spin the reels on Canada's most popular pokies with massive jackpots, exciting bonus rounds, and free spins.
               From classic 3-reel slots to modern video pokies with stunning graphics and innovative features.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -287,7 +287,7 @@ const Pokies = () => {
                 Ready to Spin & Win?
               </h2>
               <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-                Join Australia's top-rated online casinos and start playing the best pokies with exclusive bonuses and free spins
+                Join Canada's top-rated online casinos and start playing the best pokies with exclusive bonuses and free spins
               </p>
               <Link
                 to="/casino-reviews"
