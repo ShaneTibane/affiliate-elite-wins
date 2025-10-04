@@ -717,7 +717,7 @@ useEffect(() => {
                   icon: "♠️",
                   description: "Test your skills at Texas Hold'em, Omaha, and other poker variants. Join tournaments or cash games with players from around the world in Canada's top poker rooms."
                 },
-                {
+                /*{
                   name: "Online Roulette",
                   icon: "🎡",
                   description: "Experience the thrill of the spinning wheel with European, American, and French roulette variants. Live dealer options bring the authentic casino atmosphere to your screen."
@@ -756,7 +756,7 @@ useEffect(() => {
                   name: "Online Sic Bo",
                   icon: "⚂",
                   description: "Try your luck with this ancient Chinese dice game featuring multiple betting options and exciting payouts. Three dice determine your fate in this thrilling game of chance."
-                }
+                }*/
               ].map((game, index) => (
                 <div key={index} className="casino-card glass-dark rounded-2xl p-8 group hover:scale-105 transition-all duration-300">
                   <div className="flex items-start gap-6">
