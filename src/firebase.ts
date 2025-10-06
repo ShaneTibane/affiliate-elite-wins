@@ -7,13 +7,13 @@ import { getFirestore } from "firebase/firestore";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyAL8D_vYeyZdABfu_FULTSq0nhLM0M60AE",
-  authDomain: "casinos-43417.firebaseapp.com",
-  projectId: "casinos-43417",
-  storageBucket: "casinos-43417.firebasestorage.app",
-  messagingSenderId: "9378875212",
-  appId: "1:9378875212:web:2d2713b8bb5e33e61f71e9",
-  measurementId: "G-BZKQSKBCPM"
+  apiKey: "AIzaSyDmiB02-NAB1Qi4Z2SiuWMpVAAMYk9t3N4",
+  authDomain: "casinosaffiliatesdb.firebaseapp.com",
+  projectId: "casinosaffiliatesdb",
+  storageBucket: "casinosaffiliatesdb.firebasestorage.app",
+  messagingSenderId: "726714806315",
+  appId: "1:726714806315:web:815e13b157d3efadddba6e",
+  measurementId: "G-F5P1RDEQSJ"
 };
 
 // Initialize Firebase

@@ -356,7 +356,7 @@ useEffect(() => {
           <div className="relative z-10 text-center max-w-6xl mx-auto px-4 py-12">
             <h1 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
 
-              Best Online Casinos In {country} 2025
+              Best Online Casinos In Canada 2025
             </h1>
             <p className="text-base md:text-lg text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
               Welcome to Elite Casinos, your trusted partner in finding the top online casinos in Canada for 2025. Whether you're a seasoned player or just getting started, we'll guide you through the best online casino platforms that offers the biggest bonuses, exciting online pokies, and secure real-money gameplay.
@@ -382,6 +382,13 @@ useEffect(() => {
                 Top Online Casinos in Canada Comparison 2025
               </h2>
             </div>
+              {/* Loading State */}
+          {loading && (
+            <div className="text-center py-16">
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-400"></div>
+              <p className="text-gray-300 mt-4">Loading Casinos...</p>
+            </div>
+          )}
 
             {/* Desktop Comparison Table */}
             <div className="hidden lg:block glass-effect rounded-3xl p-8 overflow-x-auto">
