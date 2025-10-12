@@ -136,19 +136,32 @@ const TopCasinosPage = () => {
 
       <main className="pt-20 min-h-screen">
         {/* Header Section */}
-        <section className="relative py-16 bg-gradient-to-br from-gray-900 via-purple-900 to-gray-800">
+        
+
+  <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
+          {/* Background Elements */}
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-purple-900 to-gray-800"></div>
           <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-                Top 5 Most Trusted Online Casinos in Canada (2025)
-              </h1>
-              <p className="text-lg text-gray-300 leading-relaxed">
-                When choosing an online casino in Canada, trust and licensing are paramount. A licensed casino ensures fair play, secure transactions, and regulatory oversight to protect your rights as a player. This guide highlights the most trusted online casinos that Canadian players can confidently enjoy in 2025.
-              </p>
-            </div>
+
+          {/* Floating Elements */}
+          <div className="absolute top-20 left-10 w-20 h-20 bg-yellow-400 rounded-full opacity-20 floating-animation"></div>
+          <div className="absolute bottom-32 right-16 w-16 h-16 bg-purple-500 rounded-full opacity-30 floating-animation" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 left-20 w-12 h-12 bg-blue-500 rounded-full opacity-25 floating-animation" style={{ animationDelay: '4s' }}></div>
+
+          {/* Content */}
+          <div className="relative z-10 text-center max-w-6xl mx-auto px-4 py-12">
+            <h1 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
+
+               Top 5 Most Trusted Online Casinos in Canada (2025)
+            </h1>
+            <p className="text-base md:text-lg text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
+              When choosing an online casino in Canada, trust and licensing are paramount. A licensed casino ensures fair play, secure transactions, and regulatory oversight to protect your rights as a player. This guide highlights the most trusted online casinos that Canadian players can confidently enjoy in 2025.
+            </p>
+            
           </div>
         </section>
+
+
 
         {/* How We Ranked Section */}
         <section className="py-16 bg-gradient-to-b from-gray-900 to-gray-800">
