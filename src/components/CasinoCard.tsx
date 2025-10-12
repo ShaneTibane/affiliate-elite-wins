@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Star, Zap, Shield, Users, Clock, Gift } from "lucide-react";
 import { useGeoLocation } from "../hooks/useGeoLocation";
+import { useNavigate } from "react-router-dom";
 
 // Define the shape of casino data
 interface Casino {
@@ -29,6 +30,7 @@ interface CasinoCardProps {
 
 const CasinoCard: React.FC<CasinoCardProps> = ({ casino }) => {
   const { country } = useGeoLocation();
+    const navigate = useNavigate();
 
   return (
     <div className="casino-card glass-dark rounded-2xl p-6 shadow-xl relative overflow-hidden">
@@ -104,7 +106,7 @@ const CasinoCard: React.FC<CasinoCardProps> = ({ casino }) => {
             <button  onClick={() => window.open(casino.affiliateLink, "_blank")} className="glossy-btn w-full text-black font-bold py-3 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 text-base">
               Play Now
             </button>
-            <button  onClick={() => window.open(casino.affiliateLink, "_blank")}className="glass-effect w-full text-white font-semibold py-3 rounded-full border border-yellow-400 hover:bg-white hover:bg-opacity-10 transition-all duration-300 text-sm">
+            <button   onClick={() => navigate("/casino-page", { state: { casino } })} className="glass-effect w-full text-white font-semibold py-3 rounded-full border border-yellow-400 hover:bg-white hover:bg-opacity-10 transition-all duration-300 text-sm">
               Read Full Review
             </button>
           </div>

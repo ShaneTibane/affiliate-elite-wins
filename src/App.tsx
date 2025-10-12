@@ -20,6 +20,7 @@ import './App.css';
 import ScrollToTop from './ScrollToTop';
 import FirebaseBlog from './pages/FirebaseBlog';
 import TopCasinosPage from './pages/TopCasinosPage';
+import CasinoPage from './pages/CasinoPage';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/cookies" element={<CookiePolicy />} />
               <Route path="/disclaimer" element={<Disclaimer />} />
+                <Route path="/casino-page" element={<CasinoPage />} />
             </Routes>
           </main>
           <Footer />
