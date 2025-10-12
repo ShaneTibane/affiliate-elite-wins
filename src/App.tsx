@@ -19,6 +19,7 @@ import StickyFooter from './components/StickyFooter';
 import './App.css';
 import ScrollToTop from './ScrollToTop';
 import FirebaseBlog from './pages/FirebaseBlog';
+import TopCasinosPage from './pages/TopCasinosPage';
 
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
           <main>
              <ScrollToTop />   {/* 👈 add this once, inside Router */}
             <Routes>
-              <Route path="/" element={<LandingPage />} />
+              <Route path="/" element={<TopCasinosPage />} />
               <Route path="/casino-reviews" element={<CasinoReviews />} />
               <Route path="/promotions" element={<Promotions />} />
               <Route path="/pokies" element={<Pokies />} />

@@ -13,7 +13,7 @@ const Footer = () => {
       { name: 'About Us', path: '/about' },
     ],
     reviews: [
-      { name: 'Casino Reviews', path: '/casino-reviews' },
+      
     ],
     support: [
       { name: 'Contact Us', path: '/contact' },
@@ -48,7 +48,7 @@ const Footer = () => {
             </Link>
             
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Your trusted partner for honest casino reviews, exclusive bonuses, and expert gaming advice. We help {country} players find the perfect online casino experience.
+              Your trusted partner for honest casino reviews, exclusive bonuses, and expert gaming advice. We help Canadian players find the perfect online casino experience.
             </p>
             
             <div className="space-y-3">
