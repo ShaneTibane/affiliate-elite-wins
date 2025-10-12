@@ -18,6 +18,7 @@ import Disclaimer from './pages/Disclaimer';
 import StickyFooter from './components/StickyFooter';
 import './App.css';
 import ScrollToTop from './ScrollToTop';
+import FirebaseBlog from './pages/FirebaseBlog';
 
 function App() {
   return (
@@ -33,7 +34,7 @@ function App() {
               <Route path="/promotions" element={<Promotions />} />
               <Route path="/pokies" element={<Pokies />} />
               <Route path="/poker" element={<Poker />} />
-              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog" element={<FirebaseBlog />} />
               <Route path="/about" element={<AboutUs />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/terms" element={<TermsOfService />} />

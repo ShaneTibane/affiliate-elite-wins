@@ -335,8 +335,8 @@ useEffect(() => {
   return (
     <>
       <Helmet>
-        <title>Best Online Casinos - Top Online Casinos in 2025</title>
-        <meta name="description" content="Discover the best online casinos with exclusive bonuses, honest reviews, and top promotions. Join Elite Casinos for premium casino experiences." />
+        <title>Best Online Casinos - Trusted Online Casinos in 2025</title>
+        <meta name="description" content="Discover the most trusted online casinos with exclusive bonuses, honest reviews, and top promotions. Join Elite Casinos for premium casino experiences." />
         <meta name="keywords" content="online casino, casino bonus, casino reviews, gambling, slots, jackpots" />
       </Helmet>
       {/* */}
