@@ -101,10 +101,10 @@ const CasinoCard: React.FC<CasinoCardProps> = ({ casino }) => {
           </div>
 
           <div className="space-y-3">
-            <button className="glossy-btn w-full text-black font-bold py-3 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 text-base">
+            <button  onClick={() => window.open(casino.affiliateLink, "_blank")} className="glossy-btn w-full text-black font-bold py-3 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 text-base">
               Play Now
             </button>
-            <button className="glass-effect w-full text-white font-semibold py-3 rounded-full border border-yellow-400 hover:bg-white hover:bg-opacity-10 transition-all duration-300 text-sm">
+            <button  onClick={() => window.open(casino.affiliateLink, "_blank")}className="glass-effect w-full text-white font-semibold py-3 rounded-full border border-yellow-400 hover:bg-white hover:bg-opacity-10 transition-all duration-300 text-sm">
               Read Full Review
             </button>
           </div>

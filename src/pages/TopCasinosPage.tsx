@@ -1,9 +1,78 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Star, Shield, Clock, Award, CheckCircle, AlertTriangle } from 'lucide-react';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from "../firebase";
+import CasinoCard from '../components/CasinoCard';
 
 const TopCasinosPage = () => {
+  type Casino = {
+  id: string;
+  name: string;
+  affiliateLink: string,
+  location: string;
+  rating: number;
+  affiliate: string,
+  bonus: string,
+  category: string,
+  description: string,
+  features: {
+    games: string;
+    support: string;
+    withdrawal: string;
+    license: string;
+    features: string;
+    freespins: string;
+    wagering:string;
+    mindeposit:string
+  };
+   extraFeatures: {
+    freespins: string;
+    wagering:string;
+    mindeposit:string
+  };
+  imageUrl: string,
+  logo: string,
+  isCasinoOfTheMonth: boolean,
+  highlight: boolean,
+  games: string,
+  payoutTime: string,
+  isCasinoActive: boolean
+
+
+
+
+}
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+    const [loading, setLoading] = useState(true);
+ const [testcasinos, setTestCasinos] = useState<Casino[]>([]);
+   useEffect(() => {
+     async function fetchData() {
+       setLoading(true);
+       try {
+         const querySnapshot = await getDocs(collection(db, "casinocards"));
+         let data: Casino[] = querySnapshot.docs.map(doc => ({
+           id: doc.id,
+           ...(doc.data() as Omit<Casino, "id">), // cast doc.data()
+         })); 
+          data = data.sort((a, b) => {
+         // Move the one with isCasinoOfTheMonth true to the top
+         if (a.isCasinoOfTheMonth && !b.isCasinoOfTheMonth) return -1;
+         if (!a.isCasinoOfTheMonth && b.isCasinoOfTheMonth) return 1;
+         return 0;
+       });
+         console.log("DATA 2",data)
+         setTestCasinos(data);
+       } catch (err) {
+         console.error('Error fetching posts:', err);
+       } finally {
+         setLoading(false);
+       }
+ 
+     }
+     fetchData();
+   }, []);
+   console.log("DATA:::", testcasinos)
 
   const toggleFAQ = (index: number) => {
     setOpenFAQ(openFAQ === index ? null : index);
@@ -124,6 +193,7 @@ const TopCasinosPage = () => {
     ));
   };
 
+
   return (
     <>
       <Helmet>
@@ -161,7 +231,13 @@ const TopCasinosPage = () => {
           </div>
         </section>
 
-
+      {/* Loading State */}
+          {loading && (
+            <div className="text-center py-16">
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-400"></div>
+              <p className="text-gray-300 mt-4">Loading Casinos...</p>
+            </div>
+          )}
 
         {/* How We Ranked Section */}
         <section className="py-16 bg-gradient-to-b from-gray-900 to-gray-800">
@@ -214,57 +290,12 @@ const TopCasinosPage = () => {
               The Top 5 Most Trusted Casinos
             </h2>
             <div className="max-w-5xl mx-auto space-y-8">
-              {casinos.map((casino, index) => (
-                <article
-                  key={index}
-                  className="bg-white bg-opacity-5 rounded-2xl p-6 md:p-8 shadow-md hover:shadow-xl transition-all duration-300"
-                >
-                  <div className="flex flex-col md:flex-row gap-6">
-                    <div className="flex-shrink-0">
-                      <img
-                        src={casino.logo}
-                        alt={`${casino.name} logo`}
-                        className="w-32 h-32 rounded-xl border-2 border-yellow-400 object-cover"
-                      />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4">
-                        <div>
-                          <h3 className="text-2xl font-bold text-white mb-2">
-                            {index + 1}. {casino.name}
-                          </h3>
-                          <div className="flex items-center gap-2 mb-3">
-                            {renderStars(casino.trustScore)}
-                            <span className="text-yellow-400 font-bold ml-2">
-                              Trust Score: {casino.trustScore}/5
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <p className="text-gray-300 mb-4 leading-relaxed">
-                        {casino.description}
-                      </p>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
-                        {casino.features.map((feature, idx) => (
-                          <div key={idx} className="flex items-start gap-2">
-                            <CheckCircle className="h-4 w-4 text-green-400 flex-shrink-0 mt-0.5" />
-                            <span className="text-gray-300 text-sm">{feature}</span>
-                          </div>
-                        ))}
-                      </div>
-
-                      <a
-                          href={casino.play_now}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="bg-gradient-to-r from-yellow-400 to-yellow-200 text-black font-bold px-6 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
-                        >
-                          Play Now
-                        </a>
-                    </div>
-                  </div>
-                </article>
-              ))}
+                {testcasinos.map((casino) => (
+              <CasinoCard key={casino.id} casino={casino} />
+            ))}
+              
+          {/* Casino Cards */}
+          
             </div>
           </div>
         </section>
@@ -290,18 +321,18 @@ const TopCasinosPage = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {casinos.map((casino, index) => (
+                    {testcasinos.map((casino, index) => (
                       <tr
                         key={index}
                         className="border-b border-gray-700 hover:bg-white hover:bg-opacity-5 transition-all duration-300"
                       >
                         <td className="py-4 px-4 text-white font-semibold">{casino.name}</td>
-                        <td className="py-4 px-4 text-center text-gray-300">{casino.license}</td>
-                        <td className="py-4 px-4 text-center text-gray-300">{casino.mobileExperience}</td>
-                        <td className="py-4 px-4 text-center text-gray-300">{casino.paymentSpeed}</td>
+                        <td className="py-4 px-4 text-center text-gray-300">{casino.features.license}</td>
+                        <td className="py-4 px-4 text-center text-gray-300">{casino.bonus}</td>
+                        <td className="py-4 px-4 text-center text-gray-300">{casino.features.withdrawal}</td>
                         <td className="py-4 px-4">
                           <div className="flex items-center justify-center gap-1">
-                            {renderStars(casino.trustScore)}
+                            {renderStars(casino.rating)}
                           </div>
                         </td>
                       </tr>
