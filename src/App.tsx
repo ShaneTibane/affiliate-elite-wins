@@ -21,6 +21,7 @@ import ScrollToTop from './ScrollToTop';
 import FirebaseBlog from './pages/FirebaseBlog';
 import TopCasinosPage from './pages/TopCasinosPage';
 import CasinoPage from './pages/CasinoPage';
+import PlayOjo from './pages/PlayOjo';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
               <Route path="/cookies" element={<CookiePolicy />} />
               <Route path="/disclaimer" element={<Disclaimer />} />
                 <Route path="/casino-page" element={<CasinoPage />} />
+              <Route path="/playojo" element={<PlayOjo />} />
             </Routes>
           </main>
           <Footer />

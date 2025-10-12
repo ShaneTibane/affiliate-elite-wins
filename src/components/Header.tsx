@@ -19,9 +19,10 @@ const Header = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
  { name: 'Casinos', path: '/casino-reviews' },
+    { name: 'PlayOjo', path: '/playojo' },
     { name: 'Online Pokies', path: '/pokies' },
      /* { name: 'Blog', path: '/blog' },*/
-  
+
   ];
 
   return (
