@@ -4,6 +4,7 @@ import { Star, Shield, Clock, Award, CheckCircle, AlertTriangle } from 'lucide-r
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from "../firebase";
 import CasinoCard from '../components/CasinoCard';
+import { Link } from 'react-router-dom';
 
 const TopCasinosPage = () => {
   type Casino = {
@@ -197,7 +198,7 @@ const TopCasinosPage = () => {
   return (
     <>
       <Helmet>
-        <title>Top 5 Most Trusted Online Casinos in Canada (2025)</title>
+        <title>Real Money Online Casinos in Canada (2025)</title>
         <meta
           name="description"
           content="Discover the top 5 most trusted online casinos in Canada for 2025. Learn which casinos are safe, licensed, and fair for Canadian players."
@@ -222,13 +223,22 @@ const TopCasinosPage = () => {
           <div className="relative z-10 text-center max-w-6xl mx-auto px-4 py-12">
             <h1 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
 
-               Top 5 Most Trusted Online Casinos in Canada (2025)
+              Real Money Online Casinos in Canada (2025)
             </h1>
             <p className="text-base md:text-lg text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
               When choosing an online casino in Canada, trust and licensing are paramount. A licensed casino ensures fair play, secure transactions, and regulatory oversight to protect your rights as a player. This guide highlights the most trusted online casinos that Canadian players can confidently enjoy in 2025.
             </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link
+                to="/casino-reviews"
+                className="glossy-btn glow-pulse text-black font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-lg"
+              >
+                🎰 Online Casinos
+              </Link>
+            </div> 
             
           </div>
+          
         </section>
 
       {/* Loading State */}
@@ -238,6 +248,23 @@ const TopCasinosPage = () => {
               <p className="text-gray-300 mt-4">Loading Casinos...</p>
             </div>
           )}
+
+            {/* The Casinos Section */}
+        <section className="py-16 bg-gray-900">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
+              The Top 5 Most Trusted Casinos
+            </h2>
+            <div className="max-w-5xl mx-auto space-y-8">
+                {testcasinos.map((casino) => (
+              <CasinoCard key={casino.id} casino={casino} />
+            ))}
+              
+          {/* Casino Cards */}
+          
+            </div>
+          </div>
+        </section>
 
         {/* How We Ranked Section */}
         <section className="py-16 bg-gradient-to-b from-gray-900 to-gray-800">
@@ -283,22 +310,7 @@ const TopCasinosPage = () => {
           </div>
         </section>
 
-        {/* The Casinos Section */}
-        <section className="py-16 bg-gray-900">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-              The Top 5 Most Trusted Casinos
-            </h2>
-            <div className="max-w-5xl mx-auto space-y-8">
-                {testcasinos.map((casino) => (
-              <CasinoCard key={casino.id} casino={casino} />
-            ))}
-              
-          {/* Casino Cards */}
-          
-            </div>
-          </div>
-        </section>
+      
 
         {/* Comparison Table Section */}
         <section className="py-16 bg-gradient-to-b from-gray-800 to-gray-900">
@@ -315,7 +327,7 @@ const TopCasinosPage = () => {
                     <tr className="border-b border-yellow-400/30">
                       <th className="text-left py-4 px-4 text-yellow-400 font-bold">Casino</th>
                       <th className="text-center py-4 px-4 text-yellow-400 font-bold">License</th>
-                      <th className="text-center py-4 px-4 text-yellow-400 font-bold">Mobile Experience</th>
+                      <th className="text-center py-4 px-4 text-yellow-400 font-bold">Bonus</th>
                       <th className="text-center py-4 px-4 text-yellow-400 font-bold">Payment Speed</th>
                       <th className="text-center py-4 px-4 text-yellow-400 font-bold">Trust Score</th>
                     </tr>

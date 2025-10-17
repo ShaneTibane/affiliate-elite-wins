@@ -158,6 +158,7 @@ const CasinoReviews = () => {
     { value: 'vip', label: 'VIP' },
     { value: 'new', label: 'New' }
   ];
+  
 
   return (
     <>
@@ -166,53 +167,81 @@ const CasinoReviews = () => {
         <meta name="description" content="Read comprehensive casino reviews with ratings, bonuses, pros & cons. Find the perfect online casino for your gaming preferences." />
         <meta name="keywords" content="casino reviews, online casino ratings, casino bonuses, gambling reviews" />
       </Helmet>
+      <main className="pt-20 min-h-screen">
+        <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
+          {/* Background Elements */}
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-purple-900 to-gray-800"></div>
+          <div className="absolute inset-0 bg-black bg-opacity-40"></div>
 
-      <div className="pt-20 min-h-screen">
-        <div className="container mx-auto px-4 py-12">
-          {/* Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-              Best Online Casinos In Canada 2025
+          {/* Floating Elements */}
+          <div className="absolute top-20 left-10 w-20 h-20 bg-yellow-400 rounded-full opacity-20 floating-animation"></div>
+          <div className="absolute bottom-32 right-16 w-16 h-16 bg-purple-500 rounded-full opacity-30 floating-animation" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 left-20 w-12 h-12 bg-blue-500 rounded-full opacity-25 floating-animation" style={{ animationDelay: '4s' }}></div>
+
+          {/* Content */}
+          <div className="relative z-10 text-center max-w-6xl mx-auto px-4 py-12">
+            <h1 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
+
+                Best Online Casinos In Canada 2025
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Discover the best of Canadas top online casinos. Our expert analysis covers bonuses, games, security, and user experience.
+            <p className="text-base md:text-lg text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
+               Discover the best of Canadas top online casinos. Our expert analysis covers bonuses, games, security, and user experience.
             </p>
-          </div>
+            <div className="flex flex-wrap gap-3 justify-center">
+  {filters.map((filter) => (
+    <button
+      key={filter.value}
+      onClick={() => setSelectedFilter(filter.value)}
+      className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+        selectedFilter === filter.value
+          ? 'glossy-btn text-black'
+          : 'glass-effect text-white hover:bg-white hover:bg-opacity-10'
+      }`}
+    >
+      <Filter className="inline h-4 w-4 mr-2" />
+      {filter.label}
+    </button>
+  ))}
+</div>
 
-          {/* Filters */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {filters.map((filter) => (
-              <button
-                key={filter.value}
-                onClick={() => setSelectedFilter(filter.value)}
-                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${selectedFilter === filter.value
-                    ? 'glossy-btn text-black'
-                    : 'glass-effect text-white hover:bg-white hover:bg-opacity-10'
-                  }`}
-              >
-                <Filter className="inline h-4 w-4 mr-2" />
-                {filter.label}
-              </button>
-            ))}
+            
           </div>
+          
+        </section>
+        
+          {/* Background Elements */}
+         
 
-          {/* Casino Cards */}
-          <div className="space-y-6 max-w-5xl mx-auto p-4">
-            {filteredCasinos.map((casino) => (
+
+          {/* Floating Elements */}
+      
+
+          {/* Content */}
+            {/* Filters */}
+       
+           
+         
+          
+ 
+        
+            {/* The Casinos Section */}
+        <section className="py-16 bg-gray-900">
+          <div className="container mx-auto px-4">
+           
+            <div className="max-w-5xl mx-auto space-y-8">
+                {testcasinos.map((casino) => (
               <CasinoCard key={casino.id} casino={casino} />
             ))}
-          </div>
-
-          {/* Loading State */}
-          {loading && (
-            <div className="text-center py-16">
-              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-400"></div>
-              <p className="text-gray-300 mt-4">Loading Casinos...</p>
+              
+          {/* Casino Cards */}
+          
             </div>
-          )}
+          </div>
+        </section>
 
-          {/* Bottom CTA */}
-          <div className="text-center mt-16">
+         {/* How We Ranked Section */}
+        <section className="py-16 bg-gradient-to-b from-gray-900 to-gray-800">
+            <div className="text-center mt-16">
             <div className="glass-effect rounded-2xl p-8 max-w-2xl mx-auto">
               <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
                 Can't Find What You're Looking For?
@@ -225,8 +254,10 @@ const CasinoReviews = () => {
               </button>
             </div>
           </div>
-        </div>
-      </div>
+        </section>
+      </main>
+
+    
     </>
   );
 };

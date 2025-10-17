@@ -86,7 +86,7 @@ useEffect(() => {
         if (!a.isCasinoOfTheMonth && b.isCasinoOfTheMonth) return 1;
         return 0;
       });
-console.log('setTestCasinos data',data)
+console.log()
       setTestCasinos(data);
 
       // Find the featured casino
