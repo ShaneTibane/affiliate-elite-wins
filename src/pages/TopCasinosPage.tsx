@@ -320,38 +320,52 @@ const TopCasinosPage = () => {
                 Casino Comparison Table
               </h2>
 
-              {/* Desktop Table */}
-              <div className="hidden lg:block bg-white bg-opacity-5 rounded-2xl p-6 shadow-md overflow-x-auto">
-                <table className="w-full">
-                  <thead>
-                    <tr className="border-b border-yellow-400/30">
-                      <th className="text-left py-4 px-4 text-yellow-400 font-bold">Casino</th>
-                      <th className="text-center py-4 px-4 text-yellow-400 font-bold">License</th>
-                      <th className="text-center py-4 px-4 text-yellow-400 font-bold">Bonus</th>
-                      <th className="text-center py-4 px-4 text-yellow-400 font-bold">Payment Speed</th>
-                      <th className="text-center py-4 px-4 text-yellow-400 font-bold">Trust Score</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {testcasinos.map((casino, index) => (
-                      <tr
-                        key={index}
-                        className="border-b border-gray-700 hover:bg-white hover:bg-opacity-5 transition-all duration-300"
-                      >
-                        <td className="py-4 px-4 text-white font-semibold">{casino.name}</td>
-                        <td className="py-4 px-4 text-center text-gray-300">{casino.features.license}</td>
-                        <td className="py-4 px-4 text-center text-gray-300">{casino.bonus}</td>
-                        <td className="py-4 px-4 text-center text-gray-300">{casino.features.withdrawal}</td>
-                        <td className="py-4 px-4">
-                          <div className="flex items-center justify-center gap-1">
-                            {renderStars(casino.rating)}
-                          </div>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+{/* Desktop Table */}
+<div className="hidden lg:block bg-white bg-opacity-5 rounded-2xl p-6 shadow-md overflow-x-auto">
+  <table className="w-full">
+    <thead>
+      <tr className="border-b border-yellow-400/30">
+        <th className="text-left py-4 px-4 text-yellow-400 font-bold">Casino</th>
+        <th className="text-center py-4 px-4 text-yellow-400 font-bold">License</th>
+        <th className="text-center py-4 px-4 text-yellow-400 font-bold">Bonus</th>
+        <th className="text-center py-4 px-4 text-yellow-400 font-bold">Payment Speed</th>
+        <th className="text-center py-4 px-4 text-yellow-400 font-bold">Trust Score</th>
+        {/* No heading for Play Now */}
+      </tr>
+    </thead>
+    <tbody>
+      {testcasinos.map((casino, index) => (
+        <tr
+          key={index}
+          className="border-b border-gray-700 hover:bg-white hover:bg-opacity-5 transition-all duration-300"
+        >
+          <td className="py-4 px-4 text-white font-semibold">{casino.name}</td>
+          <td className="py-4 px-4 text-center text-gray-300">{casino.features.license}</td>
+          <td className="py-4 px-4 text-center text-gray-300">{casino.bonus}</td>
+          <td className="py-4 px-4 text-center text-gray-300">{casino.features.withdrawal}</td>
+          <td className="py-4 px-4">
+            <div className="flex items-center justify-center gap-1">
+              {renderStars(casino.rating)}
+            </div>
+          </td>
+          <td className="py-4 px-4 text-center">
+            <a
+              href={casino.link || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-yellow-400 hover:bg-yellow-500 text-black font-semibold text-base py-2 px-5 rounded-full whitespace-nowrap transition-all duration-300"
+            >
+              Play Now
+            </a>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+
+
 
               {/* Mobile Cards */}
               <div className="lg:hidden space-y-4">
@@ -453,7 +467,7 @@ const TopCasinosPage = () => {
                   Compare casino bonuses and exclusive offers from verified Canadian partners
                 </p>
               </div>
-            </div>
+            </ div>
           </div>
         </section>
 

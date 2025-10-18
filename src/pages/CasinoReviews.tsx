@@ -221,7 +221,13 @@ const CasinoReviews = () => {
        
            
          
-          
+               {/* Loading State */}
+          {loading && (
+            <div className="text-center py-16">
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-400"></div>
+              <p className="text-gray-300 mt-4">Loading Casinos...</p>
+            </div>
+          )}
  
         
             {/* The Casinos Section */}

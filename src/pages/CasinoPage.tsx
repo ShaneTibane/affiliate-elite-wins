@@ -17,7 +17,7 @@ interface Feature {
   const { country } = useGeoLocation();
    const location = useLocation();
 
-  
+   const [loading, setLoading] = useState(true);
    const [testfeatures, setTestFeatures] = useState<Feature[]>([]);
    const iconMap: Record<string, LucideIcon> = {
   Trophy,
@@ -60,7 +60,7 @@ let features = [
   const [casinoPageContent, setCasinoPageContent] = useState<any>();
     useEffect(() => {
       async function fetchData() {
-       
+         setLoading(true);
         try {
            const q = query(
                   collection(db, "casinopages"),
@@ -94,7 +94,7 @@ let features = [
         } catch (err) {
           console.error('Error fetching posts:', err);
         } finally {
-          
+           setLoading(false);
         }
   
       }
@@ -172,6 +172,17 @@ let features = [
           </div>
         </section>
          {/*Casino Section */}
+
+        {/* Loading State */}
+          {loading && (
+            <div className="text-center py-16">
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-400"></div>
+              <p className="text-gray-300 mt-4">Loading Casinos...</p>
+            </div>
+          )}
+ 
+
+
         <section className="py-16 bg-gradient-to-b from-gray-900 to-gray-800">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -184,7 +195,7 @@ let features = [
                   />
                   <div className="ml-4">
                     <h1 className="text-5xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-                      {casinoPageContent?.casino?.title} Casino
+                      {casinoPageContent?.casino?.title}
                     </h1>
                     <div className="flex items-center mt-2">
                       {[...Array(5)].map((_, i) => (

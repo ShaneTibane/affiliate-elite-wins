@@ -1,9 +1,78 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { Star, Zap, TrendingUp, Gift, Crown, Shield } from 'lucide-react';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from "../firebase";
+import CasinoCard from '../components/CasinoCard';
 
 const Pokies = () => {
+    type Casino = {
+  id: string;
+  name: string;
+  affiliateLink: string,
+  location: string;
+  rating: number;
+  affiliate: string,
+  bonus: string,
+  category: string,
+  description: string,
+  features: {
+    games: string;
+    support: string;
+    withdrawal: string;
+    license: string;
+    features: string;
+    freespins: string;
+    wagering:string;
+    mindeposit:string
+  };
+   extraFeatures: {
+    freespins: string;
+    wagering:string;
+    mindeposit:string
+  };
+  imageUrl: string,
+  logo: string,
+  isCasinoOfTheMonth: boolean,
+  highlight: boolean,
+  games: string,
+  payoutTime: string,
+  isCasinoActive: boolean
+
+
+
+
+}
+ const [loading, setLoading] = useState(true);
+   const [testcasinos, setTestCasinos] = useState<Casino[]>([]);
+      useEffect(() => {
+        async function fetchData() {
+          setLoading(true);
+          try {
+            const querySnapshot = await getDocs(collection(db, "casinocards"));
+            let data: Casino[] = querySnapshot.docs.map(doc => ({
+              id: doc.id,
+              ...(doc.data() as Omit<Casino, "id">), // cast doc.data()
+            })); 
+             data = data.sort((a, b) => {
+            // Move the one with isCasinoOfTheMonth true to the top
+            if (a.isCasinoOfTheMonth && !b.isCasinoOfTheMonth) return -1;
+            if (!a.isCasinoOfTheMonth && b.isCasinoOfTheMonth) return 1;
+            return 0;
+          });
+            console.log("DATA 2",data)
+            setTestCasinos(data);
+          } catch (err) {
+            console.error('Error fetching posts:', err);
+          } finally {
+            setLoading(false);
+          }
+    
+        }
+        fetchData();
+      }, []);
+      console.log("DATA:::", testcasinos)
   return (
     <>
       <Helmet>
@@ -44,8 +113,33 @@ const Pokies = () => {
           </div>
         </section>
 
+                {/* Loading State */}
+          {loading && (
+            <div className="text-center py-16">
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-400"></div>
+              <p className="text-gray-300 mt-4">Loading Casinos...</p>
+            </div>
+          )}
+ 
+ <section className="py-16 bg-gray-900">
+          <div className="container mx-auto px-4">
+              <h2 className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
+             Best Real Money Online Pokies Casinos In Canada - October 2025
+            </h2>
+            <div className="max-w-5xl mx-auto space-y-8">
+                {testcasinos.map((casino) => (
+              <CasinoCard key={casino.id} casino={casino} />
+            ))}
+              
+          {/* Casino Cards */}
+          
+            </div>
+          </div>
+        </section>
+          
+
         {/* What Are Online Pokies? */}
-        <section className="py-20 relative">
+        <section className="py-16 bg-gray-900">
           <div className="container mx-auto px-4">
             <div className="glass-effect rounded-3xl p-12">
               <h2 className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
@@ -69,7 +163,7 @@ const Pokies = () => {
         </section>
 
         {/* Types of Pokies */}
-        <section className="py-20 relative">
+        <section className="py-16 bg-gray-900">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
               Types of Online Pokies
@@ -132,7 +226,7 @@ const Pokies = () => {
         </section>
 
         {/* Popular Pokie Features */}
-        <section className="py-20 relative bg-gradient-to-br from-violet-900/80 to-purple-800/90">
+        <section className="py-16 bg-gray-900">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
               Popular Pokie Features
@@ -185,7 +279,7 @@ const Pokies = () => {
         </section>
 
         {/* How to Play Online Pokies */}
-        <section className="py-20 relative">
+        <section className="py-16 bg-gray-900">
           <div className="container mx-auto px-4">
             <div className="glass-effect rounded-3xl p-12">
               <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
@@ -230,7 +324,7 @@ const Pokies = () => {
         </section>
 
         {/* Tips for Playing Pokies */}
-        <section className="py-20 relative">
+        <section className="py-16 bg-gray-900">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
               Tips for Playing Online Pokies
@@ -279,7 +373,7 @@ const Pokies = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 relative">
+        <section className="py-16 bg-gray-900">
           <div className="container mx-auto px-4">
             <div className="glass-effect rounded-3xl p-12 text-center max-w-4xl mx-auto">
               <Crown className="h-16 w-16 text-yellow-400 mx-auto mb-6" />
@@ -303,7 +397,7 @@ const Pokies = () => {
         </section>
 
         {/* Responsible Gaming */}
-        <section className="py-12 relative">
+        <section className="py-16 bg-gray-900">
           <div className="container mx-auto px-4">
             <div className="glass-dark rounded-2xl p-8 border-l-4 border-red-400 max-w-4xl mx-auto">
               <div className="flex items-start gap-4">

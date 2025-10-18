@@ -13,7 +13,7 @@ const Footer = () => {
       { name: 'About Us', path: '/about' },
     ],
     reviews: [
-      
+       { name: 'Casino Reviews', path: '/casino-reviews' },
     ],
     support: [
       { name: 'Contact Us', path: '/contact' },
