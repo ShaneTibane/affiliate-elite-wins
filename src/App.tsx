@@ -22,8 +22,12 @@ import FirebaseBlog from './pages/FirebaseBlog';
 import TopCasinosPage from './pages/TopCasinosPage';
 import CasinoPage from './pages/CasinoPage';
 import PlayOjo from './pages/PlayOjo';
+import ReactGA from "react-ga4";
+import usePageTracking from './usePageTracking';
 
 function App() {
+  ReactGA.initialize("G-19XTDT28GF");
+   usePageTracking();
   return (
     <HelmetProvider>
       <Router>
