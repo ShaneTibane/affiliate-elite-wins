@@ -22,7 +22,7 @@ const Promotions = () => {
       description: "50 Free Spins - No deposit required",
       casino: "Diamond Jackpot",
       image: "https://images.pexels.com/photos/6963197/pexels-photo-6963197.jpeg?auto=compress&cs=tinysrgb&w=600&h=400",
-      validUntil: "January 15, 2025",
+      validUntil: "January 15, 2026",
       type: "No Deposit",
       value: "50 FS"
     },
@@ -85,7 +85,7 @@ const Promotions = () => {
       description: "Extra 20% bonus when playing on mobile",
       casino: "Diamond Jackpot",
       bonus: "20% Mobile Bonus",
-      validUntil: "Jan 31, 2025",
+      validUntil: "Jan 31, 2026",
       type: "Mobile",
       requirements: "Mobile app only"
     },

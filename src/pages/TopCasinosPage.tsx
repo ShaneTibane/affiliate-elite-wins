@@ -198,10 +198,10 @@ const TopCasinosPage = () => {
   return (
     <>
       <Helmet>
-        <title>Real Money Online Casinos in Canada (2025)</title>
+        <title>Real Money Online Casinos in Canada (2026)</title>
         <meta
           name="description"
-          content="Discover the top 5 most trusted online casinos in Canada for 2025. Learn which casinos are safe, licensed, and fair for Canadian players."
+          content="Discover the top 5 most trusted online casinos in Canada for 2026. Learn which casinos are safe, licensed, and fair for Canadian players."
         />
       </Helmet>
 
@@ -223,10 +223,10 @@ const TopCasinosPage = () => {
           <div className="relative z-10 text-center max-w-6xl mx-auto px-4 py-12">
             <h1 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
 
-              Real Money Online Casinos in Canada (2025)
+              Real Money Online Casinos in Canada (2026)
             </h1>
             <p className="text-base md:text-lg text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-              When choosing an online casino in Canada, trust and licensing are paramount. A licensed casino ensures fair play, secure transactions, and regulatory oversight to protect your rights as a player. This guide highlights the most trusted online casinos that Canadian players can confidently enjoy in 2025.
+              When choosing an online casino in Canada, trust and licensing are paramount. A licensed casino ensures fair play, secure transactions, and regulatory oversight to protect your rights as a player. This guide highlights the most trusted online casinos that Canadian players can confidently enjoy in 2026.
             </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
@@ -456,7 +456,7 @@ const TopCasinosPage = () => {
                 Final Thoughts
               </h2>
               <p className="text-gray-300 mb-6 leading-relaxed">
-                Playing at trusted online casinos is essential for a safe and enjoyable gaming experience. The five casinos listed above represent the best of what's available to Canadian players in 2025, combining strong licensing credentials, secure platforms, and player-focused features.
+                Playing at trusted online casinos is essential for a safe and enjoyable gaming experience. The five casinos listed above represent the best of what's available to Canadian players in 2026, combining strong licensing credentials, secure platforms, and player-focused features.
               </p>
               <p className="text-gray-300 mb-6 leading-relaxed">
                 Remember to always gamble responsibly. Set limits, take breaks, and never wager more than you can afford to lose. If you or someone you know is struggling with gambling, resources like the Canadian Centre on Substance Use and Addiction (CCSA) are available to help.

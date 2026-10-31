@@ -7,7 +7,7 @@ const Poker = () => {
   return (
     <>
       <Helmet>
-        <title>Online Poker - Best Poker Sites & Games 2025</title>
+        <title>Online Poker - Best Poker Sites & Games 2026</title>
         <meta name="description" content="Play online poker at Canada's top-rated poker rooms. Texas Hold'em, Omaha, tournaments, and cash games with real money prizes." />
         <meta name="keywords" content="online poker, poker games, Texas Hold'em, Omaha poker, poker tournaments, cash games" />
       </Helmet>
@@ -27,7 +27,7 @@ const Poker = () => {
           <div className="relative z-10 text-center max-w-6xl mx-auto px-4 py-12">
             <div className="text-6xl mb-6">♠️</div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-              Best Online Poker Sites in Canada 2025
+              Best Online Poker Sites in Canada 2026
             </h1>
             <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
               Test your skills at Texas Hold'em, Omaha, and other poker variants. Join tournaments or cash games

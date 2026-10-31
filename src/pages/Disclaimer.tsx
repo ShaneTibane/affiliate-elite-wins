@@ -24,7 +24,7 @@ const Disclaimer = () => {
             </div>
 
             <p className="text-gray-300 mb-8 text-lg">
-              Last Updated: October 4, 2025
+              Last Updated: October 4, 2026
             </p>
 
             <div className="space-y-8">

@@ -60,7 +60,7 @@ const PlayOjo = () => {
   return (
     <>
       <Helmet>
-        <title>PlayOjo Casino Review 2025 - No Wagering Requirements | Elite Casinos</title>
+        <title>PlayOjo Casino Review 2026 - No Wagering Requirements | Elite Casinos</title>
         <meta name="description" content="Complete PlayOjo casino review. Discover why PlayOjo stands out with zero wagering requirements, OjoPlus rewards, and 3000+ games. Licensed and trusted." />
         <meta name="keywords" content="PlayOjo review, PlayOjo casino, no wagering casino, OjoPlus, online casino review, PlayOjo bonus" />
       </Helmet>

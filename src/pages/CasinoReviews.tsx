@@ -182,7 +182,7 @@ const CasinoReviews = () => {
           <div className="relative z-10 text-center max-w-6xl mx-auto px-4 py-12">
             <h1 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
 
-                Best Online Casinos In Canada 2025
+                Best Online Casinos In Canada 2026
             </h1>
             <p className="text-base md:text-lg text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
                Discover the best of Canadas top online casinos. Our expert analysis covers bonuses, games, security, and user experience.

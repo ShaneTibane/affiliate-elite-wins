@@ -242,7 +242,7 @@ console.log()
       title: "No Deposit Bonus",
       description: "50 Free Spins - No deposit required",
       casino: "Diamond Jackpot",
-      validUntil: "Jan 15, 2025",
+      validUntil: "Jan 15, 2026",
       type: "No Deposit"
     },
     {
@@ -335,7 +335,7 @@ console.log()
   return (
     <>
       <Helmet>
-        <title>Best Online Casinos - Trusted Online Casinos in 2025</title>
+        <title>Best Online Casinos - Trusted Online Casinos in 2026</title>
         <meta name="description" content="Discover the most trusted online casinos with exclusive bonuses, honest reviews, and top promotions. Join Elite Casinos for premium casino experiences." />
         <meta name="keywords" content="online casino, casino bonus, casino reviews, gambling, slots, jackpots" />
       </Helmet>
@@ -356,10 +356,10 @@ console.log()
           <div className="relative z-10 text-center max-w-6xl mx-auto px-4 py-12">
             <h1 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
 
-              Best Online Casinos In Canada 2025
+              Best Online Casinos In Canada 2026
             </h1>
             <p className="text-base md:text-lg text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-              Welcome to Elite Casinos, your trusted partner in finding the top online casinos in Canada for 2025. Whether you're a seasoned player or just getting started, we'll guide you through the best online casino platforms that offers the biggest bonuses, exciting online pokies, and secure real-money gameplay.
+              Welcome to Elite Casinos, your trusted partner in finding the top online casinos in Canada for 2026. Whether you're a seasoned player or just getting started, we'll guide you through the best online casino platforms that offers the biggest bonuses, exciting online pokies, and secure real-money gameplay.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
@@ -379,7 +379,7 @@ console.log()
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-                Top Online Casinos in Canada Comparison 2025
+                Top Online Casinos in Canada Comparison 2026
               </h2>
             </div>
               {/* Loading State */}
@@ -819,7 +819,7 @@ console.log()
                   When playing at online casinos in Canada, securing the biggest bonuses can take your gaming to the next level. The right bonus means more spins, more playtime, and a greater chance to win real money.
                 </p>
                 <p className="text-lg text-gray-200 leading-relaxed">
-                  Below, we've compared the top Canadian online casinos with the best bonuses in 2025, so you can quickly see which sites offer the most rewarding welcome packages, free spins, and ongoing promotions.
+                  Below, we've compared the top Canadian online casinos with the best bonuses in 2026, so you can quickly see which sites offer the most rewarding welcome packages, free spins, and ongoing promotions.
                 </p>
               </div>
             </div>

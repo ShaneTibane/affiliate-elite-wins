@@ -76,7 +76,7 @@ const Pokies = () => {
   return (
     <>
       <Helmet>
-        <title>Online Pokies - Best Pokies Games & Casinos 2025</title>
+        <title>Online Pokies - Best Pokies Games & Casinos 2026</title>
         <meta name="description" content="Discover the best online pokies in Canada. Play top-rated slot games with massive jackpots, bonus rounds, and free spins at Elite Casinos." />
         <meta name="keywords" content="online pokies, pokies games, slot machines, online slots, casino pokies, free spins" />
       </Helmet>
@@ -96,7 +96,7 @@ const Pokies = () => {
           <div className="relative z-10 text-center max-w-6xl mx-auto px-4 py-12">
             <div className="text-6xl mb-6">🎰</div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-              Best Online Pokies in Canada 2025
+              Best Online Pokies in Canada 2026
             </h1>
             <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
               Spin the reels on Canada's most popular pokies with massive jackpots, exciting bonus rounds, and free spins.
@@ -124,7 +124,7 @@ const Pokies = () => {
  <section className="py-16 bg-gray-900">
           <div className="container mx-auto px-4">
               <h2 className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-yellow-400 to-yellow-200 bg-clip-text text-transparent">
-             Best Real Money Online Pokies Casinos In Canada - October 2025
+             Best Real Money Online Pokies Casinos In Canada - October 2026
             </h2>
             <div className="max-w-5xl mx-auto space-y-8">
                 {testcasinos.map((casino) => (
